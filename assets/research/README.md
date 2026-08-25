@@ -1,14 +1,12 @@
 # Research PDF Archive
 
-The public research reader expects the original documents at the paths below:
+Upload the six original documents into this directory without renaming them:
 
-| Source attachment | Public repository filename |
-| --- | --- |
-| TEZFINAL.pdf | development-ai-enhanced-csrr-microwave-sensor.pdf |
-| VANTA.pdf | vanta-virtual-aperture-nonlinear-transfer-artifacts.pdf |
-| AETHERCORE.pdf | aethercore-independent-research-thesis.pdf |
-| ENGRAM.pdf | engram-self-writing-electromagnetic-memory-aperture.pdf |
-| LPDA.pdf | radiova-et-lpda-technical-report.pdf |
-| Vivaldi.pdf | vivaldi-antenna-wideband-balun-report.pdf |
+- `TEZFINAL.pdf`
+- `VANTA.pdf`
+- `AETHERCORE.pdf`
+- `ENGRAM.pdf`
+- `LPDA.pdf`
+- `Vivaldi.pdf`
 
-All files belong in `assets/research/`. The website checks each path automatically and enables the embedded reader plus open/download controls when the corresponding PDF exists.
+The public website checks these paths automatically. As soon as a document exists, its publication page enables the embedded PDF reader and the open/download controls.
