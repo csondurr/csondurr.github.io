@@ -1,0 +1,703 @@
+:root {
+  --contact-panel: rgba(11, 16, 9, 0.93);
+  --contact-panel-soft: rgba(29, 38, 21, 0.84);
+  --contact-border: rgba(163, 182, 118, 0.22);
+  --contact-border-strong: rgba(193, 209, 147, 0.52);
+  --contact-copy: #a5af87;
+  --contact-muted: #7c8960;
+  --contact-bright: #d0dbad;
+  --contact-accent: #a9bb7a;
+}
+
+.contact-page .page-ui {
+  display: block !important;
+  min-height: 100svh;
+  padding: 1rem clamp(1rem, 3vw, 2.5rem) 4rem !important;
+  place-items: initial !important;
+}
+
+.contact-page .command-panel {
+  width: min(80rem, 100%);
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+.contact-workspace {
+  width: min(80rem, 100%);
+  margin: 1rem auto 0;
+}
+
+.contact-hero,
+.contact-directory,
+.collaboration-scope,
+.collaboration-method,
+.contact-brief {
+  position: relative;
+  border: 1px solid var(--contact-border);
+  background:
+    linear-gradient(135deg, rgba(48, 59, 35, 0.67), rgba(10, 15, 8, 0.95)),
+    var(--contact-panel);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.25), inset 0 1px rgba(210, 220, 173, 0.05);
+  clip-path: polygon(0.7rem 0, calc(100% - 0.7rem) 0, 100% 0.7rem, 100% calc(100% - 0.7rem), calc(100% - 0.7rem) 100%, 0.7rem 100%, 0 calc(100% - 0.7rem), 0 0.7rem);
+}
+
+.contact-hero::before,
+.contact-directory::before,
+.collaboration-scope::before,
+.collaboration-method::before,
+.contact-brief::before {
+  position: absolute;
+  top: 0;
+  right: 1.2rem;
+  left: 1.2rem;
+  z-index: 3;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(190, 207, 147, 0.5), transparent);
+  content: "";
+}
+
+.contact-hero {
+  display: grid;
+  min-height: 36rem;
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1.06fr) minmax(28rem, 0.94fr);
+}
+
+.contact-hero-copy {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-kicker,
+.contact-section-heading > p,
+.scope-intro > p,
+.contact-brief > div:first-child > p {
+  margin: 0 0 0.9rem;
+  color: #93a26c;
+  font: 700 0.65rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-hero h2 {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--contact-bright);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(2.15rem, 5vw, 4.55rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.99;
+  text-transform: uppercase;
+}
+
+.contact-lead {
+  max-width: 70ch;
+  margin: 1.35rem 0 0;
+  color: var(--contact-copy);
+  font-size: clamp(0.93rem, 1.2vw, 1.05rem);
+  line-height: 1.84;
+}
+
+.contact-lead--secondary {
+  margin-top: 0.85rem;
+  color: #929e76;
+  font-size: clamp(0.86rem, 1.08vw, 0.97rem);
+}
+
+.availability-line {
+  display: grid;
+  width: fit-content;
+  margin-top: 1.6rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(164, 184, 117, 0.24);
+  background: rgba(35, 45, 25, 0.53);
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 0.25rem 0.65rem;
+}
+
+.availability-line > span,
+.profile-card-copy > div > span {
+  width: 0.58rem;
+  height: 0.58rem;
+  border: 1px solid #c2d094;
+  border-radius: 50%;
+  background: #9eb66f;
+  box-shadow: 0 0 0.75rem rgba(170, 198, 113, 0.72);
+}
+
+.availability-line strong {
+  color: #bcc990;
+  font: 600 0.61rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.availability-line small {
+  grid-column: 2;
+  color: #758157;
+  font: 600 0.52rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-hero-actions {
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.contact-button,
+.contact-brief a,
+.brief-actions button {
+  display: inline-flex;
+  min-height: 3rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(164, 184, 117, 0.32);
+  color: #aab97e;
+  background: rgba(26, 34, 19, 0.78);
+  align-items: center;
+  gap: 0.65rem;
+  font: 700 0.6rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 160ms ease;
+}
+
+.contact-button--primary,
+.contact-brief a {
+  border-color: rgba(190, 208, 145, 0.55);
+  color: #cad6a4;
+  background: rgba(75, 90, 52, 0.31);
+}
+
+.contact-button:hover,
+.contact-button:focus-visible,
+.contact-brief a:hover,
+.contact-brief a:focus-visible,
+.brief-actions button:hover,
+.brief-actions button:focus-visible {
+  border-color: rgba(209, 222, 170, 0.78);
+  color: #d9e3b8;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.contact-button svg,
+.contact-brief a svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 1.5;
+}
+
+.contact-hero-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 36rem;
+  overflow: hidden;
+  border-left: 1px solid rgba(161, 180, 118, 0.16);
+  background: #081006;
+}
+
+.contact-network {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-network .cn-grid,
+.contact-network .cn-ring,
+.contact-network .cn-axis,
+.contact-network .cn-link,
+.contact-network .cn-wave {
+  fill: none;
+  stroke: rgba(173, 194, 126, 0.24);
+}
+
+.contact-network .cn-grid { stroke-width: 0.65; opacity: 0.34; }
+.contact-network .cn-ring { stroke-width: 1.1; }
+.contact-network .cn-axis { stroke-dasharray: 5 9; opacity: 0.42; }
+.contact-network .cn-link { stroke: rgba(162, 183, 113, 0.45); stroke-dasharray: 4 6; }
+.contact-network .cn-wave { stroke: #a8bc79; stroke-width: 1.55; opacity: 0.55; filter: drop-shadow(0 0 5px rgba(169, 193, 118, 0.32)); }
+.contact-network .cn-node { fill: #b9cc89; filter: drop-shadow(0 0 7px rgba(180, 205, 128, 0.66)); }
+.contact-network text { fill: #81905e; font: 600 9px Consolas, monospace; letter-spacing: 0.1em; text-anchor: middle; }
+
+.contact-hero-visual::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  box-shadow: inset 0 0 4.5rem rgba(0, 0, 0, 0.57);
+  content: "";
+  pointer-events: none;
+}
+
+.contact-profile-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  width: min(25rem, calc(100% - 3rem));
+  padding: 1.2rem;
+  border: 1px solid rgba(191, 208, 146, 0.42);
+  background:
+    linear-gradient(145deg, rgba(55, 67, 40, 0.94), rgba(9, 14, 8, 0.96));
+  box-shadow: 0 1.7rem 4rem rgba(0, 0, 0, 0.48), 0 0 2rem rgba(139, 162, 91, 0.1);
+  grid-template-columns: 7.7rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.1rem;
+  clip-path: polygon(0.55rem 0, calc(100% - 0.55rem) 0, 100% 0.55rem, 100% calc(100% - 0.55rem), calc(100% - 0.55rem) 100%, 0.55rem 100%, 0 calc(100% - 0.55rem), 0 0.55rem);
+  transform: translate(-50%, -50%);
+}
+
+.profile-image-frame {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(200, 216, 157, 0.46);
+  background: #11180e;
+}
+
+.profile-image-frame::after {
+  position: absolute;
+  inset: 0;
+  border: 0.35rem solid rgba(9, 14, 8, 0.35);
+  box-shadow: inset 0 0 1.8rem rgba(10, 15, 8, 0.6);
+  content: "";
+}
+
+.profile-image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.72) sepia(0.15) contrast(1.06);
+}
+
+.profile-scan {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  height: 1px;
+  background: rgba(204, 220, 161, 0.72);
+  box-shadow: 0 0 0.6rem rgba(196, 216, 146, 0.5);
+  animation: profile-scan 4.2s linear infinite;
+}
+
+@keyframes profile-scan {
+  0% { top: 8%; opacity: 0; }
+  12% { opacity: 0.7; }
+  88% { opacity: 0.7; }
+  100% { top: 92%; opacity: 0; }
+}
+
+.profile-card-copy small {
+  color: #849260;
+  font: 600 0.52rem Consolas, monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.profile-card-copy h3 {
+  margin: 0.45rem 0 0;
+  color: #d0dcaa;
+  font: 600 clamp(1.35rem, 2.8vw, 2rem) Consolas, "Courier New", monospace;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.profile-card-copy p {
+  margin: 0.55rem 0 0;
+  color: #98a574;
+  font: 600 0.62rem/1.55 Consolas, "Courier New", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.profile-card-copy > div {
+  display: flex;
+  margin-top: 0.85rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: #aaba7e;
+  font: 600 0.52rem Consolas, monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.contact-directory,
+.collaboration-scope,
+.collaboration-method {
+  margin-top: 1rem;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+}
+
+.contact-section-heading,
+.scope-intro {
+  display: grid;
+  max-width: 74ch;
+}
+
+.contact-section-heading h2,
+.scope-intro h2,
+.contact-brief h2 {
+  margin: 0;
+  color: #c8d4a2;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(1.4rem, 3vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.contact-section-heading > span,
+.scope-intro > span,
+.contact-brief > div:first-child > span {
+  margin-top: 0.8rem;
+  color: #919d72;
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.contact-link-grid {
+  display: grid;
+  margin-top: 1.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.contact-link-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 9rem;
+  padding: 1.15rem;
+  overflow: hidden;
+  border: 1px solid rgba(158, 177, 113, 0.19);
+  color: inherit;
+  background:
+    linear-gradient(140deg, rgba(57, 70, 40, 0.28), rgba(10, 14, 8, 0.66));
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: border-color 170ms ease, transform 170ms ease, box-shadow 170ms ease;
+}
+
+.contact-link-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4.5rem;
+  height: 2px;
+  background: #a7ba78;
+  content: "";
+  opacity: 0.68;
+}
+
+.contact-link-card::after {
+  position: absolute;
+  right: -3.8rem;
+  bottom: -4.5rem;
+  width: 9rem;
+  height: 9rem;
+  border: 1px solid rgba(166, 186, 118, 0.08);
+  border-radius: 50%;
+  content: "";
+}
+
+.contact-link-card:hover,
+.contact-link-card:focus-visible {
+  border-color: var(--contact-border-strong);
+  box-shadow: 0 1.1rem 2.6rem rgba(0, 0, 0, 0.27), 0 0 1.3rem rgba(138, 160, 91, 0.08);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.contact-link-icon {
+  display: grid;
+  width: 3.6rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(183, 201, 139, 0.28);
+  color: #b7c78b;
+  background: rgba(60, 73, 42, 0.28);
+  place-items: center;
+}
+
+.contact-link-icon svg {
+  width: 1.45rem;
+  height: 1.45rem;
+  fill: currentColor;
+}
+
+.contact-link-card--mail .contact-link-icon svg,
+.contact-link-arrow svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 1.5;
+}
+
+.contact-link-card--youtube .contact-link-icon svg .play {
+  fill: #11170d;
+  stroke: none;
+}
+
+.contact-link-copy {
+  display: block;
+  min-width: 0;
+}
+
+.contact-link-copy small,
+.contact-link-copy strong,
+.contact-link-copy em {
+  display: block;
+}
+
+.contact-link-copy small {
+  color: #7e8c5d;
+  font: 700 0.52rem Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-link-copy strong {
+  margin-top: 0.38rem;
+  color: #c2ce9c;
+  font: 600 clamp(0.9rem, 1.7vw, 1.12rem) Consolas, "Courier New", monospace;
+  letter-spacing: 0.035em;
+  overflow-wrap: anywhere;
+}
+
+.contact-link-copy em {
+  margin-top: 0.38rem;
+  color: #879467;
+  font-size: 0.75rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.contact-link-arrow {
+  position: relative;
+  z-index: 2;
+  color: #99aa6e;
+}
+
+.contact-link-arrow svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.collaboration-scope {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.scope-grid article {
+  min-width: 0;
+  min-height: 13rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(156, 175, 112, 0.17);
+  background: rgba(15, 21, 11, 0.5);
+}
+
+.scope-grid article > span,
+.method-chain article > span {
+  color: #839160;
+  font: 600 0.55rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.1em;
+}
+
+.scope-grid h3,
+.method-chain h3 {
+  margin: 0.75rem 0 0;
+  color: #b9c68e;
+  font: 600 0.79rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.075em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.scope-grid p,
+.method-chain p {
+  margin: 0.65rem 0 0;
+  color: #8e9a70;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.collaboration-method {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.66fr) minmax(0, 1.34fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.method-chain {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.method-chain::before {
+  position: absolute;
+  top: 1.8rem;
+  right: 8%;
+  left: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(174, 194, 129, 0.15), rgba(174, 194, 129, 0.55), rgba(174, 194, 129, 0.15));
+  content: "";
+}
+
+.method-chain article {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding: 1.2rem;
+  border: 1px solid rgba(158, 177, 113, 0.18);
+  background: linear-gradient(150deg, rgba(52, 65, 37, 0.32), rgba(10, 15, 8, 0.72));
+}
+
+.method-chain article > span {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid rgba(182, 201, 137, 0.3);
+  color: #b2c184;
+  background: #192112;
+  place-items: center;
+}
+
+.contact-brief {
+  display: flex;
+  margin-top: 1rem;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.contact-brief > div:first-child {
+  max-width: 72ch;
+}
+
+.brief-actions {
+  display: grid;
+  flex: 0 0 auto;
+  justify-items: stretch;
+  gap: 0.5rem;
+}
+
+.brief-actions button {
+  border-radius: 0;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.brief-actions p {
+  min-height: 1rem;
+  margin: 0;
+  color: #9cac72;
+  font: 600 0.52rem Consolas, monospace;
+  letter-spacing: 0.07em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .contact-hero { grid-template-columns: minmax(0, 1fr) minmax(24rem, 0.82fr); }
+  .collaboration-scope,
+  .collaboration-method { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .contact-hero { grid-template-columns: 1fr; }
+  .contact-hero-visual {
+    min-height: 31rem;
+    border-top: 1px solid rgba(161, 180, 118, 0.16);
+    border-left: 0;
+  }
+  .contact-link-grid { grid-template-columns: 1fr; }
+  .contact-brief { align-items: flex-start; flex-direction: column; }
+  .brief-actions { width: 100%; }
+}
+
+@media (max-width: 720px) {
+  .contact-page .page-ui { padding: 0.75rem 0.75rem 2.5rem !important; }
+  .scope-grid,
+  .method-chain { grid-template-columns: 1fr; }
+  .method-chain::before {
+    top: 1rem;
+    bottom: 1rem;
+    left: 2.55rem;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(rgba(174, 194, 129, 0.15), rgba(174, 194, 129, 0.55), rgba(174, 194, 129, 0.15));
+  }
+  .method-chain article {
+    display: grid;
+    grid-template-columns: 2.7rem minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+  .method-chain article > div { padding-top: 0.1rem; }
+  .method-chain h3 { margin-top: 0; }
+}
+
+@media (max-width: 520px) {
+  .contact-hero-copy { padding: 2rem 1.3rem; }
+  .contact-hero h2 { font-size: clamp(2rem, 13vw, 3.45rem); }
+  .contact-hero-visual { min-height: 28rem; }
+  .contact-profile-card {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    grid-template-columns: 6.2rem minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+  .profile-card-copy h3 { font-size: 1.25rem; }
+  .profile-card-copy p { font-size: 0.52rem; }
+  .contact-directory,
+  .collaboration-scope,
+  .collaboration-method,
+  .contact-brief { padding: 1.3rem; }
+  .contact-link-card {
+    min-height: 8rem;
+    padding: 1rem;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .contact-link-arrow { display: none; }
+  .contact-link-icon { width: 3rem; }
+  .availability-line { width: 100%; }
+  .contact-hero-actions { align-items: stretch; flex-direction: column; }
+  .contact-button { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-scan { animation: none; display: none; }
+  .contact-button,
+  .contact-link-card,
+  .contact-brief a,
+  .brief-actions button { transition: none; }
+}
