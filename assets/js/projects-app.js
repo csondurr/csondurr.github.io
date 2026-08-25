@@ -2,6 +2,7 @@
   "use strict";
 
   const projects = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
+  const technicalRecords = window.PROJECT_TECHNICAL && typeof window.PROJECT_TECHNICAL === "object" ? window.PROJECT_TECHNICAL : {};
 
   const svgParts = {
     aperture: () => {
@@ -105,6 +106,17 @@
     const filters = document.getElementById("project-filters");
     if (!grid || !filters) return;
 
+    const formatCount = (value) => String(value).padStart(2, "0");
+    const totalCount = projects.length;
+    const sourceCount = projects.filter((project) => Boolean(project.github)).length;
+    const domainCount = new Set(projects.map((project) => project.group).filter(Boolean)).size;
+    const visibleCount = document.getElementById("visible-project-count");
+    const sourceArchiveCount = document.getElementById("source-archive-count");
+    const engineeringDomainCount = document.getElementById("domain-count");
+    if (visibleCount) visibleCount.textContent = formatCount(totalCount);
+    if (sourceArchiveCount) sourceArchiveCount.textContent = formatCount(sourceCount);
+    if (engineeringDomainCount) engineeringDomainCount.textContent = formatCount(domainCount);
+
     grid.innerHTML = projects.map((project) => projectCard(project, false)).join("");
 
     filters.addEventListener("click", (event) => {
@@ -145,6 +157,71 @@
     return `<ul class="${className}">${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
 
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[character]);
+  }
+
+  function paragraphsMarkup(items) {
+    if (!Array.isArray(items) || !items.length) return "";
+    return items.map((item) => `<p>${escapeHtml(item)}</p>`).join("");
+  }
+
+  function theoryMarkup(items) {
+    if (!Array.isArray(items) || !items.length) return "";
+    return items.map((item, index) => `<article class="theory-card">
+      <header><span>M${String(index + 1).padStart(2, "0")}</span><h3>${escapeHtml(item.title)}</h3></header>
+      <code>${escapeHtml(item.equation)}</code>
+      <dl class="theory-notes">
+        <div><dt>Variables</dt><dd>${escapeHtml(item.variables)}</dd></div>
+        <div><dt>Physical meaning</dt><dd>${escapeHtml(item.explanation)}</dd></div>
+        <div><dt>Why this model</dt><dd>${escapeHtml(item.why)}</dd></div>
+      </dl>
+    </article>`).join("");
+  }
+
+  function workflowMarkup(items) {
+    if (!Array.isArray(items) || !items.length) return "";
+    return items.map((item, index) => `<article class="workflow-step">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></div>
+    </article>`).join("");
+  }
+
+  function decisionsMarkup(items) {
+    if (!Array.isArray(items) || !items.length) return "";
+    return items.map((item) => `<article class="decision-card">
+      <h3>${escapeHtml(item.decision)}</h3>
+      <dl>
+        <div><dt>Engineering rationale</dt><dd>${escapeHtml(item.rationale)}</dd></div>
+        <div><dt>Trade-off</dt><dd>${escapeHtml(item.tradeoff)}</dd></div>
+      </dl>
+    </article>`).join("");
+  }
+
+  function technicalIndexMarkup() {
+    const links = [
+      ["scope", "Scope"],
+      ["execution", "Execution"],
+      ["mathematics", "Mathematics"],
+      ["architecture", "Architecture"],
+      ["workflow", "Workflow"],
+      ["methodology", "Methodology"],
+      ["validation", "Evidence"],
+      ["decisions", "Trade-offs"],
+      ["boundaries", "Boundaries"]
+    ];
+    return `<nav class="technical-index" aria-label="Technical record index">
+      <span>Technical record</span>
+      <div>${links.map((item, index) => `<a href="#${item[0]}"><b>${String(index + 1).padStart(2, "0")}</b>${item[1]}</a>`).join("")}</div>
+    </nav>`;
+  }
+
   function renderDetail() {
     const root = document.getElementById("project-detail");
     const slug = document.body.dataset.project;
@@ -154,22 +231,23 @@
       root.innerHTML = '<section class="project-error"><p>Project record not found.</p><a href="/projects/">Return to Projects</a></section>';
       return;
     }
-
+  
+    const technical = technicalRecords[slug] || {};
     document.title = `${project.title} | Projects — Cem Sondur`;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", project.summary);
-
+  
     const github = project.github ? `<a class="project-action project-action--primary" href="${project.github}" target="_blank" rel="noopener noreferrer">${icon("github")}<span>Open GitHub Repository</span></a>` : "";
-    const related = project.related.map((relatedSlug) => projects.find((item) => item.slug === relatedSlug)).filter(Boolean);
+    const related = (project.related || []).map((relatedSlug) => projects.find((item) => item.slug === relatedSlug)).filter(Boolean);
     const currentIndex = projects.findIndex((item) => item.slug === slug);
     const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
     const next = projects[(currentIndex + 1) % projects.length];
-
+  
     root.innerHTML = `
       <nav class="project-breadcrumb" aria-label="Breadcrumb">
         <a href="/projects/">Projects</a><span>/</span><span>${project.id}</span>
       </nav>
-
+  
       <section class="project-hero">
         <div class="project-hero-copy">
           <p class="project-kicker">${project.id} · ${project.category}</p>
@@ -184,10 +262,11 @@
         </div>
         <figure class="project-hero-visual">${visual(project, false)}</figure>
       </section>
-
+  
       <section class="project-metrics" aria-label="Key project metrics">${metricMarkup(project.metrics)}</section>
-
-      <section class="project-section project-section--split">
+      ${technicalIndexMarkup()}
+  
+      <section class="project-section project-section--split" id="scope">
         <article>
           <div class="section-label"><span>01</span><h2>Mission Objective</h2></div>
           <p>${project.mission}</p>
@@ -197,49 +276,68 @@
           <p>${project.challenge}</p>
         </article>
       </section>
-
+  
       <aside class="formula-panel" aria-label="Core engineering relationship">
         <span>CORE RELATIONSHIP</span><code>${project.formula}</code>
       </aside>
-
-      <section class="project-section">
-        <div class="section-label"><span>03</span><h2>System Architecture</h2></div>
+  
+      <section class="project-section" id="execution">
+        <div class="section-label"><span>03</span><h2>Technical Execution — What Was Done</h2></div>
+        <div class="technical-prose">${paragraphsMarkup(technical.workDone)}</div>
+      </section>
+  
+      <section class="project-section" id="mathematics">
+        <div class="section-label"><span>04</span><h2>Mathematical & Physical Foundation</h2></div>
+        <p class="section-intro">The relationships below define the project's governing model, the meaning of its variables, and the engineering reason each model was selected.</p>
+        <div class="theory-grid">${theoryMarkup(technical.theory)}</div>
+      </section>
+  
+      <section class="project-section" id="architecture">
+        <div class="section-label"><span>05</span><h2>System Architecture</h2></div>
         <div class="architecture-grid">${architectureMarkup(project.architecture)}</div>
       </section>
-
-      <section class="project-section">
-        <div class="section-label"><span>04</span><h2>Design & Methodology</h2></div>
+  
+      <section class="project-section" id="workflow">
+        <div class="section-label"><span>06</span><h2>Engineering Workflow</h2></div>
+        <div class="workflow-list">${workflowMarkup(technical.workflow)}</div>
+      </section>
+  
+      <section class="project-section" id="methodology">
+        <div class="section-label"><span>07</span><h2>Design & Implementation Methodology</h2></div>
         <div class="methods-grid">${methodsMarkup(project.methods)}</div>
       </section>
-
-      <section class="project-section project-section--evidence">
-        <div>
-          <div class="section-label"><span>05</span><h2>Validation & Results</h2></div>
-          ${bullets(project.results, "evidence-list")}
-        </div>
-        <div>
-          <div class="section-label"><span>06</span><h2>Current Boundaries</h2></div>
-          ${bullets(project.limitations, "boundary-list")}
-        </div>
+  
+      <section class="project-section" id="validation">
+        <div class="section-label"><span>08</span><h2>Validation Evidence & Results</h2></div>
+        ${bullets(project.results, "evidence-list")}
       </section>
-
-      <section class="project-section technology-section">
-        <div class="section-label"><span>07</span><h2>Engineering Stack</h2></div>
+  
+      <section class="project-section" id="decisions">
+        <div class="section-label"><span>09</span><h2>Design Decisions & Engineering Trade-offs</h2></div>
+        <div class="decision-grid">${decisionsMarkup(technical.decisions)}</div>
+      </section>
+  
+      <section class="project-section" id="boundaries">
+        <div class="section-label"><span>10</span><h2>Current Boundaries & Next Verification Gates</h2></div>
+        ${bullets(project.limitations, "boundary-list")}
+      </section>
+  
+      <section class="project-section technology-section" id="stack">
+        <div class="section-label"><span>11</span><h2>Engineering Stack</h2></div>
         <div class="technology-list">${project.tools.map((tool) => `<span>${tool}</span>`).join("")}</div>
       </section>
-
-      <section class="related-section">
-        <div class="section-label"><span>08</span><h2>Related Projects</h2></div>
+  
+      <section class="related-section" id="related">
+        <div class="section-label"><span>12</span><h2>Related Projects</h2></div>
         <div class="related-grid">${related.map((item) => projectCard(item, true)).join("")}</div>
       </section>
-
+  
       <nav class="project-pagination" aria-label="Project pagination">
         <a href="${projectUrl(previous)}"><small>Previous project</small><strong>${previous.title}</strong></a>
         <a href="${projectUrl(next)}"><small>Next project</small><strong>${next.title}</strong></a>
       </nav>
     `;
   }
-
   renderIndex();
   renderDetail();
 })();

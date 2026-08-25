@@ -917,3 +917,343 @@
   .project-action,
   .project-filters button { transition: none; }
 }
+
+
+/* Technical record expansion */
+.project-section[id],
+.related-section[id] {
+  scroll-margin-top: 6rem;
+}
+
+.technical-index {
+  position: sticky;
+  top: 0.65rem;
+  z-index: 12;
+  display: grid;
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(177, 195, 132, 0.28);
+  background:
+    linear-gradient(90deg, rgba(48, 60, 34, 0.96), rgba(9, 14, 8, 0.97)),
+    var(--project-panel);
+  box-shadow: 0 0.9rem 2.3rem rgba(0, 0, 0, 0.34);
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+.technical-index > span {
+  display: inline-flex;
+  min-height: 2rem;
+  padding: 0 0.75rem;
+  border-right: 1px solid rgba(177, 195, 132, 0.22);
+  color: #c4d09d;
+  align-items: center;
+  font: 700 0.57rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.technical-index > div {
+  display: flex;
+  min-width: 0;
+  overflow-x: auto;
+  gap: 0.35rem;
+  scrollbar-color: rgba(171, 190, 124, 0.36) transparent;
+}
+
+.technical-index a {
+  display: inline-flex;
+  min-height: 2rem;
+  padding: 0.45rem 0.58rem;
+  border: 1px solid rgba(154, 173, 110, 0.14);
+  color: #899765;
+  background: rgba(13, 19, 10, 0.62);
+  align-items: center;
+  gap: 0.35rem;
+  font: 700 0.52rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: 150ms ease;
+}
+
+.technical-index a b {
+  color: #b6c58b;
+  font-weight: 600;
+}
+
+.technical-index a:hover,
+.technical-index a:focus-visible {
+  border-color: rgba(201, 216, 158, 0.5);
+  color: #d2ddae;
+  background: rgba(75, 91, 50, 0.3);
+  outline: none;
+}
+
+.technical-prose {
+  display: grid;
+  max-width: 84ch;
+  gap: 1rem;
+}
+
+.technical-prose p,
+.section-intro {
+  margin: 0;
+  color: var(--project-copy);
+  font-size: clamp(0.91rem, 1.15vw, 1.02rem);
+  line-height: 1.9;
+}
+
+.technical-prose p + p {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(160, 179, 117, 0.13);
+}
+
+.section-intro {
+  max-width: 82ch;
+  margin: -0.25rem 0 1.35rem;
+  color: #93a174;
+}
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.theory-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 1.8rem);
+  border: 1px solid rgba(163, 182, 117, 0.19);
+  background:
+    linear-gradient(145deg, rgba(55, 68, 38, 0.31), rgba(9, 14, 8, 0.72));
+}
+
+.theory-card::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.4rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #aabc7d);
+  content: "";
+  opacity: 0.68;
+}
+
+.theory-card header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.theory-card header > span {
+  display: grid;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(174, 193, 129, 0.26);
+  color: #aebd80;
+  background: rgba(91, 107, 61, 0.18);
+  place-items: center;
+  font: 600 0.55rem Consolas, "Courier New", monospace;
+}
+
+.theory-card h3,
+.workflow-step h3,
+.decision-card h3 {
+  margin: 0;
+  color: #bdca96;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.075em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.theory-card > code {
+  display: block;
+  margin-top: 1.15rem;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border: 1px solid rgba(181, 200, 137, 0.2);
+  color: #d1ddaa;
+  background:
+    linear-gradient(90deg, rgba(79, 94, 54, 0.23), rgba(10, 15, 8, 0.58));
+  font: 600 clamp(0.72rem, 1.15vw, 0.88rem) Consolas, "Courier New", monospace;
+  line-height: 1.65;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.theory-notes,
+.decision-card dl {
+  display: grid;
+  margin: 1.1rem 0 0;
+  gap: 0.85rem;
+}
+
+.theory-notes div,
+.decision-card dl div {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.theory-notes dt,
+.decision-card dt {
+  color: #84915f;
+  font: 700 0.54rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.theory-notes dd,
+.decision-card dd {
+  margin: 0;
+  color: #929e75;
+  font-size: 0.8rem;
+  line-height: 1.72;
+}
+
+.workflow-list {
+  position: relative;
+  display: grid;
+  max-width: 70rem;
+  gap: 0;
+}
+
+.workflow-list::before {
+  position: absolute;
+  top: 1.8rem;
+  bottom: 1.8rem;
+  left: 1.55rem;
+  width: 1px;
+  background: linear-gradient(#afc07e, rgba(137, 155, 96, 0.12));
+  content: "";
+}
+
+.workflow-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  padding: 0.65rem 0;
+  grid-template-columns: 3.1rem minmax(0, 1fr);
+  gap: 0.9rem;
+}
+
+.workflow-step > span {
+  display: grid;
+  width: 3.1rem;
+  height: 3.1rem;
+  border: 1px solid rgba(177, 196, 130, 0.32);
+  color: #c2cf98;
+  background: #182011;
+  place-items: center;
+  font: 600 0.62rem Consolas, "Courier New", monospace;
+  box-shadow: inset 0 0 0 0.25rem #182011, 0 0 1.2rem rgba(137, 158, 91, 0.08);
+}
+
+.workflow-step > div {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(154, 173, 110, 0.14);
+  background: rgba(14, 20, 11, 0.52);
+}
+
+.workflow-step h3 {
+  color: #b7c58b;
+}
+
+.workflow-step p {
+  margin: 0.45rem 0 0;
+  color: #8f9b70;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.decision-card {
+  position: relative;
+  min-width: 0;
+  padding: 1.35rem;
+  border: 1px solid rgba(159, 178, 114, 0.18);
+  background:
+    linear-gradient(150deg, rgba(61, 74, 43, 0.25), rgba(10, 15, 8, 0.62));
+}
+
+.decision-card h3 {
+  min-height: 2.3rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(161, 179, 116, 0.14);
+}
+
+#validation .evidence-list,
+#boundaries .boundary-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .technical-index {
+    position: relative;
+    top: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .technical-index > span {
+    min-height: auto;
+    padding: 0 0 0.55rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(177, 195, 132, 0.18);
+  }
+
+  .decision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-card h3 {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .theory-grid,
+  #validation .evidence-list,
+  #boundaries .boundary-list {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-index {
+    padding: 0.7rem;
+  }
+
+  .technical-index > div {
+    padding-bottom: 0.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .theory-card {
+    padding: 1.1rem;
+  }
+
+  .workflow-step {
+    grid-template-columns: 2.65rem minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .workflow-step > span {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .workflow-list::before {
+    left: 1.32rem;
+  }
+}
