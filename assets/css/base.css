@@ -1246,3 +1246,62 @@ h1,
     animation: none;
   }
 }
+
+
+/* Symmetrical Orgeneral command insignia in the upper wide-screen gutters */
+.vignette {
+  pointer-events: none;
+}
+
+.vignette::before,
+.vignette::after {
+  position: absolute;
+  top: 0.75rem;
+  display: none;
+  width: min(17.5rem, calc((100vw - 82rem) / 2 - 1.25rem));
+  height: 7rem;
+  min-width: 0;
+  background: url("/assets/images/orgeneral-command-insignia.svg?v=20260825-1") center / contain no-repeat;
+  content: "";
+  filter:
+    brightness(1.16)
+    contrast(1.06)
+    drop-shadow(0 0 1rem rgba(175, 201, 113, 0.16));
+  opacity: 0.82;
+  animation: command-insignia-pulse 5.8s ease-in-out infinite;
+}
+
+.vignette::before {
+  left: clamp(0.55rem, 1.3vw, 1.5rem);
+}
+
+.vignette::after {
+  right: clamp(0.55rem, 1.3vw, 1.5rem);
+  animation-delay: 1.2s;
+}
+
+@keyframes command-insignia-pulse {
+  0%,
+  100% {
+    opacity: 0.76;
+    filter: brightness(1.1) contrast(1.04) drop-shadow(0 0 0.7rem rgba(175, 201, 113, 0.11));
+  }
+  50% {
+    opacity: 0.94;
+    filter: brightness(1.24) contrast(1.08) drop-shadow(0 0 1.35rem rgba(190, 215, 127, 0.22));
+  }
+}
+
+@media (min-width: 98.75rem) {
+  .vignette::before,
+  .vignette::after {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vignette::before,
+  .vignette::after {
+    animation: none;
+  }
+}
