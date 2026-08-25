@@ -1248,7 +1248,7 @@ h1,
 }
 
 
-/* Symmetrical Orgeneral command insignia in the upper wide-screen gutters */
+/* Symmetrical four-star command marks in the upper wide-screen gutters */
 .vignette {
   pointer-events: none;
 }
@@ -1261,7 +1261,7 @@ h1,
   width: min(17.5rem, calc((100vw - 82rem) / 2 - 1.25rem));
   height: 7rem;
   min-width: 0;
-  background: url("/assets/images/orgeneral-command-insignia.svg?v=20260825-1") center / contain no-repeat;
+  background: url("/assets/images/four-star-command.svg?v=20260825-1") center / contain no-repeat;
   content: "";
   filter:
     brightness(1.16)

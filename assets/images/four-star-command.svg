@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 112" role="img" aria-labelledby="title desc">
+<title id="title">Four command stars</title>
+<desc id="desc">Four illuminated five-pointed stars in khaki gold tones.</desc>
+<style>
+  .star {
+    fill: url(#gold);
+    stroke: #eef4cf;
+    stroke-width: 0.9;
+    filter: url(#glow);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 4.8s ease-in-out infinite;
+  }
+  .star:nth-of-type(2) { animation-delay: .35s; }
+  .star:nth-of-type(3) { animation-delay: .7s; }
+  .star:nth-of-type(4) { animation-delay: 1.05s; }
+  @keyframes pulse {
+    0%, 100% { opacity: .74; transform: scale(.94); }
+    50% { opacity: 1; transform: scale(1.04); }
+  }
+</style>
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="#edf3cf"/>
+    <stop offset=".48" stop-color="#cad99c"/>
+    <stop offset="1" stop-color="#94aa69"/>
+  </linearGradient>
+  <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="2.2" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <path id="s" d="M0-16 3.8-5.2 15.2-4.95 6.05 1.98 9.4 12.95 0 6.55-9.4 12.95-6.05 1.98-15.2-4.95-3.8-5.2Z"/>
+</defs>
+<use href="#s" class="star" transform="translate(80 56)"/>
+<use href="#s" class="star" transform="translate(120 56)"/>
+<use href="#s" class="star" transform="translate(160 56)"/>
+<use href="#s" class="star" transform="translate(200 56)"/>
+</svg>
