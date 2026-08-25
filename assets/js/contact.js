@@ -1,6 +1,17 @@
 (function () {
   "use strict";
 
+  const profileImage = document.getElementById("contact-profile-image");
+  if (profileImage) {
+    const showLocalFallback = () => {
+      profileImage.hidden = true;
+      const frame = profileImage.closest(".profile-image-frame");
+      if (frame) frame.classList.add("is-empty");
+    };
+    profileImage.addEventListener("error", showLocalFallback);
+    if (profileImage.complete && profileImage.naturalWidth === 0) showLocalFallback();
+  }
+
   const button = document.getElementById("copy-email");
   const status = document.getElementById("copy-status");
   if (!button) return;
