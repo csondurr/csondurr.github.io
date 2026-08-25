@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#2f3925">
-  <title>Thesis and Researches</title>
-  <link rel="stylesheet" href="/assets/css/base.css?v=20260825-3">
+  <meta name="description" content="Theses, research articles, and technical engineering reports by Cem Sondur across RF, microwave sensing, computational electromagnetics, SDR, and antenna systems.">
+  <meta property="og:title" content="Thesis and Researches | Cem Sondur">
+  <meta property="og:description" content="An evidence-led archive of theses, research articles, and engineering reports by Cem Sondur.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://csondurr.github.io/thesis-researches/">
+  <link rel="canonical" href="https://csondurr.github.io/thesis-researches/">
+  <title>Thesis and Researches | Cem Sondur</title>
+  <link rel="stylesheet" href="/assets/css/base.css?v=20260825-5">
+  <link rel="stylesheet" href="/assets/css/research.css?v=20260825-1">
 </head>
-<body>
+<body class="research-page">
   <div class="site-shell" aria-hidden="true">
     <div class="tactical-grid"></div>
     <div class="radar-field">
@@ -48,6 +55,48 @@
         </a>
       </nav>
     </section>
+
+    <div class="research-workspace">
+      <section class="research-hero" aria-labelledby="research-heading">
+        <div class="research-hero-copy">
+          <p class="research-kicker">Scholarly Archive · Theses / Articles / Engineering Reports</p>
+          <h2 id="research-heading">Research that survives scrutiny.</h2>
+          <p class="research-lead">This evolving archive brings together my theses, research articles, and engineering investigations across RF and microwave systems, electromagnetic computation, software-defined radio, sensing, and antenna engineering. Each publication is organized as a readable technical record with its research question, governing model, methodology, verified evidence, claim boundary, and direct connection to the corresponding implementation in the Projects section.</p>
+          <div class="research-hero-stats" aria-label="Live publication summary" aria-live="polite">
+            <span><strong id="visible-research-count">00</strong><small>Publications in view</small></span>
+            <span><strong id="linked-project-count">00</strong><small>Linked project records</small></span>
+            <span><strong id="research-domain-count">00</strong><small>Research domains</small></span>
+          </div>
+        </div>
+        <figure class="research-hero-visual" aria-label="Research-domain knowledge map">
+          <svg class="knowledge-map" viewBox="0 0 640 420" role="img" aria-label="Connected research domains">
+            <defs><pattern id="knowledge-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" class="km-grid"/></pattern></defs>
+            <rect width="640" height="420" fill="#091008"/><rect width="640" height="420" fill="url(#knowledge-grid)"/>
+            <circle cx="320" cy="210" r="159" class="km-ring"/><circle cx="320" cy="210" r="106" class="km-ring"/><circle cx="320" cy="210" r="51" class="km-ring"/>
+            <path d="M320 30v360M75 210h490" class="km-axis"/>
+            <path d="M320 210L160 105M320 210L480 102M320 210L530 219M320 210L435 330M320 210L205 330M320 210L108 220" class="km-links"/>
+            <circle cx="320" cy="210" r="9" class="km-core"/>
+            <circle cx="160" cy="105" r="24" class="km-node"/><circle cx="480" cy="102" r="24" class="km-node"/><circle cx="530" cy="219" r="24" class="km-node"/><circle cx="435" cy="330" r="24" class="km-node"/><circle cx="205" cy="330" r="24" class="km-node"/><circle cx="108" cy="220" r="24" class="km-node"/>
+            <text x="320" y="215">EVIDENCE</text><text x="160" y="72">RF SENSING</text><text x="480" y="69">EM MEMORY</text><text x="530" y="262">ANTENNAS</text><text x="435" y="372">SDR / RF</text><text x="205" y="372">COMPUTATION</text><text x="108" y="263">MODELING</text>
+          </svg>
+        </figure>
+      </section>
+
+      <section class="research-toolbar" aria-label="Publication filters">
+        <span class="research-toolbar-label">Filter archive</span>
+        <div class="research-filters" id="research-filters">
+          <button class="is-active" type="button" data-filter="all" aria-pressed="true">All publications</button>
+          <button type="button" data-filter="thesis" aria-pressed="false">Theses</button>
+          <button type="button" data-filter="article" aria-pressed="false">Research articles</button>
+          <button type="button" data-filter="report" aria-pressed="false">Engineering reports</button>
+        </div>
+      </section>
+
+      <section class="research-grid" id="research-grid" aria-label="Publication archive"></section>
+      <noscript><p class="research-error">JavaScript is required to display the publication archive.</p></noscript>
+    </div>
   </main>
+  <script src="/assets/js/research-data.js?v=20260825-1"></script>
+  <script src="/assets/js/research-app.js?v=20260825-1"></script>
 </body>
 </html>
