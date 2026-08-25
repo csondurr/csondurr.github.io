@@ -5,30 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#2f3925">
-  <title>Projects</title>
-  <link rel="stylesheet" href="/assets/css/base.css?v=20260825-4">
-  <style>
-    .projects-page .page-ui {
-      display: block !important;
-      min-height: 100svh;
-      padding: 1rem clamp(1rem, 3vw, 2.5rem) 3rem !important;
-      place-items: initial !important;
-    }
-
-    .projects-page .command-panel {
-      width: min(80rem, 100%);
-      margin: 0 auto !important;
-      transform: none !important;
-    }
-
-    @media (max-width: 820px) {
-      .projects-page .page-ui {
-        padding: 0.75rem 0.75rem 2rem !important;
-      }
-    }
-  </style>
+  <meta name="description" content="Engineering portfolio by Cem Sondur: RF and microwave systems, antennas, signal processing, SDR, embedded systems, AI, and energy projects.">
+  <meta property="og:title" content="Projects | Cem Sondur">
+  <meta property="og:description" content="Engineering portfolio by Cem Sondur: RF and microwave systems, antennas, signal processing, SDR, embedded systems, AI, and energy projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://csondurr.github.io/projects/">
+  <link rel="canonical" href="https://csondurr.github.io/projects/">
+  <title>Projects | Cem Sondur</title>
+  <link rel="stylesheet" href="/assets/css/base.css?v=20260825-5">
+  <link rel="stylesheet" href="/assets/css/projects.css?v=20260825-1">
 </head>
 <body class="projects-page">
+
   <div class="site-shell" aria-hidden="true">
     <div class="tactical-grid"></div>
     <div class="radar-field">
@@ -46,28 +34,59 @@
   <main class="page-ui">
     <section class="command-panel" aria-labelledby="page-title">
       <header class="page-identity">
-        <span class="page-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span>
+        <span class="page-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span>
         <h1 id="page-title">Projects</h1>
       </header>
       <nav class="command-nav" aria-label="Main navigation">
-        <a class="nav-tile" href="/">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-5.5h5V20"/></svg></span>
-          <span class="nav-label">Home</span>
-        </a>
-        <a class="nav-tile is-active" href="/projects/" aria-current="page">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span>
-          <span class="nav-label">Projects</span>
-        </a>
-        <a class="nav-tile" href="/thesis-researches/">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 4.5h6.2A3.8 3.8 0 0 1 14 8.3V20a3.8 3.8 0 0 0-3.8-3.8H4z"/><path d="M20 4.5h-2.2A3.8 3.8 0 0 0 14 8.3V20a3.8 3.8 0 0 1 3.8-3.8H20z"/><path d="M7 8h3M7 11h3M17 8h-1"/></svg></span>
-          <span class="nav-label">Thesis and Researches</span>
-        </a>
-        <a class="nav-tile" href="/contact/">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 14v8M8.5 22h7"/><circle cx="12" cy="11" r="1.5"/><path d="M8.5 14.5a5 5 0 0 1 0-7M15.5 7.5a5 5 0 0 1 0 7"/><path d="M5.5 17.5a9.2 9.2 0 0 1 0-13M18.5 4.5a9.2 9.2 0 0 1 0 13"/></svg></span>
-          <span class="nav-label">Contact</span>
-        </a>
+        <a class="nav-tile" href="/"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-5.5h5V20"/></svg></span><span class="nav-label">Home</span></a>
+        <a class="nav-tile is-active" href="/projects/" aria-current="page"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span><span class="nav-label">Projects</span></a>
+        <a class="nav-tile" href="/thesis-researches/"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5h6.2A3.8 3.8 0 0 1 14 8.3V20a3.8 3.8 0 0 0-3.8-3.8H4z"/><path d="M20 4.5h-2.2A3.8 3.8 0 0 0 14 8.3V20a3.8 3.8 0 0 1 3.8-3.8H20z"/><path d="M7 8h3M7 11h3M17 8h-1"/></svg></span><span class="nav-label">Thesis and Researches</span></a>
+        <a class="nav-tile" href="/contact/"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14v8M8.5 22h7"/><circle cx="12" cy="11" r="1.5"/><path d="M8.5 14.5a5 5 0 0 1 0-7M15.5 7.5a5 5 0 0 1 0 7"/><path d="M5.5 17.5a9.2 9.2 0 0 1 0-13M18.5 4.5a9.2 9.2 0 0 1 0 13"/></svg></span><span class="nav-label">Contact</span></a>
       </nav>
     </section>
+    <div class="project-workspace">
+      <section class="projects-hero" aria-labelledby="projects-heading">
+        <div class="projects-hero-copy">
+          <p class="projects-kicker">Engineering Portfolio · Systems / Hardware / Research</p>
+          <h2 id="projects-heading">Engineering from first principles.</h2>
+          <p class="projects-lead">Seventeen project records spanning RF and microwave engineering, antennas, signal processing, SDR, embedded intelligence, data modeling, and energy systems. Each record documents the objective, architecture, method, validation evidence, and present engineering boundary.</p>
+          <div class="projects-hero-stats" aria-label="Portfolio summary">
+            <span><strong id="visible-project-count">17</strong><small>Projects displayed</small></span>
+            <span><strong>12</strong><small>Source archives</small></span>
+            <span><strong>06</strong><small>Engineering domains</small></span>
+          </div>
+        </div>
+        <figure class="projects-hero-visual" aria-label="Portfolio domain map">
+          <svg class="portfolio-map" viewBox="0 0 640 420" role="img" aria-label="Connected RF, antenna, signal-processing, embedded, AI and energy project domains">
+            <defs><pattern id="portfolio-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" class="map-grid"/></pattern></defs>
+            <rect width="640" height="420" fill="#091008"/><rect width="640" height="420" fill="url(#portfolio-grid)"/>
+            <circle cx="320" cy="210" r="158" class="map-ring"/><circle cx="320" cy="210" r="102" class="map-ring"/><circle cx="320" cy="210" r="49" class="map-ring"/>
+            <path d="M320 32v356M74 210h492" class="map-axis"/>
+            <path d="M153 111L253 174L320 210L414 128L508 193L427 287L307 330L201 279Z" class="map-path"/>
+            <circle cx="153" cy="111" r="7" class="map-node"/><circle cx="253" cy="174" r="7" class="map-node"/><circle cx="320" cy="210" r="9" class="map-node"/><circle cx="414" cy="128" r="7" class="map-node"/><circle cx="508" cy="193" r="7" class="map-node"/><circle cx="427" cy="287" r="7" class="map-node"/><circle cx="307" cy="330" r="7" class="map-node"/><circle cx="201" cy="279" r="7" class="map-node"/>
+            <text x="113" y="92">RF / MW</text><text x="224" y="154">DSP</text><text x="285" y="236">SYSTEMS</text><text x="382" y="108">ANTENNAS</text><text x="480" y="174">RADAR</text><text x="397" y="314">EMBEDDED</text><text x="278" y="356">AI / DATA</text><text x="158" y="305">ENERGY</text>
+          </svg>
+        </figure>
+      </section>
+
+      <section class="project-toolbar" aria-label="Project filters">
+        <span class="toolbar-label">Filter directory</span>
+        <div class="project-filters" id="project-filters">
+          <button class="is-active" type="button" data-filter="all" aria-pressed="true">All projects</button>
+          <button type="button" data-filter="rf" aria-pressed="false">RF & Microwave</button>
+          <button type="button" data-filter="dsp" aria-pressed="false">Signal Processing</button>
+          <button type="button" data-filter="antenna" aria-pressed="false">Antennas</button>
+          <button type="button" data-filter="embedded" aria-pressed="false">Embedded</button>
+          <button type="button" data-filter="data" aria-pressed="false">AI & Data</button>
+          <button type="button" data-filter="energy" aria-pressed="false">Energy</button>
+        </div>
+      </section>
+
+      <section class="project-grid" id="project-grid" aria-label="Project directory"></section>
+      <noscript><p class="project-error">JavaScript is required to display the interactive project directory.</p></noscript>
+    </div>
   </main>
+  <script src="/assets/js/projects-data.js?v=20260825-1"></script>
+  <script src="/assets/js/projects-app.js?v=20260825-1"></script>
 </body>
 </html>
