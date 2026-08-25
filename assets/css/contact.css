@@ -701,3 +701,26 @@
   .contact-brief a,
   .brief-actions button { transition: none; }
 }
+
+
+/* Higher-clarity collaboration hub finish */
+:root {
+  --contact-panel: rgba(17, 24, 13, 0.91);
+  --contact-panel-soft: rgba(40, 51, 28, 0.87);
+  --contact-border: rgba(184, 205, 134, 0.31);
+  --contact-border-strong: rgba(212, 226, 168, 0.65);
+  --contact-copy: #bac49a;
+  --contact-muted: #98a474;
+  --contact-bright: #e1eabd;
+  --contact-accent: #bbce87;
+}
+
+.contact-network {
+  filter: brightness(1.16) contrast(1.07) saturate(1.05);
+  transform: translateZ(0);
+}
+
+.profile-image-frame img {
+  filter: brightness(1.055) contrast(1.035) saturate(1.02);
+  image-rendering: auto;
+}

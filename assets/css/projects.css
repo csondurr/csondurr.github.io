@@ -1257,3 +1257,27 @@
     left: 1.32rem;
   }
 }
+
+
+/* Higher-clarity portfolio finish */
+:root {
+  --project-panel: rgba(17, 24, 13, 0.9);
+  --project-panel-soft: rgba(39, 50, 28, 0.88);
+  --project-border: rgba(183, 204, 134, 0.31);
+  --project-border-strong: rgba(211, 225, 168, 0.62);
+  --project-copy: #bac49a;
+  --project-muted: #98a474;
+  --project-bright: #e0e9bc;
+  --project-accent: #bacd87;
+}
+
+.portfolio-map,
+.project-illustration {
+  filter: brightness(1.16) contrast(1.07) saturate(1.06);
+  transform: translateZ(0);
+}
+
+.projects-page a,
+.project-detail-page a {
+  text-underline-offset: 0.18em;
+}

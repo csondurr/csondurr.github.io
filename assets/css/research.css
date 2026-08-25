@@ -1029,3 +1029,22 @@
   .project-bridge a,
   .document-toolbar a { transition: none; }
 }
+
+
+/* Higher-clarity research archive finish */
+:root {
+  --research-panel: rgba(17, 24, 13, 0.91);
+  --research-soft: rgba(41, 52, 29, 0.87);
+  --research-border: rgba(185, 205, 135, 0.31);
+  --research-border-strong: rgba(213, 227, 170, 0.64);
+  --research-text: #bac59a;
+  --research-muted: #98a474;
+  --research-bright: #e1eabd;
+  --research-accent: #bbce88;
+}
+
+.research-visual,
+.knowledge-map {
+  filter: brightness(1.16) contrast(1.07) saturate(1.06);
+  transform: translateZ(0);
+}

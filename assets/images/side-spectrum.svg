@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 760" role="img" aria-labelledby="title desc">
+<title id="title">Signal spectrum telemetry</title>
+<desc id="desc">Animated antenna array, spectrum analyzer and signal path display.</desc>
+<style>
+  .grid{stroke:#839760;stroke-opacity:.13;stroke-width:.7}
+  .line{fill:none;stroke:#a8bd7a;stroke-opacity:.42;stroke-width:1}
+  .strong{fill:none;stroke:#c3d597;stroke-opacity:.74;stroke-width:1.2}
+  .dim{fill:#91a56b;fill-opacity:.7;font:8px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:1.6px}
+  .micro{fill:#81945f;fill-opacity:.74;font:6px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:1px}
+  .dash{stroke-dasharray:7 8;animation:flow 3.8s linear infinite}
+  .pulse{animation:pulse 2.5s ease-in-out infinite}
+  .pulse2{animation:pulse 2.5s 1.2s ease-in-out infinite}
+  .orbit{transform-origin:140px 185px;animation:rotate 15s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-60}}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes rotate{to{transform:rotate(-360deg)}}
+</style>
+<defs>
+  <pattern id="g2" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grid"/></pattern>
+  <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#647a49" stop-opacity=".34"/><stop offset="1" stop-color="#c6d797" stop-opacity=".88"/></linearGradient>
+  <radialGradient id="glow2"><stop stop-color="#bed28d" stop-opacity=".22"/><stop offset="1" stop-color="#bed28d" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="1" y="1" width="278" height="758" rx="5" fill="#0b1108" fill-opacity=".18" stroke="#9bad71" stroke-opacity=".18"/>
+<path d="M1 58H279M1 346H279M1 608H279" class="grid"/>
+<path d="M12 40V14H38M242 14h26v26M12 720v26h26M242 746h26v-26" class="strong"/>
+<text x="20" y="32" class="dim">ARRAY / SPECTRUM</text><text x="205" y="32" class="micro">LOCKED</text>
+<rect x="12" y="72" width="256" height="256" fill="url(#g2)" opacity=".58"/>
+<circle cx="140" cy="185" r="103" fill="url(#glow2)"/>
+<g transform="translate(62 106)">
+  <g fill="#9db470" fill-opacity=".34" stroke="#b9ce88" stroke-opacity=".5">
+    <rect x="0" y="0" width="12" height="12"/><rect x="22" y="0" width="12" height="12"/><rect x="44" y="0" width="12" height="12"/><rect x="66" y="0" width="12" height="12"/>
+    <rect x="0" y="22" width="12" height="12"/><rect x="22" y="22" width="12" height="12"/><rect x="44" y="22" width="12" height="12"/><rect x="66" y="22" width="12" height="12"/>
+    <rect x="0" y="44" width="12" height="12"/><rect x="22" y="44" width="12" height="12"/><rect x="44" y="44" width="12" height="12"/><rect x="66" y="44" width="12" height="12"/>
+    <rect x="0" y="66" width="12" height="12"/><rect x="22" y="66" width="12" height="12"/><rect x="44" y="66" width="12" height="12"/><rect x="66" y="66" width="12" height="12"/>
+  </g>
+  <circle cx="50" cy="50" r="3" fill="#d1dfa8" class="pulse"/>
+</g>
+<g class="orbit line">
+  <ellipse cx="140" cy="185" rx="108" ry="56"/><ellipse cx="140" cy="185" rx="66" ry="106"/>
+  <circle cx="241" cy="185" r="3" fill="#c8da9a" class="pulse2"/>
+</g>
+<path d="M147 155C183 127 213 132 254 89M147 171C192 154 222 160 260 139M147 187C192 181 224 190 261 189M147 203C191 211 220 224 255 241" class="strong dash"/>
+<path d="M26 310h228" class="grid"/><text x="20" y="320" class="micro">BEAMFORMING / ACTIVE APERTURE</text>
+<text x="20" y="376" class="dim">SPECTRUM ANALYZER</text>
+<path d="M20 572V404M20 572h240" class="line"/>
+<g transform="translate(0 572) scale(1 -1)" fill="url(#bar)">
+  <rect x="30" width="10" height="24"><animate attributeName="height" values="24;42;24" dur="3.2s" repeatCount="indefinite"/></rect>
+  <rect x="46" width="10" height="35"><animate attributeName="height" values="35;54;35" dur="2.8s" repeatCount="indefinite"/></rect>
+  <rect x="62" width="10" height="52"><animate attributeName="height" values="52;78;52" dur="3.6s" repeatCount="indefinite"/></rect>
+  <rect x="78" width="10" height="86"><animate attributeName="height" values="86;130;86" dur="2.7s" repeatCount="indefinite"/></rect>
+  <rect x="94" width="10" height="138"><animate attributeName="height" values="138;156;138" dur="3.4s" repeatCount="indefinite"/></rect>
+  <rect x="110" width="10" height="72"><animate attributeName="height" values="72;102;72" dur="2.9s" repeatCount="indefinite"/></rect>
+  <rect x="126" width="10" height="38"><animate attributeName="height" values="38;60;38" dur="3.7s" repeatCount="indefinite"/></rect>
+  <rect x="142" width="10" height="48"><animate attributeName="height" values="48;73;48" dur="3.1s" repeatCount="indefinite"/></rect>
+  <rect x="158" width="10" height="94"><animate attributeName="height" values="94;126;94" dur="2.6s" repeatCount="indefinite"/></rect>
+  <rect x="174" width="10" height="124"><animate attributeName="height" values="124;148;124" dur="3.5s" repeatCount="indefinite"/></rect>
+  <rect x="190" width="10" height="70"><animate attributeName="height" values="70;96;70" dur="2.9s" repeatCount="indefinite"/></rect>
+  <rect x="206" width="10" height="40"><animate attributeName="height" values="40;58;40" dur="3.3s" repeatCount="indefinite"/></rect>
+  <rect x="222" width="10" height="28"><animate attributeName="height" values="28;44;28" dur="3.8s" repeatCount="indefinite"/></rect>
+</g>
+<path d="M28 503C54 501 60 492 75 474s24-61 40-64 24 74 42 78 24-97 42-100 27 94 53 106" class="strong"/>
+<text x="20" y="594" class="micro">NOISE −92 dBm</text><text x="186" y="594" class="micro">BW 20 MHz</text>
+<text x="20" y="638" class="dim">SIGNAL PATH</text>
+<path d="M22 680h48l20-20h47l19 20h48l22-20h32" class="strong dash"/>
+<g fill="#cadb9e"><circle cx="22" cy="680" r="3" class="pulse"/><circle cx="137" cy="660" r="3" class="pulse2"/><circle cx="258" cy="660" r="3" class="pulse"/></g>
+<text x="20" y="714" class="micro">RF</text><text x="126" y="714" class="micro">DSP</text><text x="226" y="714" class="micro">DATA</text>
+<text x="20" y="734" class="micro">CHAIN VERIFIED</text><circle cx="242" cy="731" r="3" fill="#c8d99b" class="pulse"/>
+</svg>
