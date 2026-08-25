@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Directional antenna field visualization</title>
+  <desc id="desc">An antenna mast emitting directional electromagnetic fields toward remote targets.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#96a76d" stroke-opacity=".065"/>
+    </pattern>
+    <radialGradient id="field" cx="35%" cy="50%" r="70%">
+      <stop stop-color="#a4b875" stop-opacity=".16"/>
+      <stop offset=".68" stop-color="#42572e" stop-opacity=".035"/>
+      <stop offset="1" stop-color="#0a0f08" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lobe" x1="0" x2="1">
+      <stop stop-color="#8ca45c" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#c1d292" stop-opacity=".28"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="560" fill="#090e07"/>
+  <rect width="900" height="560" fill="url(#grid)"/>
+  <rect width="900" height="560" fill="url(#field)"/>
+  <path d="M305 246C470 128 657 110 842 178 662 207 497 269 305 246Z" fill="url(#lobe)" stroke="#aabe78" stroke-opacity=".23"/>
+  <path d="M305 246C494 215 679 239 846 329 656 309 489 286 305 246Z" fill="url(#lobe)" stroke="#aabe78" stroke-opacity=".2"/>
+  <path d="M305 246 814 176M305 246 814 327" stroke="#b2c580" stroke-opacity=".19" stroke-dasharray="7 10"/>
+  <g fill="none" stroke="#a8bb74">
+    <path d="M251 246a54 54 0 0 1 0-76M220 272a94 94 0 0 1 0-132" stroke-opacity=".42"/>
+    <path d="M334 170a54 54 0 0 1 0 76M365 140a94 94 0 0 1 0 132" stroke-opacity=".42"/>
+  </g>
+  <g stroke="#b4c681" fill="none">
+    <path d="M292 246 211 492M292 246l81 246M238 332h108M225 375h134M211 420h162M192 492h200" stroke-opacity=".62" stroke-width="3"/>
+    <path d="M260 492 292 246l32 246" stroke-opacity=".34"/>
+    <path d="M282 231h20v30h-20z" fill="#8fa35f" fill-opacity=".3"/>
+  </g>
+  <g filter="url(#glow)">
+    <circle cx="814" cy="176" r="5" fill="#d0dda0"/>
+    <circle cx="814" cy="327" r="5" fill="#d0dda0"/>
+  </g>
+  <g fill="none" stroke="#b6c784" stroke-opacity=".42">
+    <circle cx="814" cy="176" r="17"/><path d="M790 176h48M814 152v48"/>
+    <circle cx="814" cy="327" r="17"/><path d="M790 327h48M814 303v48"/>
+  </g>
+  <path d="M20 20h60M20 20v60M880 20h-60M880 20v60M20 540h60M20 540v-60M880 540h-60M880 540v-60" fill="none" stroke="#a7b877" stroke-opacity=".24"/>
+</svg>
