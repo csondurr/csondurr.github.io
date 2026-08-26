@@ -1,0 +1,271 @@
+/* Home polish pass — 2026-08-26
+   Scope: Home only. Keeps the existing structure while correcting scale,
+   brightness, image treatment and the left/right animated RF ambience. */
+
+.home-page {
+  --hp-bg-top: #141b15;
+  --hp-bg-bottom: #0b100c;
+  --hp-panel: #18211a;
+  --hp-panel-deep: #111813;
+  --hp-line: rgba(206, 222, 171, .24);
+  --hp-line-strong: rgba(218, 232, 181, .43);
+  --hp-accent: #c9d99c;
+  --hp-text: #f0f3e9;
+  --hp-muted: #b3bfaa;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(147, 168, 104, .12), transparent 38rem),
+    linear-gradient(180deg, var(--hp-bg-top) 0%, #101711 52%, var(--hp-bg-bottom) 100%) !important;
+}
+
+/* Raise the overall luminance without turning the site grey. */
+.home-page .site-shell { opacity: .82 !important; }
+.home-page .tactical-grid { opacity: .48 !important; }
+.home-page .radar-field { opacity: .18 !important; }
+.home-page .scanlines { opacity: .035 !important; }
+.home-page .vignette { opacity: .22 !important; }
+
+/* ---------- Side RF / radar ambience ---------- */
+.home-page .home-ambient {
+  z-index: 1 !important;
+  top: 6.8rem !important;
+  bottom: 2rem !important;
+  width: clamp(11.5rem, 14vw, 15.5rem) !important;
+  opacity: .52 !important;
+  filter: drop-shadow(0 0 18px rgba(174, 199, 120, .14)) !important;
+}
+
+.home-page .home-ambient--left { left: clamp(.75rem, 1.5vw, 1.75rem) !important; }
+.home-page .home-ambient--right { right: clamp(.75rem, 1.5vw, 1.75rem) !important; }
+
+.home-page .home-ambient .ambient-line,
+.home-page .home-ambient .ambient-ring,
+.home-page .home-ambient .ambient-wave {
+  stroke: rgba(194, 214, 146, .72) !important;
+}
+
+.home-page .home-ambient .ambient-dim {
+  stroke: rgba(194, 214, 146, .34) !important;
+}
+
+.home-page .home-ambient .ambient-fill {
+  fill: rgba(190, 210, 141, .18) !important;
+}
+
+.home-page .home-ambient .ambient-bars rect {
+  fill: rgba(193, 214, 145, .30) !important;
+}
+
+/* ---------- Main frame ---------- */
+.home-page .page-ui {
+  z-index: 2 !important;
+  padding-inline: clamp(1rem, 3vw, 3rem) !important;
+}
+
+.home-page .command-panel,
+.home-page .home-content {
+  width: min(1320px, calc(100vw - 104px)) !important;
+}
+
+.home-page .command-panel {
+  background: rgba(20, 28, 22, .95) !important;
+  border-color: var(--hp-line) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .22), inset 0 1px rgba(255,255,255,.025) !important;
+}
+
+.home-page .page-identity,
+.home-page .nav-tile {
+  background-color: rgba(23, 31, 25, .88) !important;
+}
+
+.home-page .nav-tile.is-active {
+  background: linear-gradient(180deg, #354431, #293628) !important;
+  color: #f1f4ea !important;
+  border-color: rgba(213, 229, 171, .48) !important;
+}
+
+.home-page .nav-tile:hover {
+  background: #2c392b !important;
+  color: #f0f3e8 !important;
+}
+
+/* ---------- Hero: copy dominates, image becomes a supporting card ---------- */
+.home-page .home-hero {
+  min-height: 430px !important;
+  grid-template-columns: minmax(0, 1.42fr) minmax(320px, .58fr) !important;
+  align-items: stretch !important;
+  background: linear-gradient(135deg, #1a241c 0%, #111812 100%) !important;
+  border-color: var(--hp-line-strong) !important;
+  box-shadow: 0 20px 58px rgba(0,0,0,.25) !important;
+}
+
+.home-page .hero-copy {
+  padding: clamp(48px, 5vw, 72px) clamp(44px, 5vw, 72px) !important;
+}
+
+.home-page .hero-title {
+  max-width: none !important;
+  color: var(--hp-text) !important;
+  font-size: clamp(58px, 5.2vw, 78px) !important;
+  line-height: .95 !important;
+}
+
+.home-page .hero-role {
+  color: #d0d8c8 !important;
+}
+
+.home-page .hero-summary,
+.home-page .content-card p,
+.home-page .statement-card p,
+.home-page .archive-copy p {
+  color: var(--hp-muted) !important;
+}
+
+.home-page .hero-kicker,
+.home-page .section-index,
+.home-page .statement-card h3 {
+  color: var(--hp-accent) !important;
+}
+
+.home-page .hero-visual {
+  align-self: center !important;
+  justify-self: stretch !important;
+  height: clamp(280px, 25vw, 340px) !important;
+  min-height: 0 !important;
+  margin: 34px 34px 34px 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(213, 228, 177, .27) !important;
+  border-radius: 3px !important;
+  background:
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Celltower_antennas.jpg?width=1800") center center / cover no-repeat !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.025) !important;
+}
+
+/* Use the CSS background above so the old large anechoic photo cannot reappear. */
+.home-page .hero-visual > img {
+  display: none !important;
+}
+
+.home-page .hero-visual::after {
+  background:
+    linear-gradient(180deg, rgba(6,10,7,.00) 42%, rgba(7,12,8,.34) 100%),
+    linear-gradient(90deg, rgba(22,31,23,.10), transparent 50%) !important;
+  box-shadow: inset 0 0 0 1px rgba(223,234,194,.07) !important;
+}
+
+.home-page .hero-visual .visual-caption {
+  right: 13px !important;
+  bottom: 11px !important;
+  left: 13px !important;
+  color: rgba(245,248,239,.94) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.72);
+}
+
+.home-page .hero-visual .visual-caption span::after {
+  content: " · BASE STATION";
+}
+
+.home-page .hero-visual .visual-caption small {
+  color: rgba(231,237,220,.84) !important;
+}
+
+/* ---------- Engineering profile: keep supporting image compact ---------- */
+.home-page .about-layout {
+  min-height: 320px !important;
+  grid-template-columns: minmax(0, 1.30fr) minmax(300px, .70fr) !important;
+  align-items: stretch !important;
+}
+
+.home-page .content-card {
+  background: linear-gradient(145deg, #18211a, #131a15) !important;
+}
+
+.home-page .about-layout .section-visual {
+  align-self: center !important;
+  height: 270px !important;
+  min-height: 0 !important;
+  margin: 24px 24px 24px 0 !important;
+  border: 1px solid rgba(205, 220, 169, .20) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 12px 34px rgba(0,0,0,.22) !important;
+}
+
+.home-page .about-layout .section-visual > img {
+  filter: saturate(.94) contrast(1.05) brightness(1.02) !important;
+}
+
+.home-page .about-layout .section-visual::after {
+  background: linear-gradient(180deg, transparent 56%, rgba(5,9,6,.34) 100%) !important;
+}
+
+/* ---------- Surface / typography lift ---------- */
+.home-page .home-section,
+.home-page .archive-panel {
+  background: linear-gradient(145deg, #18211a, #111813) !important;
+  border-color: var(--hp-line) !important;
+  box-shadow: 0 14px 38px rgba(0,0,0,.19) !important;
+}
+
+.home-page .section-heading h2,
+.home-page .archive-copy h2,
+.home-page .capability-grid strong {
+  color: var(--hp-text) !important;
+}
+
+.home-page .capability-grid div,
+.home-page .statement-card {
+  background: rgba(24, 33, 26, .92) !important;
+  border-color: rgba(208, 222, 173, .17) !important;
+}
+
+.home-page .capability-grid span {
+  color: #9fae98 !important;
+}
+
+.home-page .hero-tags span,
+.home-page .hero-action {
+  background: #222d24 !important;
+  color: #d2dcc8 !important;
+  border-color: rgba(207, 223, 169, .22) !important;
+}
+
+.home-page .hero-action--primary,
+.home-page .contact-cta {
+  background: #384a34 !important;
+  color: #f3f5ed !important;
+  border-color: rgba(220, 233, 184, .44) !important;
+}
+
+.home-page .hero-action:hover,
+.home-page .contact-cta:hover {
+  background: #43583e !important;
+}
+
+@media (max-width: 1180px) {
+  .home-page .home-ambient { opacity: .30 !important; width: 10rem !important; }
+  .home-page .command-panel,
+  .home-page .home-content { width: min(1080px, calc(100vw - 48px)) !important; }
+  .home-page .home-hero { grid-template-columns: 1fr minmax(300px, .62fr) !important; }
+}
+
+@media (max-width: 900px) {
+  .home-page .home-ambient { display: none !important; }
+  .home-page .command-panel,
+  .home-page .home-content { width: calc(100vw - 28px) !important; }
+  .home-page .home-hero,
+  .home-page .about-layout { grid-template-columns: 1fr !important; }
+  .home-page .hero-visual,
+  .home-page .about-layout .section-visual {
+    width: auto !important;
+    height: 280px !important;
+    margin: 0 24px 24px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .home-ambient .ambient-sweep,
+  .home-page .home-ambient .ambient-wave,
+  .home-page .home-ambient .ambient-pulse,
+  .home-page .home-ambient .ambient-bars rect {
+    animation: none !important;
+  }
+}
