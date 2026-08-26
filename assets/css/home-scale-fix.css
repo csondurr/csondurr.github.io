@@ -1,0 +1,191 @@
+/* Home scale normalization — aligns Home with Projects / Research / Contact. */
+.home-page .page-ui {
+  padding: 1.15rem clamp(1rem, 2vw, 2rem) 4rem !important;
+}
+
+.home-page .command-panel,
+.home-page .home-content {
+  width: min(75rem, 100%) !important;
+  max-width: 75rem !important;
+}
+
+.home-page .command-panel {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.home-page .home-content {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 1rem !important;
+  gap: 1rem !important;
+}
+
+/* Bring the Home navigation to the same visual scale as the other sections. */
+.home-page .nav-tile {
+  min-height: 3.35rem !important;
+  padding-top: .7rem !important;
+  padding-bottom: .7rem !important;
+}
+
+.home-page .page-identity {
+  min-height: 3.35rem !important;
+}
+
+/* Compact hero: same overall footprint as the other primary section heroes. */
+.home-page .home-hero {
+  min-height: 26.5rem !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(21rem, .92fr) !important;
+}
+
+.home-page .hero-copy {
+  padding: clamp(2.35rem, 4vw, 3.6rem) !important;
+}
+
+.home-page .hero-kicker {
+  margin-bottom: .9rem !important;
+  font-size: .65rem !important;
+}
+
+.home-page .hero-title {
+  font-size: clamp(3.15rem, 4.5vw, 4rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.045em !important;
+}
+
+.home-page .hero-role {
+  margin-top: 1rem !important;
+  font-size: 1rem !important;
+}
+
+.home-page .hero-summary {
+  max-width: 49ch !important;
+  margin-top: 1rem !important;
+  font-size: .9rem !important;
+  line-height: 1.68 !important;
+}
+
+.home-page .hero-tags {
+  margin-top: 1.2rem !important;
+  gap: .4rem !important;
+}
+
+.home-page .hero-tags span {
+  padding: .38rem .5rem !important;
+  font-size: .53rem !important;
+}
+
+.home-page .hero-actions {
+  margin-top: 1.25rem !important;
+  gap: .55rem !important;
+}
+
+.home-page .hero-action {
+  min-height: 2.75rem !important;
+  padding: 0 .85rem !important;
+  font-size: .57rem !important;
+}
+
+.home-page .hero-visual {
+  align-self: stretch !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 1.65rem 1.65rem 1.65rem 0 !important;
+}
+
+/* Keep secondary Home panels proportional to the new frame. */
+.home-page .about-layout {
+  min-height: 20rem !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(19rem, .88fr) !important;
+}
+
+.home-page .content-card {
+  padding: clamp(2rem, 3.5vw, 3rem) !important;
+}
+
+.home-page .about-layout .section-visual {
+  height: auto !important;
+  min-height: 15rem !important;
+  margin: 1.5rem 1.5rem 1.5rem 0 !important;
+}
+
+.home-page .capability-grid {
+  margin-top: 1.35rem !important;
+  gap: .5rem !important;
+}
+
+.home-page .capability-grid div {
+  padding: .75rem !important;
+}
+
+.home-page .section-heading--wide {
+  padding: 1.8rem 2.25rem 1rem !important;
+}
+
+.home-page .vision-layout {
+  padding: 0 2.25rem 2.25rem !important;
+}
+
+.home-page .vision-cards {
+  gap: .65rem !important;
+}
+
+.home-page .statement-card {
+  min-height: 9rem !important;
+  padding: 1.35rem 1.5rem !important;
+}
+
+.home-page .archive-panel {
+  padding: 1.8rem 2.25rem !important;
+  gap: 1.5rem !important;
+}
+
+/* Wide-screen telemetry must remain outside the 75rem content frame. */
+.home-page .home-ambient {
+  width: clamp(8rem, 10vw, 12rem) !important;
+  opacity: .42 !important;
+}
+
+@media (max-width: 78rem) {
+  .home-page .command-panel,
+  .home-page .home-content {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-page .home-hero,
+  .home-page .about-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .hero-visual,
+  .home-page .about-layout .section-visual {
+    height: 16rem !important;
+    min-height: 16rem !important;
+    margin: 0 1.25rem 1.25rem !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-page .hero-copy,
+  .home-page .content-card {
+    padding: 1.55rem !important;
+  }
+
+  .home-page .hero-title {
+    font-size: clamp(2.6rem, 13vw, 3.25rem) !important;
+  }
+
+  .home-page .section-heading--wide {
+    padding: 1.5rem 1.55rem .9rem !important;
+  }
+
+  .home-page .vision-layout {
+    padding: 0 1.55rem 1.55rem !important;
+  }
+
+  .home-page .archive-panel {
+    padding: 1.55rem !important;
+  }
+}
