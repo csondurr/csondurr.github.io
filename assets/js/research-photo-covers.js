@@ -6,7 +6,7 @@
       src: "https://commons.wikimedia.org/wiki/Special:FilePath/Two-loop_one-gap_LGR.jpg?width=1200",
       alt: "Physical RF loop-gap resonator hardware with planar split-ring resonators",
       label: "RESONANT RF HARDWARE",
-      source: "https://commons.wikimedia.org/wiki/File:Two-loop_one-gap_LGR.jpg",
+      source: "https://commons.wikimedia.org/wiki/File:Two-loop_one_gap_LGR.jpg",
       credit: "BlizzPhyz · Wikimedia Commons · CC BY-SA 4.0"
     },
     "PUB-02": {
@@ -45,6 +45,8 @@
       credit: "FarField · Wikimedia Commons · CC BY-SA 4.0"
     }
   };
+
+  const records = Array.isArray(window.RESEARCH_RECORDS) ? window.RESEARCH_RECORDS : [];
 
   function getRecordId(card) {
     const marker = card.querySelector(".research-card-meta span:first-child");
@@ -87,6 +89,14 @@
     figure.appendChild(label);
   }
 
+  function normalizeCardCopy(card, id) {
+    const record = records.find(function (item) { return item.id === id; });
+    if (!record) return;
+
+    const title = card.querySelector("h3");
+    if (title && record.shortTitle) title.textContent = record.shortTitle;
+  }
+
   function populateSources() {
     const list = document.getElementById("research-image-source-list");
     if (!list) return;
@@ -100,7 +110,9 @@
 
   function enhance() {
     document.querySelectorAll(".research-card").forEach(function (card) {
-      const media = covers[getRecordId(card)];
+      const id = getRecordId(card);
+      const media = covers[id];
+      normalizeCardCopy(card, id);
       if (media) installCover(card, media);
     });
     populateSources();
