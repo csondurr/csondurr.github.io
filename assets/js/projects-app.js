@@ -4,6 +4,128 @@
   const projects = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
   const technicalRecords = window.PROJECT_TECHNICAL && typeof window.PROJECT_TECHNICAL === "object" ? window.PROJECT_TECHNICAL : {};
 
+  const PROJECT_MEDIA = Object.freeze({
+    "engram": {
+      src: "https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/06_near_field_focus.png",
+      alt: "ENGRAM near-field focusing result from the project simulation archive",
+      credit: "Cem Sondur · ENGRAM project archive",
+      source: "https://github.com/csondurr/ENGRAM/blob/main/results/figures/06_near_field_focus.png",
+      position: "center"
+    },
+    "genesis-dsp": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Spectrum_analyzer_at_868.8_MHz.jpg?width=1400",
+      alt: "A laboratory spectrum analyzer displaying a measured radio-frequency signal",
+      credit: "Giacomo Alessandroni · Wikimedia Commons · CC BY-SA 4.0",
+      source: "https://commons.wikimedia.org/wiki/File:Spectrum_analyzer_at_868.8_MHz.jpg",
+      position: "center"
+    },
+    "microwave-signal-loss-prediction": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Microwave_tower_silhouette.jpg?width=1400",
+      alt: "A real microwave telecommunications relay tower with directional antennas",
+      credit: "Tony Wills · Wikimedia Commons",
+      source: "https://commons.wikimedia.org/wiki/File:Microwave_tower_silhouette.jpg",
+      position: "center 42%"
+    },
+    "csrr-microwave-dielectric-sensor": {
+      src: "https://www.mdpi.com/sensors/sensors-24-01840/article_deploy/html/images/sensors-24-01840-g004.png",
+      alt: "Fabricated complementary split-ring resonator microwave sensor connected through SMA ports",
+      credit: "Sensors 2024 · MDPI · CC BY 4.0",
+      source: "https://www.mdpi.com/1424-8220/24/6/1840",
+      position: "center"
+    },
+    "gps-receiver-rtl-sdr": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Rtl-sdr.jpg?width=1400",
+      alt: "RTL-SDR receiver hardware with RF adapters",
+      credit: "Joeceads · Wikimedia Commons",
+      source: "https://commons.wikimedia.org/wiki/File:Rtl-sdr.jpg",
+      position: "center"
+    },
+    "luxmeter": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Arduino_Uno%2C_Breadboard%2C_and_5DOF_Sensor_on_Seesaw.jpg?width=1400",
+      alt: "Arduino Uno instrumentation prototype with a wired sensor and breadboard",
+      credit: "Shatton8111 · Wikimedia Commons · CC BY-SA 3.0",
+      source: "https://commons.wikimedia.org/wiki/File:Arduino_Uno,_Breadboard,_and_5DOF_Sensor_on_Seesaw.jpg",
+      position: "center"
+    },
+    "100wpa": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/QCPM8893_02.jpg?width=1400",
+      alt: "A real RF power amplifier module photographed at component level",
+      credit: "Mister rf · Wikimedia Commons · CC BY-SA 4.0",
+      source: "https://commons.wikimedia.org/wiki/File:QCPM8893_02.jpg",
+      position: "center"
+    },
+    "cem-computable-electromagnetic-medium": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Split-ring_resonator_array_10K_sq_nm.jpg?width=1400",
+      alt: "Physical split-ring resonator metamaterial array constructed on fiberglass circuit boards",
+      credit: "NASA Glenn Research · Public domain",
+      source: "https://commons.wikimedia.org/wiki/File:Split-ring_resonator_array_10K_sq_nm.jpg",
+      position: "center"
+    },
+    "entropy-vna": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Netzwerkanalysator_Bode_100.jpg?width=1400",
+      alt: "Portable vector network analyzer configured for an RF measurement",
+      credit: "Bernhard Baumgartner / OMICRON Lab · CC BY 3.0",
+      source: "https://commons.wikimedia.org/wiki/File:Netzwerkanalysator_Bode_100.jpg",
+      position: "center"
+    },
+    "lpda-antenna": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/LPDA-Antenna.jpg?width=1400",
+      alt: "Physical log-periodic dipole array antenna used for wideband RF work",
+      credit: "BAZ Antennas · Wikimedia Commons · CC BY-SA 3.0",
+      source: "https://commons.wikimedia.org/wiki/File:LPDA-Antenna.jpg",
+      position: "center"
+    },
+    "morpheus": {
+      src: "https://raw.githubusercontent.com/csondurr/MORPHEUS/main/results/final_plots/error_cube_projection.png",
+      alt: "MORPHEUS electromagnetic identity error-cube projection from the project results",
+      credit: "Cem Sondur · MORPHEUS project archive",
+      source: "https://github.com/csondurr/MORPHEUS/blob/main/results/final_plots/error_cube_projection.png",
+      position: "center"
+    },
+    "rf-filter-ai-synthesizer": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Microstrip_Hairpin_Filter_And_Low_Pass_Stub_Filter.jpg?width=1400",
+      alt: "Fabricated microstrip hairpin and low-pass stub filters inside RF test equipment",
+      credit: "Binarysequence · Wikimedia Commons",
+      source: "https://commons.wikimedia.org/wiki/File:Microstrip_Hairpin_Filter_And_Low_Pass_Stub_Filter.jpg",
+      position: "center"
+    },
+    "rfshield-lpf": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Microstrip_Low_Pass_Bowtie_Stub_Filter_%28vertical%29.jpg?width=1400",
+      alt: "Fabricated microstrip low-pass bow-tie stub filter on a printed circuit board",
+      credit: "Binarysequence · Wikimedia Commons · CC BY-SA 3.0",
+      source: "https://commons.wikimedia.org/wiki/File:Microstrip_Low_Pass_Bowtie_Stub_Filter_(vertical).jpg",
+      position: "center"
+    },
+    "spectra-stm32": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/STM32F4_Discovery_%289067300323%29.jpg?width=1400",
+      alt: "STM32F4 Discovery embedded development board photographed in detail",
+      credit: "Teardown Central · Wikimedia Commons · CC BY-SA 2.0",
+      source: "https://commons.wikimedia.org/wiki/File:STM32F4_Discovery_(9067300323).jpg",
+      position: "center"
+    },
+    "solar-power-generation": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Nellis_AFB_Solar_panels.jpg?width=1400",
+      alt: "Large photovoltaic solar array installed at Nellis Air Force Base",
+      credit: "United States Air Force · Public domain",
+      source: "https://commons.wikimedia.org/wiki/File:Nellis_AFB_Solar_panels.jpg",
+      position: "center"
+    },
+    "vanta": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/DVB-T_USB_dongle_with_RTL2832U_and_R820T.jpg?width=1400",
+      alt: "Internal RF signal-chain hardware of an RTL2832U and R820T software-defined radio receiver",
+      credit: "Dsimic · Wikimedia Commons",
+      source: "https://commons.wikimedia.org/wiki/File:DVB-T_USB_dongle_with_RTL2832U_and_R820T.jpg",
+      position: "center"
+    },
+    "vivaldi-antenna-balun": {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/PCB_Vivaldi_Antenna.jpg?width=1400",
+      alt: "Fabricated printed-circuit Vivaldi antenna with coaxial feed and SMA connector",
+      credit: "FarField · Wikimedia Commons · CC BY-SA 4.0",
+      source: "https://commons.wikimedia.org/wiki/File:PCB_Vivaldi_Antenna.jpg",
+      position: "center"
+    }
+  });
+
   const svgParts = {
     aperture: () => {
       let cells = "";
@@ -48,7 +170,7 @@
     vivaldi: () => `<path d="M95 178h129C316 178 350 81 542 66C412 126 384 171 367 180C384 189 412 234 542 294C350 279 316 182 224 182H95z" class="v-vivaldi"/><path d="M43 180h180" class="v-feed"/><path d="M516 94Q591 180 516 266M494 116Q550 180 494 244" class="v-beam"/><path d="M119 145v70M139 154v52" class="v-balun"/>`
   };
 
-  function visual(project, compact) {
+  function technicalVisual(project, compact) {
     const content = (svgParts[project.visual] || svgParts.dsp)();
     const cls = compact ? "project-illustration is-compact" : "project-illustration";
     return `<svg class="${cls}" viewBox="0 0 640 360" role="img" aria-label="Technical illustration for ${project.title}">
@@ -68,6 +190,41 @@
       <path d="M18 42V18h24M598 18h24v24M18 318v24h24M598 342h24v-24" class="v-corners"/>
       <text x="25" y="329" class="v-caption">${project.id} · ${project.category.toUpperCase()}</text>
     </svg>`;
+  }
+
+  function visual(project, compact) {
+    const media = PROJECT_MEDIA[project.slug];
+    if (!media) return technicalVisual(project, compact);
+    const loading = compact ? "lazy" : "eager";
+    const priority = compact ? "auto" : "high";
+    const attribution = compact
+      ? `<span class="project-media-credit">${media.credit}</span>`
+      : `<a class="project-media-credit project-media-credit--link" href="${media.source}" target="_blank" rel="noopener noreferrer">Image source · ${media.credit}</a>`;
+    return `<img class="project-photo" src="${media.src}" alt="${media.alt}" loading="${loading}" decoding="async" fetchpriority="${priority}" style="--project-image-position: ${media.position || "center"}">
+      <span class="project-media-fallback" hidden>${technicalVisual(project, compact)}</span>
+      <span class="project-media-overlay" aria-hidden="true"></span>
+      ${attribution}`;
+  }
+
+  function bindProjectMedia(root) {
+    root.querySelectorAll("img.project-photo").forEach((image) => {
+      const showFallback = () => {
+        image.hidden = true;
+        const fallback = image.nextElementSibling;
+        if (fallback) fallback.hidden = false;
+        image.parentElement.classList.add("media-failed");
+      };
+      image.addEventListener("error", showFallback, { once: true });
+      if (image.complete && image.naturalWidth === 0) showFallback();
+    });
+  }
+
+  function sourceListMarkup() {
+    return projects.map((project) => {
+      const media = PROJECT_MEDIA[project.slug];
+      if (!media) return "";
+      return `<a href="${media.source}" target="_blank" rel="noopener noreferrer"><b>${project.id}</b><span>${project.title}</span><small>${media.credit}</small></a>`;
+    }).join("");
   }
 
   function icon(name) {
@@ -118,6 +275,9 @@
     if (engineeringDomainCount) engineeringDomainCount.textContent = formatCount(domainCount);
 
     grid.innerHTML = projects.map((project) => projectCard(project, false)).join("");
+    bindProjectMedia(grid);
+    const sourceList = document.getElementById("project-image-source-list");
+    if (sourceList) sourceList.innerHTML = sourceListMarkup();
 
     filters.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-filter]");
@@ -337,6 +497,7 @@
         <a href="${projectUrl(next)}"><small>Next project</small><strong>${next.title}</strong></a>
       </nav>
     `;
+    bindProjectMedia(root);
   }
   renderIndex();
   renderDetail();

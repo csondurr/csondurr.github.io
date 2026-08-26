@@ -14,7 +14,7 @@
   <title>Projects | Cem Sondur</title>
   <link rel="stylesheet" href="/assets/css/base.css?v=20260825-8">
   <link rel="stylesheet" href="/assets/css/projects.css?v=20260825-3">
-  <link rel="stylesheet" href="/assets/css/professional-overrides.css?v=20260826-1">
+  <link rel="stylesheet" href="/assets/css/projects-showcase.css?v=20260826-1">
 </head>
 <body class="projects-page">
 
@@ -57,8 +57,14 @@
             <span><strong id="domain-count">00</strong><small>Engineering domains</small></span>
           </div>
         </div>
-        <figure class="projects-hero-visual" aria-label="Selected full-wave engineering evidence from the project archive">
-          <svg class="portfolio-map" viewBox="0 0 640 420" role="img" aria-hidden="true"><rect width="640" height="420" fill="#091008"/></svg>
+        <figure class="projects-hero-visual" aria-label="Professional RF antenna testing environment">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vivaldi-Antenna-Testing-In-Chamber.jpg?width=1600" alt="A Vivaldi antenna undergoing measurement inside a professional anechoic test chamber" loading="eager" decoding="async" fetchpriority="high">
+          <div class="projects-hero-evidence" aria-hidden="true">
+            <span>RF TEST ENVIRONMENT</span>
+            <strong>Measure. Validate. Document.</strong>
+            <small>From mathematical model to defensible engineering evidence.</small>
+          </div>
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Vivaldi-Antenna-Testing-In-Chamber.jpg" target="_blank" rel="noopener noreferrer">Reference image · FarField / Wikimedia Commons · CC BY-SA 4.0</a></figcaption>
         </figure>
       </section>
 
@@ -76,10 +82,15 @@
       </section>
 
       <section class="project-grid" id="project-grid" aria-label="Project directory"></section>
+      <details class="project-image-sources">
+        <summary>Image sources and licensing</summary>
+        <p>Project-specific simulation outputs are drawn from the original repositories. Reference photography is selected from openly licensed technical archives and is identified on every image.</p>
+        <div class="project-image-source-list" id="project-image-source-list"></div>
+      </details>
       <noscript><p class="project-error">JavaScript is required to display the interactive project directory.</p></noscript>
     </div>
   </main>
   <script src="/assets/js/projects-data.js?v=20260825-1"></script>
-  <script src="/assets/js/projects-app.js?v=20260825-2"></script>
+  <script src="/assets/js/projects-app.js?v=20260826-1"></script>
 </body>
 </html>
