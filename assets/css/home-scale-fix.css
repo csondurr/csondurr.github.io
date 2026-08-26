@@ -140,10 +140,34 @@
   gap: 1.5rem !important;
 }
 
-/* Wide-screen telemetry must remain outside the 75rem content frame. */
+/*
+   Home previously used its own fixed SVG side artwork. Disable that layer and
+   use the site's shared animated telemetry instead (the same side-radar.svg /
+   side-spectrum.svg system used by Projects, Research and Contact).
+*/
 .home-page .home-ambient {
-  width: clamp(8rem, 10vw, 12rem) !important;
+  display: none !important;
+}
+
+.home-page .scanlines {
   opacity: .42 !important;
+}
+
+@media (min-width: 84rem) {
+  .home-page .scanlines::before,
+  .home-page .scanlines::after {
+    top: 7rem;
+    bottom: 2rem;
+    display: block !important;
+    width: clamp(7rem, calc((100vw - 77rem) / 2 - .65rem), 15.5rem);
+    background-size: 100% 100%;
+    opacity: .9;
+    filter:
+      brightness(1.5)
+      contrast(1.08)
+      saturate(.9)
+      drop-shadow(0 0 1.5rem rgba(167, 199, 105, .21));
+  }
 }
 
 @media (max-width: 78rem) {
@@ -187,5 +211,12 @@
 
   .home-page .archive-panel {
     padding: 1.55rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .scanlines::before,
+  .home-page .scanlines::after {
+    animation: none !important;
   }
 }
