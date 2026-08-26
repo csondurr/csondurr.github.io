@@ -1,0 +1,58 @@
+/* Final compatibility layer for the 2026-08-26 research/contact showcase. */
+.research-page .research-hero-visual,
+.contact-page .contact-hero-visual {
+  margin: 0;
+}
+
+.research-page .research-hero h2,
+.contact-page .contact-hero h2 {
+  font-family: inherit;
+  text-transform: none;
+}
+
+.contact-page .contact-profile-card {
+  top: clamp(1.45rem, 2.8vw, 2.5rem);
+  right: clamp(1.45rem, 2.8vw, 2.5rem);
+  bottom: auto;
+  left: auto;
+  width: min(22rem, calc(100% - 3rem));
+  max-width: 22rem;
+  grid-template-columns: 6.6rem minmax(0, 1fr);
+  transform: none;
+}
+
+.contact-page .contact-link-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 820px) {
+  .contact-page .contact-profile-card {
+    width: min(21rem, calc(100% - 2.5rem));
+    max-width: 21rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-page .contact-link-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .contact-page .contact-profile-card {
+    top: 1.25rem;
+    right: 1.25rem;
+    left: 1.25rem;
+    width: auto;
+    max-width: none;
+    grid-template-columns: 5.9rem minmax(0, 1fr);
+    transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-page .contact-profile-card {
+    grid-template-columns: 5.1rem minmax(0, 1fr);
+    gap: .8rem;
+  }
+}
