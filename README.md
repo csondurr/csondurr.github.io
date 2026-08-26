@@ -2,7 +2,11 @@
 
 Official engineering portfolio of **Cem Sondur**, Electrical & Electronics Engineer focused on RF and microwave engineering, antennas, electromagnetics, signal processing, software-defined radio, FPGA systems, and advanced wireless technologies.
 
-**Website:** https://csondurr.github.io/
+**Official website:** https://csondurr.github.io/
+
+**GitHub profile:** https://github.com/csondurr
+
+**LinkedIn:** https://tr.linkedin.com/in/cem-sondur-a8376225b
 
 ## Engineering areas
 
@@ -14,4 +18,4 @@ Official engineering portfolio of **Cem Sondur**, Electrical & Electronics Engin
 - FPGA & Embedded Systems
 - Wireless Communications
 
-The website contains selected engineering projects, theses, research reports, technical evidence, and reproducible development records.
+The website contains selected engineering projects, theses, research reports, technical evidence, and reproducible development records by Cem Sondur.
