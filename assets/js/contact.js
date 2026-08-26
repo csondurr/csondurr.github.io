@@ -1,6 +1,14 @@
 (function () {
   "use strict";
 
+  const professionalStylesheet = "/assets/css/professional-overrides.css?v=20260826-1";
+  if (!document.querySelector('link[href^="/assets/css/professional-overrides.css"]')) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = professionalStylesheet;
+    document.head.appendChild(link);
+  }
+
   const profileImage = document.getElementById("contact-profile-image");
   if (profileImage) {
     const showLocalFallback = () => {
