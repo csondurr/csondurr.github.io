@@ -1,0 +1,515 @@
+/* Professional visual refinement — 2026-08-26
+   Keeps the existing engineering/tactical identity while introducing
+   stronger surface hierarchy and real technical evidence imagery. */
+
+:root {
+  --pro-bg: #0b0f0c;
+  --pro-bg-soft: #101510;
+  --pro-surface: #171d18;
+  --pro-surface-raised: #1d241e;
+  --pro-surface-deep: #111612;
+  --pro-border: rgba(190, 205, 155, .17);
+  --pro-border-strong: rgba(198, 215, 160, .31);
+  --pro-accent: #c0d08f;
+  --pro-accent-soft: #9eaf79;
+  --pro-text: #e3e8d9;
+  --pro-muted: #9ca990;
+  --pro-dim: #76816e;
+  --pro-shadow: 0 18px 55px rgba(0, 0, 0, .32);
+  --pro-shadow-hover: 0 24px 70px rgba(0, 0, 0, .43);
+  --pro-radius: 2px;
+}
+
+html { background: var(--pro-bg); }
+body {
+  background:
+    radial-gradient(circle at 52% 8%, rgba(112, 129, 82, .08), transparent 34rem),
+    linear-gradient(180deg, #0e130f 0%, #090d0a 72%, #080b09 100%) !important;
+  color: var(--pro-text);
+}
+
+.site-shell { opacity: .58; }
+.tactical-grid { opacity: .45 !important; }
+.radar-field { opacity: .16 !important; filter: saturate(.55); }
+.scanlines { opacity: .10 !important; }
+.vignette { opacity: .38 !important; }
+
+.page-ui { position: relative; z-index: 1; }
+
+/* ---------- Navigation / command header ---------- */
+.command-panel {
+  background: rgba(15, 20, 16, .94) !important;
+  border-color: var(--pro-border-strong) !important;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, .25) !important;
+  backdrop-filter: blur(14px);
+}
+
+.page-identity {
+  background: linear-gradient(180deg, rgba(31, 39, 31, .94), rgba(19, 25, 20, .94)) !important;
+  border-color: var(--pro-border) !important;
+}
+
+.page-icon,
+.page-identity h1 { color: var(--pro-text) !important; }
+
+.nav-tile {
+  color: var(--pro-muted) !important;
+  background: rgba(18, 24, 19, .78) !important;
+  border-color: rgba(190, 205, 155, .11) !important;
+  transition: background .22s ease, border-color .22s ease, color .22s ease, transform .22s ease !important;
+}
+.nav-tile:hover {
+  color: var(--pro-text) !important;
+  background: #202820 !important;
+  border-color: var(--pro-border-strong) !important;
+  transform: translateY(-1px);
+}
+.nav-tile.is-active {
+  color: #eef2e6 !important;
+  background: linear-gradient(180deg, #2a3428, #20281f) !important;
+  border-color: rgba(202, 220, 159, .45) !important;
+  box-shadow: inset 0 -2px 0 rgba(192, 208, 143, .36) !important;
+}
+.nav-icon { color: var(--pro-accent) !important; }
+
+/* ---------- Shared premium surfaces ---------- */
+.home-hero,
+.content-card,
+.section-visual,
+.statement-card,
+.archive-panel,
+.projects-hero,
+.research-hero,
+.project-toolbar,
+.research-toolbar,
+.contact-hero,
+.contact-link-card,
+.contact-section-heading,
+.contact-profile-card,
+.contact-panel,
+.project-card,
+.research-card {
+  border-color: var(--pro-border) !important;
+}
+
+.content-card,
+.statement-card,
+.archive-panel,
+.project-card,
+.research-card,
+.contact-link-card,
+.contact-profile-card,
+.contact-panel {
+  background: linear-gradient(145deg, rgba(29, 36, 30, .98), rgba(18, 23, 19, .98)) !important;
+  box-shadow: var(--pro-shadow) !important;
+}
+
+.home-hero,
+.projects-hero,
+.research-hero,
+.contact-hero {
+  background: linear-gradient(135deg, rgba(25, 32, 26, .97), rgba(13, 18, 14, .98)) !important;
+  box-shadow: var(--pro-shadow) !important;
+}
+
+h1, h2, h3, strong { color: var(--pro-text); }
+p { color: var(--pro-muted); }
+
+.hero-kicker,
+.projects-kicker,
+.research-kicker,
+.contact-kicker,
+.section-index,
+.section-heading span,
+.toolbar-label,
+.research-toolbar-label,
+.project-card-meta,
+.research-card-meta,
+.research-card-type {
+  color: var(--pro-accent-soft) !important;
+}
+
+/* ---------- Real evidence images: common treatment ---------- */
+.hero-visual,
+.section-visual,
+.projects-hero-visual,
+.research-hero-visual,
+.contact-hero-visual,
+.project-card-visual,
+.research-card > a > figure {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #0c110d !important;
+}
+
+.hero-visual::before,
+.section-visual::before,
+.projects-hero-visual::before,
+.research-hero-visual::before,
+.contact-hero-visual::before,
+.project-card-visual::before,
+.research-card > a > figure::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(.46) sepia(.08) hue-rotate(12deg) contrast(1.08) brightness(.77);
+  transform: scale(1.012);
+}
+
+.hero-visual::after,
+.section-visual::after,
+.projects-hero-visual::after,
+.research-hero-visual::after,
+.contact-hero-visual::after,
+.project-card-visual::after,
+.research-card > a > figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(8, 12, 9, .02) 35%, rgba(8, 12, 9, .66) 100%),
+    linear-gradient(90deg, rgba(126, 145, 92, .09), transparent 42%, rgba(0, 0, 0, .08));
+  box-shadow: inset 0 0 0 1px rgba(205, 219, 170, .12);
+}
+
+/* Hide the old illustrative SVG/image language, while keeping it in the DOM as fallback. */
+.hero-visual > img,
+.section-visual > img,
+.projects-hero-visual > svg,
+.research-hero-visual > svg,
+.contact-network,
+.project-card-visual > svg,
+.research-card > a > figure > svg {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Home — real outputs from the engineering archive */
+.hero-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/17_fullwave_element_geometry.png");
+  background-position: center;
+}
+.about-layout .section-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/06_near_field_focus.png");
+}
+.vision-section .section-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/19_fullwave_element_pattern.png");
+}
+
+.hero-visual::after { content: "FULL-WAVE / ENGINEERING EVIDENCE"; }
+.section-visual::after { content: "TECHNICAL ARCHIVE"; }
+.hero-visual::after,
+.section-visual::after {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  color: rgba(224, 232, 207, .76);
+  font: 600 9px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .14em;
+}
+
+/* ---------- Home ---------- */
+.home-content { gap: 26px !important; }
+.home-hero { border: 1px solid var(--pro-border-strong) !important; }
+.hero-copy { padding-right: clamp(4px, 2vw, 34px); }
+.hero-title { color: #edf1e8 !important; letter-spacing: -.035em !important; }
+.hero-role { color: #b8c4aa !important; }
+.hero-tags span {
+  background: #20271f !important;
+  border-color: var(--pro-border) !important;
+  color: #bdcba8 !important;
+}
+.content-card,
+.statement-card,
+.archive-panel { border: 1px solid var(--pro-border) !important; }
+.content-card:hover,
+.statement-card:hover {
+  border-color: var(--pro-border-strong) !important;
+  box-shadow: var(--pro-shadow-hover) !important;
+}
+.contact-cta {
+  background: #293326 !important;
+  border-color: rgba(199, 218, 155, .34) !important;
+  color: #edf2e4 !important;
+}
+.contact-cta:hover { background: #33402f !important; }
+
+/* ---------- Projects index ---------- */
+.projects-hero-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/19_fullwave_element_pattern.png");
+  background-position: center;
+}
+.projects-hero-visual::after,
+.research-hero-visual::after {
+  content: "SELECTED TECHNICAL EVIDENCE";
+  display: flex;
+  align-items: flex-end;
+  padding: 18px 20px;
+  box-sizing: border-box;
+  color: rgba(225, 232, 209, .78);
+  font: 600 9px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .15em;
+}
+
+.projects-hero-copy h2,
+.research-hero-copy h2,
+.contact-hero-copy h2 { color: #eef2e7 !important; }
+.projects-lead,
+.research-lead,
+.contact-lead { color: #a9b49e !important; }
+
+.projects-hero-stats span,
+.research-hero-stats span {
+  background: #151b16 !important;
+  border-color: var(--pro-border) !important;
+}
+.projects-hero-stats strong,
+.research-hero-stats strong { color: var(--pro-accent) !important; }
+.projects-hero-stats small,
+.research-hero-stats small { color: var(--pro-muted) !important; }
+
+.project-toolbar,
+.research-toolbar {
+  background: rgba(17, 23, 18, .96) !important;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, .22) !important;
+}
+.project-filters button,
+.research-filters button {
+  background: #141a15 !important;
+  color: #89967f !important;
+  border-color: rgba(191, 206, 154, .12) !important;
+}
+.project-filters button:hover,
+.research-filters button:hover {
+  color: #dce3cf !important;
+  background: #202820 !important;
+  border-color: rgba(194, 211, 153, .26) !important;
+}
+.project-filters button.is-active,
+.research-filters button.is-active {
+  color: #f0f3e9 !important;
+  background: #2a3527 !important;
+  border-color: rgba(201, 220, 157, .43) !important;
+}
+
+.project-grid,
+.research-grid { gap: 18px !important; }
+
+.project-card,
+.research-card {
+  border: 1px solid var(--pro-border) !important;
+  background: #171d18 !important;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .29) !important;
+  transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease !important;
+}
+.project-card:hover,
+.research-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(203, 220, 163, .37) !important;
+  box-shadow: var(--pro-shadow-hover) !important;
+}
+.project-card-link,
+.research-card-link { background: transparent !important; }
+.project-card-body,
+.research-card-body {
+  background: linear-gradient(180deg, #1a211b 0%, #141a15 100%) !important;
+  border-top: 1px solid rgba(196, 211, 158, .14) !important;
+}
+.project-card h3,
+.research-card h3 { color: #e3e8d8 !important; }
+.project-card-subtitle,
+.research-card-subtitle { color: #b0bd9f !important; }
+.project-card-summary,
+.research-card-summary { color: #929e88 !important; }
+.project-card-footer,
+.research-card-footer { border-color: rgba(191, 206, 154, .12) !important; }
+.card-open,
+.research-card-footer b { color: var(--pro-accent) !important; }
+
+.project-card-visual,
+.research-card > a > figure {
+  min-height: 210px;
+  background: #0b100c !important;
+}
+
+/* Project visual mapping — real source archives or real engineering photography. */
+.project-grid .project-card:nth-child(1) .project-card-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/06_near_field_focus.png");
+}
+.project-grid .project-card:nth-child(2) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/GENESIS-DSP");
+}
+.project-grid .project-card:nth-child(3) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/Microwave-Signal-Loss-Prediction");
+}
+.project-grid .project-card:nth-child(4) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/Dielectric-resonator-sensor-with-CSRR");
+}
+.project-grid .project-card:nth-child(5) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/GPS-Receiver");
+}
+.project-grid .project-card:nth-child(6) .project-card-visual::before {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=82");
+}
+.project-grid .project-card:nth-child(7) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/100W-PA-SYSTEM");
+}
+.project-grid .project-card:nth-child(8) .project-card-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/03_multipath_scene.png");
+}
+.project-grid .project-card:nth-child(9) .project-card-visual::before {
+  background-image: url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=82");
+}
+.project-grid .project-card:nth-child(10) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/wideband-lpda-antenna");
+}
+.project-grid .project-card:nth-child(11) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/MORPHEUS");
+}
+.project-grid .project-card:nth-child(12) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/RF-AI-SYNTHESIZER");
+}
+.project-grid .project-card:nth-child(13) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/RFShield-LPF");
+}
+.project-grid .project-card:nth-child(14) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/Spectra-STM32");
+}
+.project-grid .project-card:nth-child(15) .project-card-visual::before {
+  background-image: url("https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=82");
+}
+.project-grid .project-card:nth-child(16) .project-card-visual::before {
+  background-image: url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=82");
+}
+.project-grid .project-card:nth-child(17) .project-card-visual::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/wideband-vivaldi-antenna-balun");
+}
+
+/* ---------- Research index ---------- */
+.research-hero-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/07_far_field_pattern.png");
+}
+.research-card > a > figure { min-height: 220px; }
+.research-card-tags span {
+  background: #202720 !important;
+  border-color: rgba(191, 206, 154, .15) !important;
+  color: #aebc9d !important;
+}
+.research-grid .research-card:nth-child(1) > a > figure::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/Dielectric-resonator-sensor-with-CSRR");
+}
+.research-grid .research-card:nth-child(2) > a > figure::before {
+  background-image: url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=82");
+}
+.research-grid .research-card:nth-child(3) > a > figure::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/03_multipath_scene.png");
+}
+.research-grid .research-card:nth-child(4) > a > figure::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/06_near_field_focus.png");
+}
+.research-grid .research-card:nth-child(5) > a > figure::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/wideband-lpda-antenna");
+}
+.research-grid .research-card:nth-child(6) > a > figure::before {
+  background-image: url("https://opengraph.githubassets.com/1/csondurr/wideband-vivaldi-antenna-balun");
+}
+
+/* ---------- Contact ---------- */
+.contact-hero-visual {
+  min-height: 560px;
+  background: #0b100c !important;
+  border: 1px solid var(--pro-border) !important;
+}
+.contact-hero-visual::before {
+  background-image: url("https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/17_fullwave_element_geometry.png");
+  background-position: center;
+  opacity: .62;
+}
+.contact-hero-visual::after {
+  background: linear-gradient(180deg, rgba(9, 13, 10, .22), rgba(9, 13, 10, .88)) !important;
+}
+.contact-profile-card {
+  position: absolute !important;
+  z-index: 3 !important;
+  left: clamp(18px, 4vw, 46px) !important;
+  right: clamp(18px, 4vw, 46px) !important;
+  bottom: clamp(18px, 4vw, 42px) !important;
+  background: rgba(18, 24, 19, .92) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(201, 218, 161, .28) !important;
+}
+.profile-image-frame {
+  border-color: rgba(201, 219, 158, .26) !important;
+  background: #0e130f !important;
+}
+.profile-image-frame img { filter: saturate(.80) contrast(1.03) !important; }
+.availability-line,
+.contact-hero-actions,
+.contact-link-grid { border-color: var(--pro-border) !important; }
+.contact-button,
+.contact-link-card {
+  background: #171e18 !important;
+  border-color: var(--pro-border) !important;
+}
+.contact-button--primary {
+  background: #2b3528 !important;
+  border-color: rgba(204, 221, 163, .38) !important;
+}
+.contact-button:hover,
+.contact-link-card:hover {
+  background: #222b22 !important;
+  border-color: rgba(204, 221, 163, .35) !important;
+  box-shadow: var(--pro-shadow-hover) !important;
+}
+.contact-link-copy strong { color: #e2e8d7 !important; }
+.contact-link-copy em,
+.contact-link-copy small { color: #929f87 !important; }
+
+/* ---------- Typography refinement ---------- */
+.hero-title,
+.projects-hero-copy h2,
+.research-hero-copy h2,
+.contact-hero-copy h2 {
+  text-wrap: balance;
+}
+.project-card h3,
+.research-card h3 { text-wrap: balance; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .project-card-visual,
+  .research-card > a > figure { min-height: 190px; }
+  .contact-hero-visual { min-height: 500px; }
+}
+
+@media (max-width: 720px) {
+  .command-panel { backdrop-filter: blur(9px); }
+  .project-grid,
+  .research-grid { gap: 14px !important; }
+  .project-card-visual,
+  .research-card > a > figure { min-height: 180px; }
+  .hero-visual::after,
+  .section-visual::after,
+  .projects-hero-visual::after,
+  .research-hero-visual::after { padding: 12px 13px; font-size: 8px; }
+  .contact-hero-visual { min-height: 450px; }
+  .contact-profile-card { left: 12px !important; right: 12px !important; bottom: 12px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .research-card,
+  .nav-tile { transition: none !important; }
+  .project-card:hover,
+  .research-card:hover,
+  .nav-tile:hover { transform: none !important; }
+}
