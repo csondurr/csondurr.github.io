@@ -1,0 +1,66 @@
+.project-detail-page .advanced-math-block {
+  margin-top: 1.1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(176, 197, 130, 0.18);
+}
+
+.project-detail-page .advanced-math-heading {
+  display: flex;
+  margin-bottom: 0.9rem;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-detail-page .advanced-math-heading h3 {
+  margin: 0;
+  color: #c4d09a;
+  font: 700 clamp(0.78rem, 1.25vw, 0.94rem)/1.4 Consolas, "Courier New", monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.project-detail-page .advanced-math-heading p {
+  max-width: 62ch;
+  margin: 0;
+  color: #81905f;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.project-detail-page .theory-card--advanced {
+  background:
+    linear-gradient(145deg, rgba(65, 80, 44, 0.34), rgba(8, 13, 7, 0.76));
+  border-color: rgba(180, 202, 132, 0.25);
+}
+
+.project-detail-page .theory-card--advanced header > span {
+  color: #cad89f;
+  border-color: rgba(199, 218, 151, 0.38);
+}
+
+.project-detail-page .advanced-theory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.project-detail-page .advanced-theory-grid .math-display--theory {
+  min-height: 5.8rem;
+}
+
+@media (max-width: 760px) {
+  .project-detail-page .advanced-theory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-page .advanced-math-heading {
+    display: block;
+  }
+
+  .project-detail-page .advanced-math-heading p {
+    margin-top: 0.45rem;
+    text-align: left;
+  }
+}
