@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#2f3925">
-  <meta name="description" content="Cem Sondur — Electrical and Electronics Engineer specializing in RF, microwave, antenna systems, signal processing, SDR, and advanced wireless technologies.">
+  <meta name="theme-color" content="#0d120e">
+  <meta name="description" content="Cem Sondur — Electrical and Electronics Engineer focused on RF, microwave engineering, antennas, signal processing, SDR/FPGA systems, and advanced wireless technologies.">
   <title>Cem Sondur | RF &amp; Microwave Engineer</title>
   <link rel="stylesheet" href="/assets/css/base.css?v=20260825-8">
   <link rel="stylesheet" href="/assets/css/professional-overrides.css?v=20260826-1">
+  <link rel="stylesheet" href="/assets/css/home-refined.css?v=20260826-1">
 </head>
-<body>
+<body class="home-page">
   <div class="site-shell" aria-hidden="true">
     <div class="tactical-grid"></div>
     <div class="radar-field">
@@ -25,6 +26,44 @@
     <div class="scanlines"></div>
     <div class="vignette"></div>
   </div>
+
+  <div class="home-ambient home-ambient--left" aria-hidden="true">
+    <svg viewBox="0 0 220 760" preserveAspectRatio="xMidYMid meet">
+      <g transform="translate(104 178)">
+        <circle class="ambient-ring ambient-dim" r="74"/>
+        <circle class="ambient-ring" r="49"/>
+        <circle class="ambient-ring ambient-dim" r="24"/>
+        <path class="ambient-line ambient-dim" d="M-88 0H88M0-88V88"/>
+        <g class="ambient-sweep"><path class="ambient-fill" d="M0 0L0-76A76 76 0 0 1 65-39Z"/><path class="ambient-line" d="M0 0L0-76"/></g>
+        <circle class="ambient-fill ambient-pulse" cx="39" cy="-23" r="4"/>
+      </g>
+      <path class="ambient-wave" d="M18 394C42 356 66 430 91 394s49-37 74 0 37 30 49 0"/>
+      <path class="ambient-line ambient-dim" d="M18 446H199M18 474H151M18 502H181"/>
+      <path class="ambient-line ambient-dim" d="M18 579Q104 526 198 579M38 613Q106 571 177 613"/>
+    </svg>
+  </div>
+
+  <div class="home-ambient home-ambient--right" aria-hidden="true">
+    <svg viewBox="0 0 220 760" preserveAspectRatio="xMidYMid meet">
+      <g transform="translate(116 176)">
+        <circle class="ambient-ring ambient-dim" r="71"/>
+        <circle class="ambient-ring" r="43"/>
+        <path class="ambient-line ambient-dim" d="M-84 0H84M0-84V84"/>
+        <path class="ambient-line" d="M-45 38L-14 7l19 15 33-42 42 27"/>
+        <circle class="ambient-fill ambient-pulse" cx="18" cy="-20" r="4"/>
+      </g>
+      <g class="ambient-bars" transform="translate(28 408)">
+        <rect x="0" y="72" width="17" height="38"/>
+        <rect x="30" y="50" width="17" height="60"/>
+        <rect x="60" y="18" width="17" height="92"/>
+        <rect x="90" y="42" width="17" height="68"/>
+        <rect x="120" y="62" width="17" height="48"/>
+      </g>
+      <path class="ambient-wave" d="M24 593h19l12-26 16 48 20-78 16 56 18-24 18 24h53"/>
+      <path class="ambient-line ambient-dim" d="M24 650H198M48 678H198"/>
+    </svg>
+  </div>
+
   <main class="page-ui">
     <section class="command-panel" aria-labelledby="page-title">
       <header class="page-identity">
@@ -33,37 +72,45 @@
       </header>
       <nav class="command-nav" aria-label="Main navigation">
         <a class="nav-tile is-active" href="/" aria-current="page">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-5.5h5V20"/></svg></span>
+          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-5.5h5V20"/></svg></span>
           <span class="nav-label">Home</span>
         </a>
         <a class="nav-tile" href="/projects/">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span>
+          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></span>
           <span class="nav-label">Projects</span>
         </a>
         <a class="nav-tile" href="/thesis-researches/">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 4.5h6.2A3.8 3.8 0 0 1 14 8.3V20a3.8 3.8 0 0 0-3.8-3.8H4z"/><path d="M20 4.5h-2.2A3.8 3.8 0 0 0 14 8.3V20a3.8 3.8 0 0 1 3.8-3.8H20z"/><path d="M7 8h3M7 11h3M17 8h-1"/></svg></span>
+          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4.5h6.2A3.8 3.8 0 0 1 14 8.3V20a3.8 3.8 0 0 0-3.8-3.8H4z"/><path d="M20 4.5h-2.2A3.8 3.8 0 0 0 14 8.3V20a3.8 3.8 0 0 1 3.8-3.8H20z"/><path d="M7 8h3M7 11h3M17 8h-1"/></svg></span>
           <span class="nav-label">Thesis and Researches</span>
         </a>
         <a class="nav-tile" href="/contact/">
-          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 14v8M8.5 22h7"/><circle cx="12" cy="11" r="1.5"/><path d="M8.5 14.5a5 5 0 0 1 0-7M15.5 7.5a5 5 0 0 1 0 7"/><path d="M5.5 17.5a9.2 9.2 0 0 1 0-13M18.5 4.5a9.2 9.2 0 0 1 0 13"/></svg></span>
+          <span class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 14v8M8.5 22h7"/><circle cx="12" cy="11" r="1.5"/><path d="M8.5 14.5a5 5 0 0 1 0-7M15.5 7.5a5 5 0 0 1 0 7"/><path d="M5.5 17.5a9.2 9.2 0 0 1 0-13M18.5 4.5a9.2 9.2 0 0 1 0 13"/></svg></span>
           <span class="nav-label">Contact</span>
         </a>
       </nav>
     </section>
+
     <div class="home-content">
       <section class="home-hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="hero-kicker">RF / MICROWAVE / SIGNAL PROCESSING</p>
+          <p class="hero-kicker">RF / Microwave / Signal Processing</p>
           <h2 class="hero-title" id="hero-title">Cem Sondur</h2>
           <p class="hero-role">Electrical &amp; Electronics Engineer</p>
+          <p class="hero-summary">Engineering work centered on electromagnetics, RF and microwave systems, antenna design, signal processing, SDR/FPGA architectures, and technically defensible wireless research.</p>
           <div class="hero-tags" aria-label="Engineering focus areas">
+            <span>RF &amp; Microwave</span>
             <span>Antennas</span>
+            <span>Signal Processing</span>
             <span>SDR &amp; FPGA</span>
-            <span>Advanced Wireless</span>
+          </div>
+          <div class="hero-actions">
+            <a class="hero-action hero-action--primary" href="/projects/">View engineering work</a>
+            <a class="hero-action" href="/thesis-researches/">Research archive</a>
           </div>
         </div>
         <figure class="hero-visual">
-          <img src="/assets/images/rf-command.svg?v=20260825-2" alt="Full-wave RF engineering evidence from the project archive">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_maritime_antenna_is_tested_with_compact_range_equipment_in_the_specialized_antenna_anechoic_chamber_at_the_new_Surface_Sensors_and_Combat_Systems_Facility_at_Naval_Surface_Warfare.jpg?width=1800" alt="Maritime antenna under test inside a specialized RF anechoic chamber" fetchpriority="high">
+          <figcaption class="visual-caption"><span>RF Test Environment</span><small>Antenna measurement / anechoic validation</small></figcaption>
         </figure>
       </section>
 
@@ -71,12 +118,18 @@
         <article class="content-card">
           <div class="section-heading">
             <span class="section-index" aria-hidden="true">01</span>
-            <h2 id="about-title">About Me</h2>
+            <h2 id="about-title">Engineering Profile</h2>
           </div>
-          <p>I am an Electrical and Electronics Engineer focused on RF and microwave systems, antenna engineering, digital signal processing, SDR/FPGA architectures, and advanced wireless technologies. I combine electromagnetic theory, simulation, prototyping, and validation to develop research-driven solutions for communication, sensing, and electronic-warfare applications.</p>
+          <p>I focus on RF and microwave systems, antenna engineering, digital signal processing, SDR/FPGA architectures, and advanced wireless technologies. My working method connects electromagnetic theory with simulation, implementation, measurement, validation, and clear technical documentation so that design claims remain traceable to engineering evidence.</p>
+          <div class="capability-grid" aria-label="Core engineering capabilities">
+            <div><strong>Electromagnetics</strong><span>Field theory, antennas, propagation, full-wave simulation</span></div>
+            <div><strong>RF Systems</strong><span>Microwave networks, matching, sensing, measurement workflows</span></div>
+            <div><strong>Signal Systems</strong><span>DSP, SDR, embedded processing, algorithm verification</span></div>
+          </div>
         </article>
         <figure class="section-visual">
-          <img src="/assets/images/signal-spectrum.svg" alt="Near-field engineering result from the technical archive" loading="lazy">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SPS-67_screen.jpg?width=1600" alt="AN/SPS-67 radar display in operation" loading="lazy">
+          <figcaption class="visual-caption"><span>Operational RF Display</span><small>Radar sensing / signal interpretation</small></figcaption>
         </figure>
       </section>
 
@@ -93,12 +146,9 @@
             </article>
             <article class="statement-card">
               <h3>Mission</h3>
-              <p>To turn complex electromagnetic and signal problems into validated, reproducible solutions through disciplined analysis, simulation, implementation, and clear technical documentation.</p>
+              <p>To turn complex electromagnetic and signal problems into validated, reproducible solutions through disciplined analysis, simulation, implementation, measurement, and technical documentation.</p>
             </article>
           </div>
-          <figure class="section-visual section-visual--antenna">
-            <img src="/assets/images/antenna-field.svg" alt="Full-wave antenna pattern evidence from the technical archive" loading="lazy">
-          </figure>
         </div>
       </section>
 
@@ -108,19 +158,15 @@
             <span class="section-index" aria-hidden="true">03</span>
             <h2 id="archive-title">Engineering Archive</h2>
           </div>
-          <p>This website is a growing archive for my engineering projects, theses, research reports, and technical training series. Its scope will continue to expand as new work is completed. For project proposals, research collaborations, or engineering inquiries, feel free to contact me.</p>
+          <p>This website documents selected engineering projects, theses, research reports, and technical development work. Project pages are structured around engineering scope, architecture, methods, evidence, limitations, and reproducibility rather than presentation alone.</p>
         </div>
         <a class="contact-cta" href="/contact/">
           <span>Contact</span>
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M5 12h13M13 6l6 6-6 6"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
       </section>
 
-      <div class="home-endmark" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </div>
+      <div class="home-endmark" aria-hidden="true"><span></span><span></span><span></span></div>
     </div>
   </main>
 </body>
