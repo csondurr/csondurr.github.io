@@ -3,7 +3,7 @@
 
   if (!document.body.classList.contains("project-detail-page")) return;
 
-  const VERSION = "20260826-1";
+  const VERSION = "20260826-2";
   const KATEX_VERSION = "0.16.11";
 
   function addStylesheet(href, id) {
@@ -93,6 +93,63 @@
     dl.appendChild(row);
   }
 
+  function noteRow(label, text) {
+    const row = document.createElement("div");
+    const dt = document.createElement("dt");
+    const dd = document.createElement("dd");
+    dt.textContent = label;
+    dd.textContent = text;
+    row.append(dt, dd);
+    return row;
+  }
+
+  function advancedCard(item, index) {
+    const card = document.createElement("article");
+    card.className = "theory-card theory-card--advanced";
+
+    const header = document.createElement("header");
+    const badge = document.createElement("span");
+    const title = document.createElement("h3");
+    badge.textContent = `A${String(index + 1).padStart(2, "0")}`;
+    title.textContent = item.title;
+    header.append(badge, title);
+
+    const equation = makeMathBlock(item.latex, "math-display math-display--theory");
+    const notes = document.createElement("dl");
+    notes.className = "theory-notes";
+    notes.append(
+      noteRow("Variables / conditions", item.variables),
+      noteRow("Derived meaning", item.meaning),
+      noteRow("Verification gate", item.verification)
+    );
+
+    card.append(header, equation, notes);
+    return card;
+  }
+
+  function appendAdvancedDepth(mathSection, theoryGrid, slug) {
+    const depthItems = window.PROJECT_MATH_DEPTH && window.PROJECT_MATH_DEPTH[slug];
+    if (!Array.isArray(depthItems) || !depthItems.length || mathSection.querySelector(".advanced-math-block")) return;
+
+    const block = document.createElement("div");
+    block.className = "advanced-math-block";
+
+    const heading = document.createElement("div");
+    heading.className = "advanced-math-heading";
+    const title = document.createElement("h3");
+    title.textContent = "Derived Relationships & Engineering Sensitivity";
+    const intro = document.createElement("p");
+    intro.textContent = "Additional derivations expose sensitivity, identifiability, uncertainty, physical limits, or implementation loss beyond the primary governing equations.";
+    heading.append(title, intro);
+
+    const grid = document.createElement("div");
+    grid.className = "advanced-theory-grid";
+    depthItems.forEach((item, index) => grid.appendChild(advancedCard(item, index)));
+
+    block.append(heading, grid);
+    theoryGrid.insertAdjacentElement("afterend", block);
+  }
+
   function enhanceProjectMath() {
     const slug = document.body.dataset.project;
     const mathRecord = window.PROJECT_MATH && window.PROJECT_MATH[slug];
@@ -113,6 +170,11 @@
     const theoryGrid = mathSection && mathSection.querySelector(".theory-grid");
     if (!mathSection || !theoryGrid) return;
 
+    const sectionIntro = mathSection.querySelector(".section-intro");
+    if (sectionIntro) {
+      sectionIntro.textContent = "This section states the governing mathematical model, defines every important variable, explains the physical interpretation, and ties each relationship to an explicit validity domain and verification gate. Equations are evidence only when their observables close against independent simulation, holdout data, or calibrated measurement.";
+    }
+
     if (!mathSection.querySelector(".math-context-grid")) {
       const context = document.createElement("div");
       context.className = "math-context-grid";
@@ -126,8 +188,7 @@
         contextCard("Verification protocol", verificationItems)
       );
 
-      const intro = mathSection.querySelector(".section-intro");
-      if (intro && intro.nextSibling) intro.parentNode.insertBefore(context, intro.nextSibling);
+      if (sectionIntro && sectionIntro.nextSibling) sectionIntro.parentNode.insertBefore(context, sectionIntro.nextSibling);
       else theoryGrid.parentNode.insertBefore(context, theoryGrid);
     }
 
@@ -157,24 +218,34 @@
       }
     });
 
+    appendAdvancedDepth(mathSection, theoryGrid, slug);
+
     const rigor = document.createElement("aside");
     rigor.className = "math-rigor-panel";
-    rigor.innerHTML = "<strong>MATHEMATICAL EVIDENCE DISCIPLINE</strong><span>Units and reference planes · limiting-case checks · conditioning and uncertainty · holdout or measurement closure</span>";
-    if (!mathSection.querySelector(".math-rigor-panel")) theoryGrid.insertAdjacentElement("afterend", rigor);
+    rigor.innerHTML = "<strong>MATHEMATICAL EVIDENCE DISCIPLINE</strong><span>Units and reference planes · limiting-case checks · sensitivity and conditioning · uncertainty · independent holdout or calibrated measurement closure</span>";
+    if (!mathSection.querySelector(".math-rigor-panel")) {
+      const advanced = mathSection.querySelector(".advanced-math-block");
+      (advanced || theoryGrid).insertAdjacentElement("afterend", rigor);
+    }
 
     mathSection.classList.add("math-foundation--enhanced");
   }
 
   addStylesheet(`/assets/css/projects-math.css?v=${VERSION}`, "projects-math-css");
+  addStylesheet(`/assets/css/projects-math-depth.css?v=${VERSION}`, "projects-math-depth-css");
   addStylesheet(`https://cdn.jsdelivr.net/npm/katex@${KATEX_VERSION}/dist/katex.min.css`, "katex-css");
 
   const dataPromise = window.PROJECT_MATH
     ? Promise.resolve()
     : loadScript(`/assets/js/projects-math.js?v=${VERSION}`, "projects-math-data");
 
+  const depthPromise = window.PROJECT_MATH_DEPTH
+    ? Promise.resolve()
+    : loadScript(`/assets/js/projects-math-depth.js?v=${VERSION}`, "projects-math-depth-data");
+
   const katexPromise = window.katex
     ? Promise.resolve()
     : loadScript(`https://cdn.jsdelivr.net/npm/katex@${KATEX_VERSION}/dist/katex.min.js`, "katex-js");
 
-  Promise.allSettled([dataPromise, katexPromise]).then(enhanceProjectMath);
+  Promise.allSettled([dataPromise, depthPromise, katexPromise]).then(enhanceProjectMath);
 })();
