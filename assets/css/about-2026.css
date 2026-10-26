@@ -15,7 +15,7 @@ body.about-page {
 body.about-page .page-ui {
   display:block!important;
   width:100%!important;
-  max-width:1600px!important;
+  max-width:none!important;
   margin:0 auto!important;
   padding:clamp(12px,1.45vw,22px) clamp(12px,2vw,32px) 52px!important;
 }
@@ -25,7 +25,8 @@ body.about-page .command-panel {
   justify-content:space-between!important;
   gap:10px 18px!important;
   flex-wrap:wrap!important;
-  width:min(1460px,100%)!important;
+  width:100%!important;
+  max-width:none!important;
   min-height:62px!important;
   margin:0 auto clamp(16px,1.8vw,25px)!important;
   padding:9px clamp(15px,1.5vw,24px)!important;
@@ -73,7 +74,7 @@ body.about-page .nav-label {
   letter-spacing:0!important;
 }
 body.about-page .about-content {
-  width:min(1460px,100%);margin:0 auto;
+  width:100%;max-width:none;margin:0 auto;
   display:flex;flex-direction:column;gap:17px;
 }
 body.about-page .about-content :is(h1,h2,h3) {
