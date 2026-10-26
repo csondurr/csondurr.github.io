@@ -552,3 +552,104 @@ body.contact-page .brief-actions p { color: var(--qd-muted) !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+
+/* 2026-10-26 — contrast audit / explicit component-level foregrounds.
+   Legacy selectors use high specificity and !important, so defaults on h3/p
+   were insufficient. Keep all content and application behavior unchanged. */
+body.home-page, body.projects-page, body.project-detail-page,
+body.research-page, body.research-detail-page, body.contact-page {
+  --home-text: #17262e; --home-muted: #344a55; --home-accent: #245b71;
+  --home-panel: #ffffff; --home-panel-2: #ffffff; --home-bg: #f6f8f8;
+  --showcase-copy: #344a55; --showcase-muted: #61747d; --showcase-accent: #245b71;
+}
+body.home-page :is(.home-hero,.content-card,.statement-card,.archive-panel,.vision-section,
+.about-layout,.home-section,.hero-copy,.vision-layout,.vision-cards,.archive-copy),
+body.projects-page :is(.projects-hero,.projects-hero-copy,.project-toolbar,.project-card,.project-card-body),
+body.research-page :is(.research-hero,.research-hero-copy,.research-toolbar,.research-card,.research-card-body),
+body.contact-page :is(.contact-hero,.contact-hero-copy,.contact-directory,.collaboration-method,
+.collaboration-scope,.contact-brief,.contact-link-card),
+body.project-detail-page :is(.project-hero,.project-hero-copy,.project-section,.technical-prose,.related-section),
+body.research-detail-page :is(.research-detail-hero,.research-detail-copy,.research-section,.research-toc,.research-model) {
+  color: #17262e !important;
+  text-shadow: none !important;
+}
+body.home-page :is(.home-hero,.hero-copy,.content-card,.statement-card,.archive-panel,.vision-section,
+.about-layout,.vision-layout,.vision-cards,.archive-copy),
+body.projects-page :is(.projects-hero,.projects-hero-copy,.project-card-body),
+body.research-page :is(.research-hero,.research-hero-copy,.research-card-body),
+body.contact-page :is(.contact-hero,.contact-hero-copy) {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+body.home-page :is(.hero-title,.hero-role,.hero-summary,.hero-kicker,.content-card h2,.content-card p,
+.content-card strong,.content-card span,.statement-card h3,.statement-card p,
+.archive-panel h2,.archive-panel p,.section-heading h2),
+body.projects-page :is(.projects-hero h2,.projects-lead,.projects-kicker,.project-card h3,
+.project-card-subtitle,.project-card-summary,.project-card-body h3),
+body.project-detail-page :is(.project-hero h2,.project-lead,.project-subtitle,.project-section h2,
+.project-section h3,.project-section p,.project-section li),
+body.research-page :is(.research-hero h2,.research-lead,.research-kicker,.research-card h3,
+.research-card-body h3,.research-card-subtitle,.research-card-summary),
+body.research-detail-page :is(.research-detail-hero h2,.research-detail-subtitle,.research-detail-full-title,
+.research-section h2,.research-section h3,.research-section p,.research-prose p),
+body.contact-page :is(.contact-hero h2,.contact-lead,.contact-section-heading h2,.contact-link-copy strong,
+.contact-link-copy em,.method-chain h3,.method-chain p) {
+  color: #17262e !important;
+  -webkit-text-fill-color: #17262e !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.home-page :is(.hero-role,.hero-summary,.content-card p,.content-card span,.statement-card p,.archive-panel p),
+body.projects-page :is(.projects-lead,.project-card-subtitle,.project-card-summary),
+body.project-detail-page :is(.project-lead,.project-subtitle,.project-section p,.project-section li),
+body.research-page :is(.research-lead,.research-card-subtitle,.research-card-summary),
+body.research-detail-page :is(.research-detail-subtitle,.research-prose p,.research-section p),
+body.contact-page :is(.contact-lead,.contact-link-copy em,.method-chain p) {
+  color: #344a55 !important;
+  -webkit-text-fill-color: #344a55 !important;
+}
+body.research-page .research-card .research-card-body h3,
+body.research-page .research-card h3,
+body.projects-page .project-card h3,
+body.research-detail-page .research-detail-hero .research-detail-full-title {
+  color: #17262e !important;
+  -webkit-text-fill-color: #17262e !important;
+  background: transparent !important;
+}
+body.research-page :is(.research-card-type,.research-card-meta,.research-card-meta span,
+.research-card-footer,.research-card-footer b),
+body.projects-page :is(.project-card-meta,.project-card-meta span,.card-open),
+body.home-page :is(.hero-kicker,.section-index),
+body.research-detail-page :is(.research-kicker,.research-status,.research-section-label > span) {
+  color: #245b71 !important;
+  -webkit-text-fill-color: #245b71 !important;
+}
+body.research-page .research-card-body,
+body.research-page .research-card-link,
+body.projects-page .project-card-body,
+body.projects-page .project-card-link {
+  background: #ffffff !important;
+  opacity: 1 !important;
+}
+body.research-page .research-card-link, body.projects-page .project-card-link,
+body.contact-page .contact-link-card { text-decoration: none !important; }
+body :is(.projects-hero-visual,.research-hero-visual,.hero-visual,.section-visual) :is(figcaption,figcaption a,.visual-caption,.visual-caption span,.visual-caption small) {
+  color: #17262e !important;
+  -webkit-text-fill-color: #17262e !important;
+}
+body.contact-page .contact-profile-card,
+body.contact-page .profile-card-copy {
+  background: #ffffff !important;
+  color: #17262e !important;
+}
+body.contact-page .profile-card-copy :is(h3,p,small) { color: #344a55 !important; -webkit-text-fill-color: #344a55 !important; }
+body.contact-page .profile-card-copy h3 { color: #17262e !important; -webkit-text-fill-color: #17262e !important; }
+/* Keep white foreground exclusively on filled dark-blue action buttons. */
+body :is(.hero-action--primary,.project-action--primary,.research-action--primary,
+.contact-button--primary,.contact-cta,.contact-brief a),
+body :is(.hero-action--primary,.project-action--primary,.research-action--primary,
+.contact-button--primary,.contact-cta,.contact-brief a) :is(span,svg,strong) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
