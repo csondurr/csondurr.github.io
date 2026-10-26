@@ -1099,3 +1099,56 @@ button:focus-visible {
     padding:27px 23px!important;
   }
 }
+
+
+/* Self-hosted homepage hero photograph, 2026-10-26 */
+body.home-page figure.hero-visual {
+  position:relative!important;
+  display:block!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:#e6e4dd!important;
+  background-image:none!important;
+}
+body.home-page figure.hero-visual::before,
+body.home-page figure.hero-visual::after {display:none!important;content:none!important;}
+body.home-page figure.hero-visual > img {
+  position:absolute!important;inset:0!important;
+  display:block!important;
+  width:100%!important;height:100%!important;
+  max-width:none!important;
+  object-fit:cover!important;object-position:65% center!important;
+  opacity:1!important;visibility:visible!important;
+  transform:none!important;filter:saturate(.88) contrast(1.02)!important;
+  z-index:0!important;
+}
+body.home-page figure.hero-visual figcaption.visual-caption {
+  position:absolute!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:flex-start!important;gap:3px!important;
+  z-index:3!important;
+  bottom:16px!important;left:16px!important;
+  right:auto!important;top:auto!important;
+  width:auto!important;max-width:calc(100% - 32px)!important;
+  padding:9px 12px!important;margin:0!important;
+  border:1px solid rgba(223,215,202,.85)!important;
+  border-radius:7px!important;
+  color:#263631!important;
+  background:rgba(251,248,242,.94)!important;
+  box-shadow:none!important;
+  font:600 11px/1.35 Inter,ui-sans-serif,sans-serif!important;
+  letter-spacing:0!important;text-transform:none!important;
+}
+body.home-page figure.hero-visual figcaption.visual-caption > span,
+body.home-page figure.hero-visual figcaption.visual-caption > small {
+  display:block!important;
+  width:auto!important;margin:0!important;padding:0!important;
+  border:0!important;background:transparent!important;
+  font:inherit!important;letter-spacing:0!important;
+  text-transform:none!important;
+  color:#263631!important;-webkit-text-fill-color:#263631!important;
+}
+body.home-page figure.hero-visual figcaption.visual-caption > small {
+  font-size:10px!important;font-weight:500!important;
+  color:#53615a!important;-webkit-text-fill-color:#53615a!important;
+}
