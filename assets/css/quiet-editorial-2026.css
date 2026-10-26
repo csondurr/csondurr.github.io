@@ -1,0 +1,554 @@
+/* Cem Sondur — Quiet Editorial / 2026
+   Design-only stylesheet. All site content, data, URLs and interactions remain intact.
+   Loaded last on every page to neutralize the former military/radar theme. */
+
+:root {
+  color-scheme: light;
+  --qd-bg: #f6f8f8;
+  --qd-white: #ffffff;
+  --qd-ink: #17262e;
+  --qd-copy: #344a55;
+  --qd-muted: #61747d;
+  --qd-faint: #839199;
+  --qd-line: #dce5e8;
+  --qd-blue: #245b71;
+  --qd-blue-dark: #1c4758;
+  --qd-wash: #edf3f5;
+  --qd-radius: 12px;
+  --pro-bg: var(--qd-bg);
+  --pro-surface: var(--qd-white);
+  --pro-text: var(--qd-ink);
+  --pro-muted: var(--qd-muted);
+  --pro-accent: var(--qd-blue);
+  --pro-border: var(--qd-line);
+  --project-panel: var(--qd-white);
+  --project-panel-soft: var(--qd-bg);
+  --project-border: var(--qd-line);
+  --project-border-strong: #a5b9c2;
+  --project-copy: var(--qd-copy);
+  --project-muted: var(--qd-muted);
+  --project-bright: var(--qd-ink);
+  --project-accent: var(--qd-blue);
+  --research-panel: var(--qd-white);
+  --research-soft: var(--qd-bg);
+  --research-border: var(--qd-line);
+  --research-border-strong: #a5b9c2;
+  --research-text: var(--qd-copy);
+  --research-muted: var(--qd-muted);
+  --research-bright: var(--qd-ink);
+  --research-accent: var(--qd-blue);
+  --contact-panel: var(--qd-white);
+  --contact-panel-soft: var(--qd-bg);
+  --contact-border: var(--qd-line);
+  --contact-border-strong: #a5b9c2;
+  --contact-copy: var(--qd-copy);
+  --contact-muted: var(--qd-muted);
+  --contact-bright: var(--qd-ink);
+  --contact-accent: var(--qd-blue);
+}
+html { color-scheme: light; background: var(--qd-bg) !important; scroll-behavior: smooth; }
+body,
+body.home-page, body.projects-page, body.project-detail-page,
+body.research-page, body.research-detail-page, body.contact-page {
+  background: var(--qd-bg) !important;
+  color: var(--qd-ink) !important;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body .site-shell, body .home-ambient, body .tactical-grid,
+body .radar-field, body .scanlines, body .vignette { display: none !important; }
+body .page-ui {
+  display: block !important;
+  min-height: 100svh !important;
+  padding: 25px clamp(18px, 3.5vw, 52px) 90px !important;
+  max-width: 1440px;
+  margin-inline: auto;
+  background: transparent !important;
+  place-items: initial !important;
+}
+body :is(.command-panel,.home-content,.project-workspace,.project-detail,
+.research-workspace,.research-detail,.contact-workspace) {
+  width: min(1180px, 100%) !important;
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+}
+body .command-panel {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap;
+  gap: 18px 30px !important;
+  min-height: 78px !important;
+  margin-block: 0 44px !important;
+  padding: 12px 0 20px !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--qd-line) !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+}
+body .command-panel::before, body .command-panel::after,
+body .page-identity::before, body .nav-tile::before, body .nav-tile::after { content: none !important; display: none !important; }
+body .page-identity {
+  display: flex !important;
+  min-height: auto !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  border: 0 !important;
+  background: none !important;
+}
+body .page-icon { display: none !important; }
+body .page-identity h1, body #page-title {
+  margin: 0 !important;
+  color: var(--qd-ink) !important;
+  font: 700 17px/1.2 Inter, ui-sans-serif, "Segoe UI", sans-serif !important;
+  letter-spacing: -.04em !important;
+  text-transform: none !important;
+  white-space: nowrap;
+}
+body .page-identity h1::before {
+  content: "CS" !important;
+  display: inline-grid !important;
+  width: 32px;
+  height: 32px;
+  margin-right: 11px;
+  border-radius: 8px;
+  color: white !important;
+  background: var(--qd-ink);
+  place-items: center;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .02em;
+  vertical-align: middle;
+}
+body .command-nav {
+  display: flex !important;
+  width: auto !important;
+  grid-template-columns: none !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap;
+  gap: 4px 8px !important;
+}
+body .nav-tile, body.home-page .nav-tile {
+  display: inline-flex !important;
+  min-width: 0 !important;
+  min-height: 39px !important;
+  width: auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 13px !important;
+  gap: 0 !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  color: var(--qd-muted) !important;
+  text-align: center !important;
+  clip-path: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color .18s ease, color .18s ease !important;
+}
+body .nav-icon { display: none !important; }
+body .nav-label {
+  color: inherit !important;
+  font: 600 13px/1.3 Inter, ui-sans-serif, "Segoe UI", sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  white-space: nowrap;
+}
+body .nav-tile:hover, body .nav-tile:focus-visible { background: var(--qd-wash) !important; color: var(--qd-blue-dark) !important; outline: none; }
+body .nav-tile.is-active { background: var(--qd-wash) !important; color: var(--qd-blue-dark) !important; box-shadow: none !important; }
+body :is(h1,h2,h3,h4,h5,h6,strong) {
+  color: var(--qd-ink) !important;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+}
+body p, body li, body small, body :is(.hero-summary,.hero-role,.projects-lead,.research-lead,.contact-lead,
+.project-lead,.research-prose,.technical-prose) {
+  color: var(--qd-copy) !important;
+  text-shadow: none !important;
+}
+body a { text-underline-offset: 3px; }
+body a:focus-visible, body button:focus-visible { outline: 3px solid #8bb3c2 !important; outline-offset: 3px !important; }
+body :is(.hero-kicker,.projects-kicker,.research-kicker,.contact-kicker,.project-kicker,
+.research-card-type,.toolbar-label,.research-toolbar-label,.section-index,.section-label > span,
+.research-section-label > span) {
+  color: var(--qd-blue) !important;
+  font: 700 11px/1.5 Inter, ui-sans-serif, "Segoe UI", sans-serif !important;
+  letter-spacing: .11em !important;
+  text-transform: uppercase !important;
+}
+body :is(.home-content,.project-workspace,.research-workspace,.contact-workspace,.project-detail,.research-detail) {
+  margin-top: 0 !important;
+  gap: 22px !important;
+  background: transparent !important;
+}
+body :is(.home-hero,.projects-hero,.research-hero,.contact-hero,.project-hero,.research-detail-hero) {
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 16px !important;
+  background: var(--qd-white) !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  overflow: hidden !important;
+}
+body :is(.home-hero,.projects-hero,.research-hero,.contact-hero,.project-hero,.research-detail-hero)::before,
+body :is(.home-hero,.projects-hero,.research-hero,.contact-hero,.project-hero,.research-detail-hero)::after,
+body .hero-copy::after, body .statement-card::before { display: none !important; content: none !important; }
+body :is(.hero-copy,.projects-hero-copy,.research-hero-copy,.contact-hero-copy,.project-hero-copy,.research-detail-copy) {
+  padding: clamp(30px, 5vw, 68px) !important;
+  background: transparent !important;
+  justify-content: center;
+}
+body :is(.hero-title,.projects-hero h2,.research-hero h2,.contact-hero h2,.project-hero h2,.research-detail-hero h2) {
+  margin-top: 0 !important;
+  max-width: 17ch;
+  color: var(--qd-ink) !important;
+  font-size: clamp(31px, 4.1vw, 56px) !important;
+  line-height: 1.11 !important;
+  font-weight: 740 !important;
+  letter-spacing: -.055em !important;
+  text-wrap: balance;
+}
+body.home-page .hero-title { font-size: clamp(42px, 5vw, 70px) !important; }
+body :is(.hero-role,.project-subtitle,.research-detail-subtitle) {
+  color: var(--qd-muted) !important;
+  font-size: clamp(15px, 1.4vw, 18px) !important;
+  letter-spacing: 0 !important;
+}
+body :is(.hero-summary,.projects-lead,.research-lead,.contact-lead,.project-lead,.research-detail-hero .research-lead) {
+  color: var(--qd-copy) !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+  max-width: 65ch;
+}
+body :is(.hero-visual,.section-visual,.projects-hero-visual,.research-hero-visual,
+.contact-hero-visual,.project-hero-visual,.research-detail-media) {
+  border-radius: 12px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #e4ebed !important;
+  isolation: isolate;
+}
+body :is(.hero-visual,.section-visual,.projects-hero-visual,.research-hero-visual,
+.contact-hero-visual,.project-hero-visual,.research-detail-media)::before { display: none !important; content: none !important; }
+body :is(.hero-visual,.section-visual,.projects-hero-visual,.research-hero-visual,
+.contact-hero-visual,.project-hero-visual,.research-detail-media)::after {
+  display: none !important; content: none !important;
+}
+body :is(.hero-visual,.section-visual,.projects-hero-visual,.research-hero-visual,
+.contact-hero-visual,.project-hero-visual,.research-detail-media) img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: saturate(.65) contrast(.98) !important;
+  object-fit: cover;
+  transform: none !important;
+}
+body :is(.visual-caption,.projects-hero-visual figcaption,.research-hero-visual figcaption,
+.contact-hero-visual figcaption,.research-detail-media figcaption) {
+  color: var(--qd-muted) !important;
+  background: rgba(255,255,255,.94) !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+}
+body :is(.visual-caption,.projects-hero-visual figcaption,.research-hero-visual figcaption,
+.contact-hero-visual figcaption) :is(a,span,small) { color: var(--qd-muted) !important; }
+body :is(.projects-hero-evidence,.research-hero-evidence,.contact-scene-evidence) { display: none !important; }
+body :is(.content-card,.statement-card,.archive-panel,.vision-section,.project-toolbar,.research-toolbar,
+.project-card,.research-card,.contact-directory,.collaboration-scope,.collaboration-method,.contact-brief,
+.contact-link-card,.project-section,.related-section,.research-section,.research-model,.research-document,
+.project-bridge,.research-keywords,.research-toc,.project-pagination,.research-pagination,.formula-panel,
+.theory-card,.method-card,.metric-card,.architecture-step,.research-method,.decision-card,.workflow-step,
+.technical-index,.document-pending,.project-facts,.research-facts,.scope-grid article,.method-chain article) {
+  border: 1px solid var(--qd-line) !important;
+  border-radius: var(--qd-radius) !important;
+  background: var(--qd-white) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+}
+body :is(.content-card,.statement-card,.archive-panel,.project-card,.research-card,.contact-link-card)::before,
+body :is(.content-card,.statement-card,.archive-panel,.project-card,.research-card,.contact-link-card)::after { content: none !important; display: none !important; }
+body :is(.content-card,.statement-card,.archive-panel,.project-card,.research-card,.contact-link-card):hover {
+  box-shadow: 0 8px 22px rgba(31,63,78,.055) !important;
+  border-color: #b9cbd2 !important;
+  transform: none !important;
+}
+body .home-content { gap: 24px !important; }
+body.home-page .home-hero {
+  min-height: 410px !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important;
+}
+body.home-page .hero-copy { padding: clamp(32px, 5vw, 64px) !important; }
+body.home-page .hero-visual {
+  align-self: stretch !important;
+  margin: 18px 18px 18px 0 !important;
+  min-height: 290px !important;
+  height: auto !important;
+  overflow: hidden;
+}
+body.home-page .hero-visual img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+body .hero-tags { gap: 8px !important; }
+body .hero-tags span, body .research-card-tags span, body .technology-list span, body .research-keywords span {
+  padding: 6px 10px !important;
+  border: 1px solid #dce7ea !important;
+  border-radius: 6px !important;
+  background: var(--qd-wash) !important;
+  color: var(--qd-blue-dark) !important;
+  font: 600 11px/1.4 Inter, ui-sans-serif, sans-serif !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+}
+body .hero-actions, body .project-actions, body .research-actions, body .contact-hero-actions { gap: 10px !important; }
+body :is(.hero-action,.project-action,.research-action,.contact-button,.contact-cta,.contact-brief a,
+.brief-actions button,.project-bridge a,.document-toolbar a,.project-pagination a,.research-pagination a) {
+  display: inline-flex;
+  min-height: 44px !important;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px !important;
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 8px !important;
+  background: var(--qd-white) !important;
+  color: var(--qd-blue-dark) !important;
+  font: 650 12px/1.4 Inter, ui-sans-serif, sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+body :is(.hero-action--primary,.project-action--primary,.research-action--primary,
+.contact-button--primary,.contact-cta,.contact-brief a) {
+  background: var(--qd-blue) !important;
+  color: #fff !important;
+  border-color: var(--qd-blue) !important;
+}
+body :is(.hero-action,.project-action,.research-action,.contact-button,.contact-cta,.contact-brief a):hover {
+  background: var(--qd-wash) !important;
+  color: var(--qd-blue-dark) !important;
+  border-color: #aac5cf !important;
+}
+body :is(.hero-action--primary,.project-action--primary,.research-action--primary,
+.contact-button--primary,.contact-cta,.contact-brief a):hover { background: var(--qd-blue-dark) !important; color: white !important; }
+body.home-page .about-layout { min-height: 0 !important; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important; gap: 0 !important; }
+body.home-page .content-card { padding: clamp(28px, 4vw, 48px) !important; }
+body.home-page .about-layout .section-visual { min-height: 230px !important; margin: 18px 18px 18px 0 !important; }
+body .section-heading, body .section-label, body .research-section-label {
+  border-color: var(--qd-line) !important;
+  gap: 14px !important;
+}
+body .section-heading h2, body .section-label h2, body .research-section-label h2,
+body .contact-section-heading h2, body .scope-intro h2, body .project-bridge h2 {
+  color: var(--qd-ink) !important;
+  font-size: clamp(22px, 2.5vw, 31px) !important;
+  font-weight: 700 !important;
+  line-height: 1.26 !important;
+  letter-spacing: -.035em !important;
+}
+body .capability-grid div { background: #f7fafb !important; border: 1px solid var(--qd-line) !important; border-radius: 8px !important; }
+body .capability-grid :is(strong,span) { color: var(--qd-copy) !important; }
+body .capability-grid strong { color: var(--qd-ink) !important; }
+body.home-page .vision-section { padding: 4px 0 !important; }
+body.home-page .statement-card { min-height: 0 !important; padding: 24px !important; }
+body.home-page .archive-panel { padding: 30px !important; }
+body .home-endmark { display: none !important; }
+
+/* Directory cards: orderly typography and quiet image treatments */
+body :is(.project-grid,.research-grid) { gap: 18px !important; margin-top: 18px !important; }
+body :is(.project-card,.research-card) { overflow: hidden !important; }
+body :is(.project-card-visual,.research-card figure) {
+  border: 0 !important; border-radius: 0 !important;
+  background-color: #eaf0f2 !important; overflow: hidden !important;
+  min-height: 180px !important;
+}
+body :is(.project-card-visual,.research-card figure)::before,
+body :is(.project-card-visual,.research-card figure)::after { content: none !important; display: none !important; }
+body :is(.project-card-visual,.research-card figure) img { filter: saturate(.7) contrast(.97) !important; transform: none !important; opacity: 1 !important; visibility: visible !important; }
+body :is(.project-media-overlay,.research-card figure .research-visual) { opacity: .9; }
+body :is(.project-card-body,.research-card-body) {
+  border: 0 !important;
+  border-top: 1px solid var(--qd-line) !important;
+  background: var(--qd-white) !important;
+  padding: 22px !important;
+  box-shadow: none !important;
+}
+body :is(.project-card-meta,.research-card-meta,.project-card-meta span,.research-card-meta span) {
+  color: var(--qd-muted) !important;
+  letter-spacing: .035em !important;
+}
+body :is(.project-card h3,.research-card h3) {
+  color: var(--qd-ink) !important;
+  font-size: clamp(18px, 1.7vw, 22px) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -.025em !important;
+}
+body :is(.project-card-subtitle,.research-card-subtitle,.project-card-summary,.research-card-summary) {
+  color: var(--qd-copy) !important;
+  line-height: 1.72 !important;
+}
+body :is(.project-card-footer,.research-card-footer) { border-color: var(--qd-line) !important; }
+body :is(.card-open,.research-card-footer b) { color: var(--qd-blue) !important; }
+body :is(.project-toolbar,.research-toolbar) { padding: 22px 24px !important; }
+body :is(.project-filters,.research-filters) { gap: 7px !important; }
+body :is(.project-filters button,.research-filters button) {
+  min-height: 38px !important;
+  padding: 9px 12px !important;
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 7px !important;
+  background: #fff !important;
+  color: var(--qd-muted) !important;
+  font: 600 12px/1.4 Inter, ui-sans-serif, sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+}
+body :is(.project-filters button,.research-filters button):hover,
+body :is(.project-filters button,.research-filters button).is-active {
+  border-color: #b5cbd3 !important;
+  background: var(--qd-wash) !important;
+  color: var(--qd-blue-dark) !important;
+}
+body :is(.projects-hero-stats span,.research-hero-stats span,.metric-card,.research-facts > div) {
+  background: #f5f9fa !important;
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+body :is(.projects-hero-stats strong,.research-hero-stats strong,.metric-card strong,.research-facts strong) {
+  color: var(--qd-ink) !important;
+}
+body :is(.projects-hero-stats small,.research-hero-stats small,.metric-card span,.research-facts small) { color: var(--qd-muted) !important; }
+body :is(.project-image-sources,.research-image-sources) {
+  margin-top: 26px;
+  padding: 16px 20px;
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  color: var(--qd-copy) !important;
+}
+body :is(.project-image-sources,.research-image-sources) :is(summary,p,a,small,span,b) { color: var(--qd-copy) !important; }
+
+/* Technical records — preserve mathematical typesetting, evidence and the PDFs. */
+body :is(.project-detail,.research-detail) { gap: 20px !important; }
+body :is(.project-breadcrumb,.research-breadcrumb) {
+  margin-block: 0 15px !important;
+  color: var(--qd-muted) !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+body :is(.project-breadcrumb,.research-breadcrumb) a { color: var(--qd-blue) !important; }
+body :is(.project-hero,.research-detail-hero) { min-height: 0 !important; }
+body :is(.project-hero-visual,.research-detail-media) { min-height: 330px !important; }
+body :is(.project-section,.related-section,.research-section,.research-model,.research-document,.project-bridge,
+.research-keywords,.research-toc,.formula-panel,.project-pagination,.research-pagination) {
+  padding: clamp(22px, 3vw, 38px) !important;
+}
+body :is(.project-section,.research-section,.research-model,.research-toc) p,
+body :is(.project-section,.research-section,.research-model,.research-toc) li { color: var(--qd-copy) !important; }
+body :is(.formula-panel,.research-model) { background: #f1f6f8 !important; }
+body :is(.formula-panel code,.research-model code,pre,code,.katex) {
+  color: var(--qd-ink) !important;
+}
+body .katex-display { overflow-x: auto; overflow-y: hidden; padding: 8px 2px; }
+body :is(.architecture-step,.method-card,.research-method,.theory-card,.workflow-step,
+.decision-card,.scope-grid article,.method-chain article) { padding: 19px !important; }
+body :is(.project-metrics,.research-facts,.architecture-grid,.methods-grid,.research-method-grid) { gap: 12px !important; }
+body .research-toc { background: #f0f5f6 !important; }
+body .research-toc a, body .research-toc a b { color: var(--qd-blue) !important; }
+body :is(.project-status-line,.research-status) { color: var(--qd-muted) !important; }
+body .research-document .pdf-reader { border: 1px solid var(--qd-line) !important; background: white !important; }
+body :is(.project-pagination,.research-pagination) { gap: 14px !important; }
+
+/* Contact: a restrained human-centered profile, no HUD embellishment */
+body.contact-page :is(.contact-directory,.collaboration-scope,.collaboration-method,.contact-brief) {
+  padding: clamp(25px, 4vw, 43px) !important;
+}
+body.contact-page :is(.contact-hero-visual,.contact-scene-photo) { filter: none !important; }
+body.contact-page .contact-hero-visual::before,
+body.contact-page .contact-hero-visual::after { content: none !important; display: none !important; }
+body.contact-page .contact-profile-card {
+  top: 22px !important;
+  right: 22px !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 11px !important;
+  background: rgba(255,255,255,.96) !important;
+  box-shadow: 0 10px 25px rgba(17,35,44,.08) !important;
+}
+body.contact-page .profile-image-frame { background: #eaf0f2 !important; border-radius: 9px !important; border: 0 !important; }
+body.contact-page .profile-image-frame img { filter: none !important; }
+body.contact-page .profile-card-copy :is(small,p) { color: var(--qd-muted) !important; }
+body.contact-page .profile-card-copy h3 { color: var(--qd-ink) !important; }
+body.contact-page .availability-line {
+  background: #f1f6f7 !important;
+  border: 1px solid var(--qd-line) !important;
+  border-radius: 8px !important;
+  padding: 11px 13px !important;
+}
+body.contact-page .availability-line :is(strong,small) { color: var(--qd-copy) !important; }
+body.contact-page .availability-line > span { background: #4b9985 !important; box-shadow: none !important; }
+body.contact-page :is(.contact-link-card,.contact-brief) { background: #fff !important; }
+body.contact-page :is(.contact-link-copy small,.contact-link-copy em,.contact-section-heading > span) { color: var(--qd-muted) !important; }
+body.contact-page .contact-link-copy strong { color: var(--qd-ink) !important; }
+body.contact-page :is(.contact-link-icon,.contact-link-arrow) { color: var(--qd-blue) !important; }
+body.contact-page :is(.scope-grid article,.method-chain article) { background: #f9fbfb !important; }
+body.contact-page .method-chain::before { background: var(--qd-line) !important; }
+body.contact-page .brief-actions p { color: var(--qd-muted) !important; }
+
+/* Responsive layout and touch targets */
+@media (max-width: 1000px) {
+  body .command-panel { gap: 14px !important; margin-bottom: 28px !important; }
+  body :is(.home-hero,.projects-hero,.research-hero,.contact-hero,.project-hero,.research-detail-hero) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  body.home-page .home-hero, body.home-page .about-layout { grid-template-columns: 1fr !important; }
+  body :is(.hero-visual,.section-visual,.projects-hero-visual,.research-hero-visual,.contact-hero-visual,.project-hero-visual,.research-detail-media),
+  body.home-page .hero-visual, body.home-page .about-layout .section-visual {
+    min-height: 260px !important; height: 300px !important; margin: 0 18px 18px !important;
+  }
+  body :is(.project-grid,.research-grid) { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  body.contact-page .contact-hero-visual { min-height: 380px !important; height: 380px !important; }
+}
+@media (max-width: 640px) {
+  body .page-ui { padding: 10px 14px 58px !important; }
+  body .command-panel { justify-content: center !important; margin-bottom: 21px !important; padding-bottom: 14px !important; }
+  body .page-identity { width: 100% !important; justify-content: center !important; }
+  body .command-nav { width: 100% !important; justify-content: center !important; gap: 0 2px !important; }
+  body .nav-tile { padding: 8px 9px !important; min-height: 40px !important; }
+  body .nav-label { font-size: 11px !important; }
+  body :is(.hero-copy,.projects-hero-copy,.research-hero-copy,.contact-hero-copy,.project-hero-copy,.research-detail-copy) { padding: 27px 23px !important; }
+  body.home-page .hero-copy, body.home-page .content-card { padding: 27px 23px !important; }
+  body :is(.hero-title,.projects-hero h2,.research-hero h2,.contact-hero h2,.project-hero h2,.research-detail-hero h2) { font-size: clamp(30px, 8vw, 39px) !important; }
+  body.home-page .hero-title { font-size: clamp(43px, 11vw, 58px) !important; }
+  body :is(.project-grid,.research-grid,.contact-link-grid) { grid-template-columns: 1fr !important; }
+  body :is(.hero-visual,.section-visual,.projects-hero-visual,.research-hero-visual,.contact-hero-visual,.project-hero-visual,.research-detail-media),
+  body.home-page .hero-visual, body.home-page .about-layout .section-visual {
+    min-height: 190px !important; height: 220px !important; margin: 0 12px 12px !important;
+  }
+  body.contact-page .contact-hero-visual { height: 350px !important; min-height: 350px !important; }
+  body.contact-page .contact-profile-card { top: 12px !important; right: 12px !important; left: 12px !important; width: auto !important; max-width: none !important; }
+  body.home-page .section-heading--wide { padding: 24px 22px 8px !important; }
+  body.home-page .vision-layout { padding: 0 22px 22px !important; }
+  body :is(.projects-hero-stats,.research-hero-stats) { flex-wrap: wrap !important; }
+  body :is(.project-toolbar,.research-toolbar) { padding: 19px !important; }
+  body :is(.project-section,.research-section,.research-model,.research-document,.project-bridge,.research-toc) { padding: 22px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
