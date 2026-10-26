@@ -1174,3 +1174,287 @@ body.home-page figure.hero-visual > img {
 }
 body.home-page figure.hero-visual::before,
 body.home-page figure.hero-visual::after { content:none!important; display:none!important; }
+
+
+/* ==========================================================
+   2026-10-26 | LEGIBILITY FIX — ALL PROJECT/RESEARCH RECORDS
+   Previous light-theme pass recolored only outer cards.  Nested
+   legacy components retained dark olive backgrounds, producing
+   grey-on-grey and unreadable technical workflow sections.
+   Explicit children + counters + navigation now match warm theme.
+   ========================================================== */
+body.project-detail-page, body.research-detail-page {
+  --record-ink: #25302f;
+  --record-text: #46564f;
+  --record-muted: #627269;
+  --record-accent: #36594f;
+  --record-border: #d8d1c3;
+  --record-paper: #fbf8f2;
+  --record-soft: #f2eee5;
+  --record-soft-alt: #e9eee7;
+}
+/* Technical section navigation: light readable tabs and responsive scroll. */
+body.project-detail-page .technical-index,
+body.research-detail-page .research-toc {
+  border: 1px solid var(--record-border)!important;
+  border-radius: 12px!important;
+  background: var(--record-paper)!important;
+  background-image: none!important;
+  box-shadow: 0 6px 20px rgba(50,47,38,.055)!important;
+  color: var(--record-ink)!important;
+}
+body.project-detail-page .technical-index > span,
+body.research-detail-page .research-toc > span {
+  color: var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  border-color:var(--record-border)!important;
+  font:700 11px/1.4 Inter,ui-sans-serif,sans-serif!important;
+  letter-spacing:.06em!important;
+}
+body.project-detail-page .technical-index > div,
+body.research-detail-page .research-toc > div {
+  scrollbar-color:#c2c9bf transparent!important;
+}
+body.project-detail-page .technical-index a,
+body.research-detail-page .research-toc a {
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  background:var(--record-soft)!important;
+  background-image:none!important;
+  border:1px solid var(--record-border)!important;
+  border-radius:6px!important;
+  font:650 11px/1.4 Inter,ui-sans-serif,sans-serif!important;
+  letter-spacing:0!important;
+  text-decoration:none!important;
+  text-transform:none!important;
+}
+body.project-detail-page .technical-index a b,
+body.research-detail-page .research-toc a b {
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  font-size:10px!important;
+  letter-spacing:.04em!important;
+}
+body.project-detail-page .technical-index a:hover,
+body.project-detail-page .technical-index a:focus-visible,
+body.research-detail-page .research-toc a:hover,
+body.research-detail-page .research-toc a:focus-visible {
+  background:var(--record-soft-alt)!important;
+  border-color:#acbcae!important;
+  color:#213d34!important;
+  -webkit-text-fill-color:#213d34!important;
+  outline-offset:2px!important;
+}
+/* Workflow: no more dark translucent rectangles on a cream page. */
+body.project-detail-page .workflow-list::before {
+  background:linear-gradient(#bbcabd,#dde3d9)!important;
+}
+body.project-detail-page .workflow-step {
+  border:1px solid var(--record-border)!important;
+  border-radius:11px!important;
+  background:var(--record-paper)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  gap:14px!important;
+  align-items:start!important;
+  padding:18px 20px!important;
+}
+body.project-detail-page .workflow-step > div {
+  min-width:0!important;
+  padding:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  opacity:1!important;
+}
+body.project-detail-page .workflow-step > span,
+body.project-detail-page .architecture-step > span,
+body.project-detail-page .theory-card header > span,
+body.research-detail-page .research-method > span,
+body.research-detail-page .research-numbered li > span {
+  display:grid!important;
+  place-items:center!important;
+  width:38px!important;height:38px!important;
+  flex:0 0 38px!important;
+  padding:0!important;
+  border:1px solid #c5d0c3!important;
+  border-radius:7px!important;
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  background:#eaf0e9!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  font:700 11px/1.2 Inter,ui-sans-serif,sans-serif!important;
+  letter-spacing:0!important;
+}
+body.project-detail-page .workflow-step h3,
+body.project-detail-page .theory-card h3,
+body.project-detail-page .architecture-step h3,
+body.project-detail-page .method-card h3,
+body.project-detail-page .decision-card h3,
+body.project-detail-page .math-context-card h3,
+body.research-detail-page .research-method h3 {
+  color:var(--record-ink)!important;
+  -webkit-text-fill-color:var(--record-ink)!important;
+  font:700 15px/1.42 Inter,ui-sans-serif,sans-serif!important;
+  letter-spacing:-.01em!important;
+  text-transform:none!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+body.project-detail-page .workflow-step p,
+body.project-detail-page :is(.architecture-step,.method-card,.theory-card,.decision-card) p,
+body.project-detail-page .math-context-card li,
+body.research-detail-page .research-method p,
+body.research-detail-page .research-numbered p {
+  color:var(--record-text)!important;
+  -webkit-text-fill-color:var(--record-text)!important;
+  font-size:14px!important;
+  line-height:1.72!important;
+  opacity:1!important;
+}
+/* Reconcile all small nested component backgrounds that original dark CSS retains. */
+body.project-detail-page :is(.architecture-step,.method-card,.theory-card,
+.theory-card--advanced,.decision-card,.math-context-card,.math-rigor-panel,
+.evidence-list li,.boundary-list li),
+body.research-detail-page :is(.research-method,.research-numbered li,
+.document-toolbar,.research-facts > div,.research-error,.research-model code),
+body.projects-page .project-error,body.research-page .research-error {
+  color:var(--record-ink,#25302f)!important;
+  border:1px solid var(--record-border,#d8d1c3)!important;
+  background:var(--record-soft,#f2eee5)!important;
+  background-image:none!important;
+  border-radius:10px!important;
+  box-shadow:none!important;
+}
+body.project-detail-page :is(.architecture-step,.method-card,.theory-card,.decision-card,.math-context-card),
+body.research-detail-page :is(.research-method,.research-numbered li) {
+  padding:20px!important;
+}
+body.project-detail-page .theory-card::after {
+  content:none!important;display:none!important;
+}
+body.project-detail-page .architecture-step:not(:last-child)::after {background:#c4c9bf!important;}
+body.project-detail-page .theory-card > code,
+body.project-detail-page .math-display--theory,
+body.project-detail-page .math-display--core,
+body.project-detail-page .formula-panel code,
+body.research-detail-page .research-model code {
+  color:var(--record-ink)!important;
+  -webkit-text-fill-color:var(--record-ink)!important;
+  background:#eeeae1!important;
+  background-image:none!important;
+  border:1px solid var(--record-border)!important;
+  border-radius:8px!important;
+  box-shadow:none!important;
+}
+body.project-detail-page :is(.math-display,.math-display .katex,.math-display .katex *,
+.theory-card code,.formula-panel code) {
+  color:var(--record-ink)!important;
+  -webkit-text-fill-color:var(--record-ink)!important;
+}
+body.project-detail-page .math-display--core {padding:14px!important;}
+body.project-detail-page .math-rigor-panel :is(strong,span),
+body.project-detail-page :is(.theory-notes,.decision-card dl) :is(dt,dd),
+body.research-detail-page :is(.research-facts,.document-toolbar) :is(strong,small,span) {
+  color:var(--record-text)!important;
+  -webkit-text-fill-color:var(--record-text)!important;
+  opacity:1!important;
+}
+body.project-detail-page :is(.theory-notes,.decision-card dl) dt,
+body.project-detail-page .math-rigor-panel strong {
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  font-size:12px!important;
+  letter-spacing:.045em!important;
+}
+body.project-detail-page :is(.theory-notes,.decision-card dl) dd,
+body.project-detail-page .math-rigor-panel span {
+  font-size:13px!important;
+  line-height:1.7!important;
+}
+body.project-detail-page :is(.evidence-list li,.boundary-list li),
+body.research-detail-page .research-numbered li {
+  color:var(--record-text)!important;
+  -webkit-text-fill-color:var(--record-text)!important;
+  font-size:14px!important;
+  line-height:1.68!important;
+}
+body.project-detail-page :is(.evidence-list li,.boundary-list li)::before,
+body.project-detail-page .math-context-card li::before {
+  border-color:var(--record-accent)!important;
+}
+body.research-detail-page .research-numbered li > span {
+  align-self:start!important;
+  width:34px!important;height:34px!important;
+}
+body.research-detail-page .research-numbered li {gap:13px!important;}
+body.research-detail-page .research-keywords b,
+body.project-detail-page .technology-list span,
+body.project-detail-page .project-status-line span,
+body.research-detail-page .research-status span {
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  background:#e9ede5!important;
+  border:1px solid #d1d8ce!important;
+  border-radius:6px!important;
+}
+body.research-detail-page .document-toolbar strong {
+  color:var(--record-ink)!important;
+  -webkit-text-fill-color:var(--record-ink)!important;
+  font:700 15px/1.4 Inter,ui-sans-serif,sans-serif!important;
+  text-transform:none!important;
+}
+body.research-detail-page .document-toolbar :is(span,small) {
+  color:var(--record-muted)!important;
+  -webkit-text-fill-color:var(--record-muted)!important;
+}
+body.research-detail-page .research-model p,
+body.research-detail-page .project-bridge p,
+body.project-detail-page .technical-prose p {
+  color:var(--record-text)!important;
+  -webkit-text-fill-color:var(--record-text)!important;
+}
+body.research-detail-page .research-section-label > span,
+body.project-detail-page .section-label > span {
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  background:#edf0e9!important;
+  border:1px solid #d1d8cf!important;
+  border-radius:6px!important;
+}
+/* Keep buttons legible without coloring actual photos or SVG diagrams. */
+body.research-detail-page :is(.document-toolbar a,.project-bridge a),
+body.project-detail-page :is(.project-pagination a,.project-action:not(.project-action--primary)) {
+  background:var(--record-paper)!important;
+  color:var(--record-accent)!important;
+  -webkit-text-fill-color:var(--record-accent)!important;
+  border:1px solid var(--record-border)!important;
+}
+body.project-detail-page .project-action--primary,
+body.research-detail-page .research-action--primary {
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  background:#46635b!important;
+  border-color:#46635b!important;
+}
+/* Narrow screens: avoid horizontal overflow in long technical records. */
+@media(max-width:720px) {
+  body.project-detail-page .workflow-step {
+    padding:14px!important;
+    gap:10px!important;
+    grid-template-columns:38px minmax(0,1fr)!important;
+  }
+  body.project-detail-page .technical-index a,
+  body.research-detail-page .research-toc a {
+    min-height:36px!important;white-space:nowrap!important;
+  }
+  body.project-detail-page .technical-index > div,
+  body.research-detail-page .research-toc > div {
+    overflow-x:auto!important;
+    max-width:100%!important;
+  }
+  body.research-detail-page .research-numbered li {
+    grid-template-columns:34px minmax(0,1fr)!important;
+  }
+}
