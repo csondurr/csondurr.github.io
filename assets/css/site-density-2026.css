@@ -1,0 +1,598 @@
+/*
+ * SITE DENSITY — 2026-10-26
+ * Compact but readable design across Home, Projects, Thesis/Research and Contact.
+ * Loaded AFTER all other CSS on every HTML page to neutralize oversized legacy cards.
+ * No project data, equations or research content is modified.
+ */
+:root { --density-panel-gap:16px; --density-line:#ddd5c7; }
+
+/* COMMON SHELL — let content use the available viewport instead of huge framed padding. */
+body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .page-ui {
+  padding:clamp(12px,1.45vw,22px) clamp(12px,2vw,32px) 52px!important;
+}
+body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .command-panel {
+  min-height:62px!important;
+  padding:9px clamp(15px,1.5vw,24px)!important;
+  margin-bottom:clamp(16px,1.8vw,25px)!important;
+  gap:10px 18px!important;
+  border-radius:12px!important;
+}
+body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .nav-tile {
+  min-height:37px!important;
+  padding:8px 11px!important;
+  border-radius:7px!important;
+}
+body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .page-identity .site-wordmark__name {
+  font-size:clamp(17px,1.4vw,21px)!important;
+}
+body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page)
+  :is(.home-content,.project-workspace,.project-detail,.research-workspace,.research-detail,.contact-workspace) {
+  margin-top:0!important;
+}
+
+/* HOME: compact horizontal introduction, not a tall presentation slide. */
+body.home-page .home-content.home-curated {
+  gap:clamp(16px,1.7vw,23px)!important;
+}
+body.home-page .portfolio-hero {
+  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)!important;
+  min-height:0!important;
+  height:auto!important;
+  align-items:stretch!important;
+}
+body.home-page .portfolio-hero__copy {
+  padding:clamp(26px,2.65vw,39px) clamp(27px,3vw,45px)!important;
+}
+body.home-page .portfolio-eyebrow {
+  margin-bottom:12px!important;
+  font-size:10px!important;
+}
+body.home-page .portfolio-hero__title {
+  font-size:clamp(44px,4vw,65px)!important;
+  line-height:1.02!important;
+  margin-bottom:9px!important;
+}
+body.home-page .portfolio-hero__specialty {
+  font-size:clamp(14px,1.15vw,17px)!important;
+  margin-bottom:17px!important;
+}
+body.home-page .portfolio-hero__lead {
+  font-size:clamp(14px,1.08vw,15px)!important;
+  line-height:1.66!important;
+}
+body.home-page .portfolio-hero__context {
+  font-size:13px!important;
+  line-height:1.6!important;
+  margin-top:10px!important;
+}
+body.home-page .portfolio-hero__actions {
+  margin-top:18px!important;
+  gap:9px!important;
+}
+body.home-page .portfolio-button {
+  min-height:41px!important;
+  padding:9px 14px!important;
+  gap:11px!important;
+}
+body.home-page .portfolio-hero__discipline {
+  margin-top:17px!important;
+  padding-top:11px!important;
+}
+body.home-page .portfolio-hero__media {
+  min-height:0!important;
+  height:auto!important;
+  margin:11px 11px 11px 0!important;
+  aspect-ratio:auto!important;
+}
+body.home-page .portfolio-hero__media img {
+  object-fit:cover!important;
+  object-position:65% center!important;
+}
+body.home-page .portfolio-section-heading {
+  margin-bottom:13px!important;
+  gap:15px!important;
+}
+body.home-page .portfolio-section-heading h2,
+body.home-page .portfolio-method__intro h2,
+body.home-page .portfolio-closing h2 {
+  font-size:clamp(23px,2.35vw,32px)!important;
+}
+body.home-page .portfolio-explore {
+  padding:clamp(19px,2.3vw,30px)!important;
+}
+body.home-page .portfolio-explore__grid {gap:11px!important;}
+body.home-page .portfolio-route {
+  min-height:0!important;
+  padding:18px 22px!important;
+  gap:12px!important;
+}
+body.home-page .portfolio-route h3 {
+  font-size:19px!important;
+  margin-bottom:7px!important;
+}
+body.home-page .portfolio-route p {
+  font-size:13px!important;
+  line-height:1.6!important;
+}
+body.home-page .portfolio-route__action {
+  padding-top:10px!important;
+}
+body.home-page .portfolio-expertise {
+  padding-top:10px!important;
+}
+body.home-page .portfolio-expertise__grid {gap:11px!important;}
+body.home-page .portfolio-expertise__card {
+  min-height:0!important;
+  padding:19px 20px!important;
+}
+body.home-page .portfolio-expertise__number {margin-bottom:10px!important;}
+body.home-page .portfolio-expertise__card h3 {
+  font-size:16px!important;
+  margin-bottom:7px!important;
+}
+body.home-page .portfolio-expertise__card p {
+  font-size:13px!important;
+  line-height:1.6!important;
+  margin-bottom:12px!important;
+}
+body.home-page .portfolio-method {
+  gap:clamp(18px,2.5vw,34px)!important;
+  padding:clamp(23px,2.7vw,33px)!important;
+}
+body.home-page .portfolio-method__intro > p:last-child {
+  margin-top:10px!important;
+  line-height:1.65!important;
+}
+body.home-page .portfolio-method__steps {gap:9px!important;}
+body.home-page .portfolio-method__steps li {
+  padding:14px 15px!important;
+  gap:11px!important;
+}
+body.home-page .portfolio-method__steps h3 {margin-bottom:4px!important;}
+body.home-page .portfolio-closing {
+  padding:clamp(23px,2.7vw,33px)!important;
+  gap:18px!important;
+}
+body.home-page .portfolio-closing__copy > p:last-child {
+  margin-top:9px!important;
+  line-height:1.64!important;
+}
+
+/* INDEX PAGES: concise hero blocks and truly compact directory cards. */
+body:is(.projects-page,.research-page) :is(.projects-hero,.research-hero) {
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)!important;
+  min-height:0!important;
+  height:auto!important;
+  align-items:stretch!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-hero-copy,.research-hero-copy) {
+  padding:clamp(24px,2.7vw,40px)!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-hero h2,.research-hero h2) {
+  font-size:clamp(29px,2.85vw,42px)!important;
+  max-width:23ch!important;
+  line-height:1.13!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-lead,.research-lead) {
+  font-size:14px!important;
+  line-height:1.64!important;
+  max-width:79ch!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-hero-stats,.research-hero-stats) {
+  margin-top:15px!important;
+  gap:7px!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-hero-stats span,.research-hero-stats span) {
+  padding:8px 10px!important;
+  min-width:0!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-hero-visual,.research-hero-visual) {
+  width:auto!important;
+  min-height:265px!important;
+  height:auto!important;
+  margin:10px 10px 10px 0!important;
+  border-radius:9px!important;
+  overflow:hidden!important;
+}
+body:is(.projects-page,.research-page) :is(.projects-hero-visual,.research-hero-visual) img {
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+body:is(.projects-page,.research-page) :is(.project-toolbar,.research-toolbar) {
+  margin-top:14px!important;
+  padding:13px 17px!important;
+  gap:9px!important;
+}
+body:is(.projects-page,.research-page) :is(.project-filters,.research-filters) {
+  gap:5px!important;
+}
+body:is(.projects-page,.research-page) :is(.project-filters button,.research-filters button) {
+  min-height:32px!important;
+  padding:6px 10px!important;
+  font-size:11px!important;
+}
+body.projects-page .project-grid,
+body.research-page .research-grid {
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+  margin-top:13px!important;
+}
+body.projects-page .project-card,
+body.research-page .research-card {
+  min-height:0!important;
+}
+body.projects-page .project-card-link,
+body.research-page .research-card-link {
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  height:100%!important;
+}
+body.projects-page .project-card-visual,
+body.research-page .research-card figure {
+  flex:0 0 auto!important;
+  display:block!important;
+  width:100%!important;
+  min-height:0!important;
+  height:auto!important;
+  aspect-ratio:16 / 7.6!important;
+  margin:0!important;
+}
+body:is(.projects-page,.research-page) :is(.project-card-visual,.research-card figure) img {
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+body.projects-page .project-card-body,
+body.research-page .research-card-body {
+  min-height:0!important;
+  height:auto!important;
+  padding:16px 17px 17px!important;
+  flex:1!important;
+}
+body:is(.projects-page,.research-page) :is(.project-card h3,.research-card h3) {
+  font-size:clamp(16px,1.3vw,19px)!important;
+  line-height:1.29!important;
+  margin-top:9px!important;
+}
+body:is(.projects-page,.research-page) :is(.project-card-subtitle,.research-card-subtitle) {
+  font-size:12px!important;
+  margin-top:5px!important;
+  line-height:1.5!important;
+}
+body:is(.projects-page,.research-page) :is(.project-card-summary,.research-card-summary) {
+  margin-top:9px!important;
+  font-size:12.5px!important;
+  line-height:1.59!important;
+}
+body:is(.projects-page,.research-page) :is(.project-card-footer,.research-card-footer) {
+  padding-top:10px!important;
+}
+body.research-page .research-card-tags {
+  margin-top:10px!important;
+  gap:4px!important;
+}
+body.research-page .research-card-tags span {
+  padding:4px 6px!important;
+  font-size:10px!important;
+}
+
+/* DETAIL HEROES: no more 500-pixel-tall introduction panels. */
+body:is(.project-detail-page,.research-detail-page,.contact-page)
+ :is(.project-hero,.research-detail-hero,.contact-hero) {
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)!important;
+  min-height:0!important;
+  height:auto!important;
+  align-items:stretch!important;
+}
+body:is(.project-detail-page,.research-detail-page,.contact-page)
+ :is(.project-hero-copy,.research-detail-copy,.contact-hero-copy) {
+  padding:clamp(24px,2.8vw,40px)!important;
+}
+body:is(.project-detail-page,.research-detail-page,.contact-page)
+ :is(.project-hero h2,.research-detail-hero h2,.contact-hero h2,.research-detail-full-title) {
+  font-size:clamp(29px,2.8vw,43px)!important;
+  max-width:24ch!important;
+}
+body:is(.project-detail-page,.research-detail-page,.contact-page)
+ :is(.project-lead,.research-lead,.contact-lead) {
+  font-size:14px!important;
+  line-height:1.65!important;
+  max-width:76ch!important;
+}
+body:is(.project-detail-page,.research-detail-page,.contact-page)
+ :is(.project-hero-visual,.research-detail-media,.contact-hero-visual) {
+  min-height:275px!important;
+  height:auto!important;
+  width:auto!important;
+  margin:10px 10px 10px 0!important;
+  border-radius:9px!important;
+  overflow:hidden!important;
+}
+body:is(.project-detail-page,.research-detail-page,.contact-page)
+ :is(.project-hero-visual,.research-detail-media,.contact-hero-visual) > img {
+  width:100%!important;height:100%!important;
+  object-fit:cover!important;
+}
+body.project-detail-page .project-actions,
+body.research-detail-page .research-actions,
+body.contact-page .contact-hero-actions {
+  margin-top:15px!important;
+  gap:8px!important;
+}
+body.project-detail-page .project-status-line,
+body.research-detail-page .research-status {
+  margin-top:12px!important;
+}
+body.project-detail-page .project-metrics,
+body.research-detail-page .research-facts {
+  gap:9px!important;
+  margin-top:12px!important;
+}
+body.project-detail-page .project-metrics .metric-card,
+body.research-detail-page .research-facts > div {
+  min-height:0!important;
+  padding:12px 15px!important;
+}
+body.project-detail-page .project-metrics .metric-card strong {
+  font-size:clamp(16px,1.7vw,22px)!important;
+}
+body.project-detail-page .project-metrics .metric-card span {
+  line-height:1.45!important;
+}
+body.research-detail-page :is(.research-section,.research-model,.research-document,.project-bridge,.research-keywords) {
+  margin-top:13px!important;
+  padding:clamp(16px,1.9vw,26px)!important;
+}
+body.research-detail-page .research-section-label {
+  margin-bottom:13px!important;
+  gap:9px!important;
+}
+body.research-detail-page .research-method-grid,
+body.research-detail-page .research-model-grid {
+  gap:10px!important;
+}
+body.research-detail-page .research-method {
+  padding:15px!important;
+}
+body.research-detail-page .research-numbered li {
+  padding:13px 15px!important;
+}
+
+/* PROJECT CASE STUDIES: one economical container per chapter, moderate nested spacing. */
+body.project-detail-page #project-detail {
+  gap:13px!important;
+}
+body.project-detail-page .case-index {
+  position:relative!important;
+  top:auto!important;
+  gap:14px!important;
+  padding:9px 12px!important;
+  border-radius:10px!important;
+  box-shadow:none!important;
+}
+body.project-detail-page .case-index a {
+  min-height:32px!important;
+  padding:6px 8px!important;
+  gap:5px!important;
+  font-size:11px!important;
+}
+body.project-detail-page .case-chapter {
+  padding:clamp(19px,2.1vw,29px)!important;
+  border-radius:12px!important;
+  box-shadow:none!important;
+}
+body.project-detail-page .case-chapter__header {
+  grid-template-columns:35px minmax(0,1fr)!important;
+  gap:11px!important;
+  padding-bottom:14px!important;
+}
+body.project-detail-page .case-chapter__number {
+  width:34px!important;height:34px!important;
+  font-size:11px!important;
+}
+body.project-detail-page .case-chapter__header h2 {
+  font-size:clamp(21px,2vw,28px)!important;
+}
+body.project-detail-page .case-chapter__header p {
+  margin-top:5px!important;
+  font-size:13px!important;
+  line-height:1.52!important;
+}
+body.project-detail-page .case-chapter__body {
+  gap:13px!important;
+  padding-top:16px!important;
+}
+body.project-detail-page .case-question {
+  padding:17px 21px!important;
+}
+body.project-detail-page .case-question h3 {
+  font-size:clamp(18px,1.9vw,24px)!important;
+  margin-bottom:8px!important;
+}
+body.project-detail-page .case-question p,
+body.project-detail-page .case-concept p {
+  font-size:14px!important;
+  line-height:1.7!important;
+}
+body.project-detail-page .case-concept {
+  padding:17px!important;
+  gap:14px!important;
+}
+body.project-detail-page .case-concept aside {
+  padding:14px 15px!important;
+}
+body.project-detail-page .case-chapter .project-section,
+body.project-detail-page .case-chapter .formula-panel {
+  padding:clamp(15px,1.75vw,23px)!important;
+}
+body.project-detail-page .case-chapter .section-label {
+  margin-bottom:11px!important;
+  gap:9px!important;
+}
+body.project-detail-page .case-chapter .section-label h2 {
+  font-size:clamp(16px,1.65vw,20px)!important;
+}
+body.project-detail-page .case-flow {
+  gap:8px!important;
+}
+body.project-detail-page .case-flow li {
+  padding:13px 12px!important;
+}
+body.project-detail-page .case-flow li > span {margin-bottom:7px!important;}
+body.project-detail-page .case-flow li p {
+  font-size:12.5px!important;
+  line-height:1.56!important;
+}
+body.project-detail-page .case-evidence {
+  gap:10px!important;
+}
+body.project-detail-page .case-evidence > div {
+  padding:16px 18px!important;
+}
+body.project-detail-page .case-disclosure__summary {
+  padding:14px 17px!important;
+}
+body.project-detail-page .case-disclosure__body {
+  padding:12px!important;
+  gap:11px!important;
+}
+body.project-detail-page .case-disclosure__body .project-section {
+  padding:17px!important;
+}
+body.project-detail-page .case-source {
+  padding:15px 18px!important;
+}
+body.project-detail-page .theory-card,
+body.project-detail-page .math-context-card,
+body.project-detail-page .math-rigor-panel,
+body.project-detail-page .architecture-step,
+body.project-detail-page .method-card,
+body.project-detail-page .decision-card {
+  padding:clamp(14px,1.45vw,19px)!important;
+}
+body.project-detail-page .workflow-step {
+  padding:13px 15px!important;
+}
+
+/* CONTACT PAGE — preserve portrait/photo while reducing oversized surrounding frame. */
+body.contact-page .contact-hero {
+  grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)!important;
+}
+body.contact-page .contact-hero-visual {
+  min-height:325px!important;
+  overflow:hidden!important;
+}
+body.contact-page .contact-profile-card {
+  top:12px!important;
+  right:12px!important;
+  left:auto!important;
+  width:min(285px,calc(100% - 24px))!important;
+  max-width:calc(100% - 24px)!important;
+  padding:11px!important;
+}
+body.contact-page .contact-directory,
+body.contact-page .collaboration-scope,
+body.contact-page .collaboration-method,
+body.contact-page .contact-brief {
+  margin-top:13px!important;
+  padding:clamp(17px,2.1vw,27px)!important;
+}
+body.contact-page .contact-link-grid {
+  margin-top:13px!important;
+  gap:9px!important;
+}
+body.contact-page .contact-link-card {
+  min-height:0!important;
+  padding:14px 17px!important;
+}
+body.contact-page .contact-section-heading h2 {
+  font-size:clamp(21px,2vw,28px)!important;
+}
+body.contact-page .availability-line {
+  margin-top:12px!important;
+}
+
+/* TABLET: stack hero image BELOW concise text. 2 directory columns. */
+@media(max-width:1040px) {
+  body:is(.projects-page,.research-page) :is(.projects-hero,.research-hero),
+  body:is(.project-detail-page,.research-detail-page,.contact-page)
+    :is(.project-hero,.research-detail-hero,.contact-hero) {
+    grid-template-columns:1fr!important;
+  }
+  body.home-page .portfolio-hero {grid-template-columns:1fr!important;}
+  body.home-page .portfolio-hero__media {
+    height:260px!important;
+    min-height:260px!important;
+    margin:0 12px 12px!important;
+  }
+  body:is(.projects-page,.research-page)
+   :is(.projects-hero-visual,.research-hero-visual),
+  body:is(.project-detail-page,.research-detail-page,.contact-page)
+   :is(.project-hero-visual,.research-detail-media,.contact-hero-visual) {
+    min-height:215px!important;
+    height:240px!important;
+    margin:0 12px 12px!important;
+  }
+  body:is(.projects-page,.research-page) :is(.project-grid,.research-grid) {
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  body.contact-page .contact-hero-visual {min-height:310px!important;height:310px!important;}
+}
+@media(max-width:680px) {
+  body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .page-ui {
+    padding:10px 10px 34px!important;
+  }
+  body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .command-panel {
+    padding:12px!important;
+    gap:7px!important;
+    margin-bottom:13px!important;
+  }
+  body:is(.home-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page) .nav-tile {
+    min-height:36px!important;
+    padding:7px 7px!important;
+  }
+  body.home-page .portfolio-hero__copy {padding:23px!important;}
+  body.home-page .portfolio-hero__title {font-size:clamp(42px,11vw,54px)!important;}
+  body.home-page .portfolio-hero__media {height:205px!important;min-height:205px!important;margin:0 9px 9px!important;}
+  body.home-page .portfolio-explore,
+  body.home-page .portfolio-method,
+  body.home-page .portfolio-closing {padding:18px!important;}
+  body.home-page .portfolio-route,
+  body.home-page .portfolio-expertise__card {padding:17px!important;}
+  body:is(.projects-page,.research-page) :is(.project-grid,.research-grid) {
+    grid-template-columns:1fr!important;
+  }
+  body:is(.projects-page,.research-page) :is(.projects-hero-copy,.research-hero-copy),
+  body:is(.project-detail-page,.research-detail-page,.contact-page)
+    :is(.project-hero-copy,.research-detail-copy,.contact-hero-copy) {
+    padding:22px 20px!important;
+  }
+  body:is(.projects-page,.research-page)
+    :is(.projects-hero-visual,.research-hero-visual),
+  body:is(.project-detail-page,.research-detail-page,.contact-page)
+    :is(.project-hero-visual,.research-detail-media,.contact-hero-visual) {
+    min-height:190px!important;
+    height:210px!important;
+    margin:0 9px 9px!important;
+  }
+  body.contact-page .contact-hero-visual {height:275px!important;min-height:275px!important;}
+  body.contact-page .contact-profile-card {
+    top:9px!important;right:9px!important;
+    width:min(255px,calc(100% - 18px))!important;
+    max-width:calc(100% - 18px)!important;
+  }
+  body.project-detail-page .case-chapter {padding:16px!important;}
+  body.project-detail-page .case-chapter__body {padding-top:13px!important;}
+  body.project-detail-page .case-question {padding:15px!important;}
+  body.project-detail-page .case-concept {padding:13px!important;}
+  body.project-detail-page .case-evidence > div {padding:14px!important;}
+  body.project-detail-page .case-chapter .project-section,
+  body.project-detail-page .case-chapter .formula-panel {padding:14px!important;}
+  body.project-detail-page .case-source {padding:14px!important;}
+}
