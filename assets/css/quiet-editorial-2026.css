@@ -1152,3 +1152,25 @@ body.home-page figure.hero-visual figcaption.visual-caption > small {
   font-size:10px!important;font-weight:500!important;
   color:#53615a!important;-webkit-text-fill-color:#53615a!important;
 }
+
+
+/* Visual reliability patch · 2026-10-26: verified 640×480 WebP asset.
+   Use both a CSS photo background and the semantic HTML image as fallback. */
+body.home-page figure.hero-visual {
+  position:relative!important;
+  background-color:#eae5db!important;
+  background-image:url("/assets/images/home-hero-telecom.webp")!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:66% center!important;
+}
+body.home-page figure.hero-visual > img {
+  position:absolute!important;inset:0!important;
+  display:block!important;
+  width:100%!important;height:100%!important;
+  opacity:1!important;visibility:visible!important;
+  object-fit:cover!important;object-position:66% center!important;
+  filter:none!important;transform:none!important;
+}
+body.home-page figure.hero-visual::before,
+body.home-page figure.hero-visual::after { content:none!important; display:none!important; }
