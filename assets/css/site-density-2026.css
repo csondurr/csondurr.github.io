@@ -596,3 +596,57 @@ body.contact-page .availability-line {
   body.project-detail-page .case-chapter .formula-panel {padding:14px!important;}
   body.project-detail-page .case-source {padding:14px!important;}
 }
+
+
+/* 2026-10-26: persistent five-destination navigation on EVERY site section. */
+body:is(.home-page,.about-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page)
+  .command-panel .command-nav {
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-width:0!important;
+  max-width:100%!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex-wrap:wrap!important;
+  gap:3px 5px!important;
+  overflow:visible!important;
+}
+body:is(.home-page,.about-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page)
+  .command-panel .command-nav a.nav-tile {
+  display:inline-flex!important;
+  flex:0 0 auto!important;
+  min-width:0!important;
+  width:auto!important;
+  min-height:37px!important;
+  padding:8px 10px!important;
+  opacity:1!important;
+  visibility:visible!important;
+  white-space:nowrap!important;
+}
+body:is(.home-page,.about-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page)
+  .command-panel .command-nav a.nav-tile[href="/about/"] {
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+body:is(.home-page,.about-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page)
+  .command-panel .command-nav .nav-label {
+  display:inline!important;
+  white-space:nowrap!important;
+  font:600 12px/1.4 Inter,"Segoe UI",sans-serif!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+@media(max-width:900px){
+  body:is(.home-page,.about-page,.projects-page,.project-detail-page,.research-page,.research-detail-page,.contact-page)
+    .command-panel .command-nav {
+    width:100%!important;
+    overflow-x:auto!important;
+    overscroll-behavior-x:contain;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    scrollbar-width:thin;
+    padding-bottom:3px!important;
+  }
+}
