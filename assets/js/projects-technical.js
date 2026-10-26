@@ -578,10 +578,10 @@ window.PROJECT_TECHNICAL = {
         "why": "Small-signal conjugate matching alone does not guarantee saturated-power performance. Load-pull establishes the nonlinear target the output network must transform to 50 Ω."
       },
       {
-        "equation": "PΣ = |Σk √Pk e^(jφk)|²,   ηcomb = Pout,total / Σk Pout,k",
+        "equation": "PΣ,ideal = (1/N)|Σk √Pk e^(jφk)|²,   ηcomb = Pout,total / Σk Pk",
         "explanation": "Equal coherent branches add voltage in phase and deliver the intended combined power. Amplitude or phase imbalance diverts energy toward isolation elements or reflected ports and can overstress one branch.",
         "title": "Power combination sensitivity",
-        "variables": "Pk and φk are branch powers and phases at the combiner reference plane; ηcomb includes dissipative and mismatch losses.",
+        "variables": "Pk and φk are the branch input powers and relative phases at an ideal matched N-way combining reference plane; PΣ,ideal includes coherent phase imbalance for equal-normalized combining. ηcomb is actual measured or modeled output divided by total input branch power, and additionally includes mismatch and dissipative loss.",
         "why": "A 100 W-class module assembled from parallel stages is only as strong as its amplitude/phase balance, isolation, and thermal symmetry."
       },
       {
