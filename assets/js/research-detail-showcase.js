@@ -2,6 +2,14 @@
   "use strict";
 
   const mediaBySlug = {
+    "passbridge": {
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1600",
+      "alt": "A real unpowered planar microwave passive reflector at Mount Tsubone in Japan, reference image rather than a PASSBRIDGE prototype",
+      "label": "PASSIVE MICROWAVE REFLECTOR",
+      "source": "https://commons.wikimedia.org/wiki/File:Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg",
+      "credit": "Alpsdake · Wikimedia Commons · CC0 · Reference photograph",
+      "position": "center 45%"
+    },
     "ai-enhanced-csrr-microwave-sensor": {
       src: "https://commons.wikimedia.org/wiki/Special:FilePath/Two-loop_one-gap_LGR.jpg?width=1600",
       alt: "Physical RF loop-gap resonator hardware with planar split-ring resonators",

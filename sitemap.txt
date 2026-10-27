@@ -27,3 +27,4 @@ https://csondurr.github.io/thesis-researches/vanta/
 https://csondurr.github.io/thesis-researches/vivaldi-antenna-balun/
 https://csondurr.github.io/contact/
 https://csondurr.github.io/projects/passbridge/
+https://csondurr.github.io/thesis-researches/passbridge/

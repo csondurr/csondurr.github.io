@@ -436,5 +436,88 @@ window.RESEARCH_RECORDS = [
     "typeKey": "report",
     "typeLabel": "Engineering Research Report",
     "visual": "vivaldi"
+  },
+  {
+    "id": "PUB-07",
+    "slug": "passbridge",
+    "title": "PASSBRIDGE — A Finite-Conductivity Passive Microwave Reflector for a Conditional 5.5 GHz Non-Line-of-Sight Link",
+    "shortTitle": "PASSBRIDGE",
+    "subtitle": "A Coupled Electromagnetic–Structural–Communication Numerical Feasibility Study",
+    "typeKey": "thesis",
+    "typeLabel": "Independent Research Dissertation",
+    "category": "Passive Microwave Propagation",
+    "domain": "electromagnetics",
+    "date": "October 2026",
+    "pages": "51 pages",
+    "language": "English",
+    "evidenceType": "COMSOL FEA · CST SBR · MATLAB numerical study",
+    "visual": "reflector",
+    "pdfPath": "/assets/research/PASSBRIDGE_Thesis.pdf",
+    "pdfReady": "auto",
+    "projectTitle": "PASSBRIDGE",
+    "projectUrl": "/projects/passbridge/",
+    "summary": "An original 51-page numerical dissertation on a finite-conductivity passive 5.5 GHz reflector, coupling COMSOL wind mechanics, CST bistatic scattering, RF link budgets and MATLAB QPSK-OFDM.",
+    "question": "Can an unpowered, approximately 2 m galvanized-steel reflector redirect an assumed obstructed 5.5 GHz link across two 500 m legs and satisfy a modeled −77 dBm power screen under wind deformation and ±0.2° pointing perturbations?",
+    "objective": "Establish a traceable numerical assessment of a passive non-line-of-sight microwave path, joining material-aware scattering, static structural deformation, receiver power and simplified baseband link behavior.",
+    "coreModel": "Pᵣ = EIRP · Gᵣ · λ² · σᵦ / [(4π)³ · R₁² · R₂² · Lₑₓₜ]",
+    "modelExplanation": "Bistatic radar cross section σᵦ describes scattering into the specified receiver direction. The two-segment power balance contains independent transmitter–reflector and reflector–receiver range losses; the metal reflector itself provides no powered RF gain. This model is conditional on geometry, antenna gains and loss assumptions.",
+    "abstract": [
+      "PASSBRIDGE develops and analyzes a stationary, unpowered galvanized-steel microwave reflector for redirecting a 5.5 GHz signal around an assumed obstruction. The reference two-leg path spans 500 m + 500 m with a 90° turn. Its approximately 2 × 2 m aperture consists of two 999 × 2000 mm finite-conductivity steel sheets separated by a 2 mm seam, nominal zinc skins, structural framing and idealized mounting supports.",
+      "COMSOL finite elements model three simplified uniform wind-load scenarios at 15, 25 and 35 m/s. The exported mechanical displacement fields are transferred into reconstructed metal geometry for CST 2025 shooting-and-bouncing-rays calculations. A two-axis ±0.2° pointing sweep yields 75 cases and 150 native complex TE/TM scattering records. The worst modeled link gives −75.9011 dBm receiver power, about 18.09 dB SNR and a 1.099 dB margin over the project’s −77 dBm screen.",
+      "An uncoded 20 MHz, 64-point QPSK-OFDM MATLAB model with 52 data carriers and a 16-sample cyclic prefix yields a nominal 26 Mbit/s configuration-derived rate; 12 reflected-link conditions show zero observed packet errors in 200 trials each. Structural mesh convergence was not attained and physical field tests were not performed, so the dissertation supports conditional numerical feasibility rather than verified construction safety, network throughput or a completed academic degree."
+    ],
+    "keywords": [
+      "PASSBRIDGE",
+      "Passive Microwave Reflector",
+      "5.5 GHz",
+      "NLOS",
+      "Bistatic RCS",
+      "COMSOL",
+      "CST SBR",
+      "Galvanized Steel",
+      "QPSK-OFDM"
+    ],
+    "methods": [
+      {
+        "title": "Physical aperture and propagation",
+        "text": "Define a 2 m-class dual-sheet DX51D+Z275 panel, 2 mm seam, finite-conductivity coating assumptions, a nominal 90° redirection and two assumed unobstructed 500 m reflector-facing paths."
+      },
+      {
+        "title": "Wind loading and FEM audit",
+        "text": "Apply uniform static pressures for 15, 25 and 35 m/s to the supported sheet/frame model. Compare COMSOL displacement, stress and mesh quality at four discretization settings rather than implying convergence."
+      },
+      {
+        "title": "Structural-to-RF field transfer",
+        "text": "Export FEM nodal displacement fields; use inverse-distance interpolation to reconstruct finite-thickness zinc/steel surfaces for electromagnetic scattering calculations."
+      },
+      {
+        "title": "CST bistatic scattering",
+        "text": "Evaluate a 5 × 5 X/Y pointing grid for each wind case, retaining 75 CST SBR conditions and 150 polarization-resolved native TE/TM complex field exports; extract fixed-direction RCS and the two-leg received-power budget."
+      },
+      {
+        "title": "MATLAB baseband evidence",
+        "text": "Drive a simplified uncoded QPSK-OFDM flat-AWGN model with calculated SNR, reporting 200-packet finite-trial outcomes and the configuration-derived 26 Mbit/s figure without claiming real Wi-Fi throughput."
+      }
+    ],
+    "contributions": [
+      "Defines an electrically and mechanically explicit approximately 2 × 2 m galvanized-steel passive reflector, with nonideal finite-conductivity surfaces and framing.",
+      "Couples original COMSOL displacement exports to finite-thickness RF geometry instead of imposing arbitrary surface deformation.",
+      "Preserves 75 CST wind/tilt cases, 150 native TE/TM complex-field records and the reproducible fixed-angle bistatic link-budget calculations.",
+      "Relates conditional RF power/SNR results to an idealized digital OFDM model while distinguishing numerical evidence from unperformed physical certification and field validation."
+    ],
+    "evidence": [
+      "The 75 documented CST conditions provide 150 native TE/TM field records at 5.5 GHz.",
+      "Worst evaluated case: 35 m/s, TM, −0.2°/−0.2°; predicted received power −75.9011 dBm and SNR 18.0886 dB, with a 1.099 dB modeled threshold margin.",
+      "At 35 m/s, COMSOL mesh-5 and mesh-4 maximum displacements differ (0.29361 versus 0.83323 mm), so structural mesh convergence has not been established.",
+      "Across 12 reflector-present uncoded OFDM scenarios, no packet errors were observed in 200 simulated trials per condition; 26 Mbit/s is a modeled PHY rate.",
+      "The 51-page dissertation includes Maxwell/scattering theory, conductor and structural assumptions, full RF and FEM ledgers, uncertainty analysis and provenance."
+    ],
+    "boundaries": [
+      "An independent numerical engineering research report, not evidence of an awarded university degree or deployed commercial system.",
+      "No fabricated reflector, calibrated RCS or antenna test, site survey, outdoor radio link or certified structural assessment was reported.",
+      "Structural mesh convergence was not achieved and element-quality warnings undermine mesh-independent wind-safety claims.",
+      "Finite conductivity, mounting and propagation inputs are modeling assumptions; CST SBR has not been independently full-wave validated.",
+      "The simplified flat-AWGN packet model excludes real fading, interference, synchronization, coding and MAC overhead; finite zero-error outcomes do not prove field availability."
+    ]
   }
 ];

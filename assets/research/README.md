@@ -10,3 +10,5 @@ Upload the six original documents into this directory without renaming them:
 - `Vivaldi.pdf`
 
 The public website checks these paths automatically. As soon as a document exists, its publication page enables the embedded PDF reader and the open/download controls.
+
+- `PASSBRIDGE_Thesis.pdf` — original 51-page independent numerical dissertation (October 2026); source: https://github.com/csondurr/PASSBRIDGE

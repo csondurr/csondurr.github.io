@@ -24,6 +24,7 @@
   }
 
   const visualParts = {
+    reflector: () => '<path d="M70 244h160M284 226V87M284 87h167" class="rv-beam"/><path d="M232 252l81-81" class="rv-primary"/><path d="M236 258l81-81" class="rv-secondary"/><circle cx="88" cy="244" r="12" class="rv-node"/><circle cx="448" cy="88" r="12" class="rv-node rv-node-hot"/><path d="M104 244h30M412 88h22" class="rv-line"/><text x="320" y="326">5.5 GHz · PASSIVE REFLECTOR</text>',
     resonator: () => '<path d="M58 181h186M396 181h186" class="rv-feed"/><path d="M244 181h48M348 181h48" class="rv-feed"/><path d="M292 181v-49h58v49" class="rv-feed"/><path d="M320 87a94 94 0 1 0 94 94h-54a40 40 0 1 1-40-40z" class="rv-primary"/><path d="M320 116a65 65 0 1 0 65 65h-33a32 32 0 1 1-32-32z" class="rv-secondary"/><path d="M295 181h50" class="rv-hot"/><path d="M470 67v84M456 80h28M456 94h28M456 108h28" class="rv-line"/><text x="320" y="326">CSRR · S21 · εr</text>',
     nonlinear: () => '<path d="M38 206c36 0 45-101 82-101s44 197 81 197 44-158 82-158 44 72 81 72" class="rv-wave"/><path d="M378 275V72M378 275h222" class="rv-axis"/><path d="M395 253h14v-94h-14zM432 253h14v-44h-14zM469 253h14V94h-14zM506 253h14v-68h-14zM543 253h14V127h-14zM580 253h14v-35h-14z" class="rv-bars"/><path d="M391 61h202" class="rv-threshold"/><circle cx="282" cy="144" r="8" class="rv-node"/><text x="488" y="326">STATE · IM3 · IQ</text>',
     reservoir: () => {

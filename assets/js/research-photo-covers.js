@@ -2,6 +2,13 @@
   "use strict";
 
   const covers = {
+    "PUB-07": {
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1200",
+      "alt": "A real unpowered planar microwave passive reflector at Mount Tsubone in Japan, reference image rather than a PASSBRIDGE prototype",
+      "label": "PASSIVE MICROWAVE REFLECTOR",
+      "source": "https://commons.wikimedia.org/wiki/File:Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg",
+      "credit": "Alpsdake · Wikimedia Commons · CC0 · Reference photograph"
+    },
     "PUB-01": {
       src: "https://commons.wikimedia.org/wiki/Special:FilePath/Two-loop_one-gap_LGR.jpg?width=1200",
       alt: "Physical RF loop-gap resonator hardware with planar split-ring resonators",
