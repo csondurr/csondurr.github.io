@@ -818,5 +818,105 @@ window.PROJECTS = [
     ],
     tools: ["CST Studio Suite", "Vivaldi Antenna", "Wideband Balun", "RO4350B", "S-Parameters", "Phase Interferometry", "Gerber"],
     related: ["lpda-antenna", "100wpa", "gps-receiver-rtl-sdr"]
+  },
+  {
+    "order": 18,
+    "id": "PRJ-18",
+    "slug": "passbridge",
+    "title": "PASSBRIDGE",
+    "subtitle": "Passive Microwave Reflector for Non-Line-of-Sight Communication",
+    "category": "Passive RF Links & Multiphysics",
+    "group": "rf",
+    "period": "October 2026",
+    "status": "Numerical feasibility study",
+    "visual": "aperture",
+    "github": "https://github.com/csondurr/PASSBRIDGE",
+    "summary": "A 5.5 GHz passive microwave reflector study coupling COMSOL wind deformation, CST scattering, bistatic RF link budgets and MATLAB QPSK-OFDM simulation for an obstructed radio path.",
+    "metrics": [
+      {
+        "value": "5.5 GHz",
+        "label": "Design frequency"
+      },
+      {
+        "value": "75",
+        "label": "CST wind/pointing cases"
+      },
+      {
+        "value": "−75.90 dBm",
+        "label": "Worst modeled Rx power"
+      },
+      {
+        "value": "26 Mbit/s",
+        "label": "Modeled OFDM rate"
+      }
+    ],
+    "mission": "PASSBRIDGE evaluates a powerless approximately 2 × 2 m galvanized-steel microwave reflector for redirecting a 5.5 GHz link around an assumed obstruction. Two unobstructed 500 m reflector-facing segments form a nominal 90° change of path. The project links COMSOL structural displacements, CST SBR scattered fields, bistatic RCS and link budgets, and MATLAB baseband trials. It is a conditional numerical feasibility study, not a deployed communications system.",
+    "challenge": "Reflecting sufficient energy into a distant receiver requires control over aperture orientation, polarization, conductivity and wind-induced shape. The analysis must use scattering at the actual receiving direction, not the strongest angular peak. Structural mesh sensitivity and simplified channel assumptions also prevent interpreting conditional results as certified real-world reliability.",
+    "formula": "Pᵣ = EIRP · Gᵣ · λ₀² · σᵦ / [(4π)³ R₁² R₂² Lₑₓₜ]",
+    "architecture": [
+      {
+        "title": "Two-segment path",
+        "text": "A powered transmitter illuminates a passive metal sheet and a powered receiver captures the scattered microwave energy. The two segments are each assumed 500 m and direct LoS is assumed blocked."
+      },
+      {
+        "title": "Metal reflector and support",
+        "text": "Two 999 × 2000 mm DX51D+Z275 steel sheets, a 2 mm seam, nominal zinc skins and hollow-section support members form the 2 × 2 m reference aperture."
+      },
+      {
+        "title": "Coupled mechanical/EM model",
+        "text": "COMSOL models static wind cases at 15, 25 and 35 m/s; Python maps displacement exports to finite-thickness coated surfaces for CST 2025 SBR scattering."
+      },
+      {
+        "title": "Link and communications postprocessing",
+        "text": "Complex TE/TM native scattered fields at a fixed receiver direction yield bistatic RCS, predicted received power and SNR; MATLAB simulates uncoded QPSK-OFDM over flat AWGN."
+      }
+    ],
+    "methods": [
+      {
+        "title": "Wind-driven surface model",
+        "text": "Apply 248.0625, 689.0625 and 1350.5625 Pa simplified uniform pressures; preserve FEM displacement and mesh-quality evidence."
+      },
+      {
+        "title": "Geometry reconstruction",
+        "text": "Interpolate front-surface FEM displacements using eight inverse-distance weighted neighbors and reconstruct steel and zinc finite-thickness geometry."
+      },
+      {
+        "title": "SBR pointing campaign",
+        "text": "Test five angular offsets on each axis from −0.2° to +0.2° under three wind scenarios, recording 75 conditions and 150 polarization-resolved TE/TM fields."
+      },
+      {
+        "title": "RF and packet models",
+        "text": "Compute bistatic RCS at θ = 45°, φ = 0°, propagate a 500 m + 500 m budget and drive a 20 MHz uncoded 64-point QPSK-OFDM AWGN experiment."
+      }
+    ],
+    "results": [
+      "75 CST SBR geometry/pointing cases produced 150 traceable complex TE/TM field exports at 5.5 GHz.",
+      "The worst modeled condition (35 m/s wind, TM, −0.2° X/−0.2° Y) predicted −75.9011 dBm received power and 18.0886 dB SNR.",
+      "The modeled worst case exceeded the project’s −77 dBm screening threshold by approximately 1.10 dB under explicitly assumed link parameters.",
+      "The 35 m/s COMSOL mesh-4 model reported a peak displacement of 0.8332 mm and von Mises stress of 52.92 MPa, but structural mesh convergence was not attained.",
+      "Twelve reflected-path 200-packet AWGN OFDM trials recorded zero observed bit or packet errors; the 26 Mbit/s figure is a modeled uncoded configuration rate, not a field measurement."
+    ],
+    "limitations": [
+      "Numerical results only: no manufactured reflector, outdoor measurements, calibrated RCS or certified communication-link deployment.",
+      "FEM outcomes are mesh-sensitive and contain low-quality elements; wind-loading conclusions are not structurally certified.",
+      "Steel/zinc material values, static pressure conditions, support stiffness, terminal geometry and obstruction are model assumptions.",
+      "The CST SBR result lacks an independent full-wave benchmark; receiver-direction RCS is valid only for the documented geometry and normalization.",
+      "Flat AWGN OFDM excludes realistic multipath, synchronization, coding, medium access and interference; finite zero-error observations cannot certify network reliability."
+    ],
+    "tools": [
+      "CST Studio Suite 2025",
+      "COMSOL Multiphysics 6.4",
+      "MATLAB R2025b",
+      "Python",
+      "Bistatic RCS",
+      "SBR",
+      "FEM–RF Coupling",
+      "QPSK-OFDM"
+    ],
+    "related": [
+      "vivaldi-antenna-balun",
+      "microwave-signal-loss-prediction",
+      "lpda-antenna"
+    ]
   }
 ];

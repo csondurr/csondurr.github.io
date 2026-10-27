@@ -1544,5 +1544,109 @@ window.PROJECT_TECHNICAL = {
         "title": "Calibrate and verify hardware"
       }
     ]
-  }
+  },
+  "passbridge": {
+  "decisions": [
+    {
+      "decision": "Choose a passive planar reflector",
+      "rationale": "A metal surface redirects microwave energy without intermediate RF power or an amplifier.",
+      "tradeoff": "The reflector cannot increase incident power and its usefulness depends on the geometry, alignment and polarization of both link segments."
+    },
+    {
+      "decision": "Model finite steel and zinc conductivities",
+      "rationale": "Surface currents and skin depths are important at 5.5 GHz; PEC alone would exclude modeled conductor losses.",
+      "tradeoff": "Coating thickness, material properties and magnetic assumptions remain provisional rather than measured."
+    },
+    {
+      "decision": "Transfer FEM-displaced surfaces to CST",
+      "rationale": "Using actual numerical displacement tables preserves a traceable mechanical-to-EM calculation path.",
+      "tradeoff": "Low-quality FEM elements and failure to achieve mesh convergence limit confidence in absolute deformation/stress."
+    },
+    {
+      "decision": "Evaluate RCS toward the receiver",
+      "rationale": "A peak-scattering direction cannot substitute for the specified receiver angle in a link budget.",
+      "tradeoff": "Results represent modeled θ = 45°, φ = 0° geometry and do not guarantee performance elsewhere."
+    }
+  ],
+  "theory": [
+    {
+      "title": "Electrically large metallic aperture",
+      "equation": "λ₀ = c / f ≈ 54.51 mm at 5.5 GHz",
+      "variables": "c is vacuum light speed; f is frequency; a 2 m panel is roughly 36.7 wavelengths wide.",
+      "explanation": "An electrically large surface produces angle-sensitive coherent scattering.",
+      "why": "Connects aperture size to the high-frequency SBR modeling approach and pointing resolution."
+    },
+    {
+      "title": "Finite-conductor skin depth",
+      "equation": "δ = 1 / √(π f μ σ)",
+      "variables": "μ is permeability and σ is assumed conductivity; μr = 1 was used.",
+      "explanation": "Provisional values yield about 1.65 µm for zinc and 2.77 µm for steel at 5.5 GHz.",
+      "why": "Avoids assuming that a finite coated sheet has the same loss behavior as PEC."
+    },
+    {
+      "title": "Bistatic radar cross section",
+      "equation": "σᵦ = 4π (|Eφ|² + |Eθ|²)",
+      "variables": "Eφ and Eθ are complex CST native far-field components under the project’s stated export normalization.",
+      "explanation": "The field components at the fixed modeled receiving direction determine the calculated scattering cross section.",
+      "why": "Receiver-direction RCS, not maximum angular-cut RCS, is the relevant input to a directional link budget."
+    },
+    {
+      "title": "Two-segment bistatic link budget",
+      "equation": "Pᵣ = EIRP Gᵣ λ₀² σᵦ / [(4π)³ R₁² R₂² Lₑₓₜ]",
+      "variables": "EIRP 29 dBm, Gᵣ 23 dBi, R₁ = R₂ = 500 m and Lₑₓₜ = 6 dB in the stated scenario.",
+      "explanation": "Scattered power is spread geometrically across both the incoming and outgoing legs.",
+      "why": "Keeps passive redirection physically distinct from active relay amplification."
+    },
+    {
+      "title": "Static wind pressure and surface interpolation",
+      "equation": "p = ½ ρair Cf V²; û(x) = Σ(wᵢuᵢ) / Σwᵢ",
+      "variables": "ρair = 1.225 kg/m³, Cf = 1.8; eight neighboring FEM samples define the inverse-distance weights.",
+      "explanation": "Wind pressure produces a numerical displacement field, which is used to reconstruct the RF geometry.",
+      "why": "Ensures electromechanical coupling is based on computed FEM output rather than arbitrary geometry deformation."
+    },
+    {
+      "title": "OFDM nominal information rate",
+      "equation": "R = Fs Ndata log₂M / (NFFT + NCP)",
+      "variables": "Fs = 20 MHz, 52 data carriers, M = 4 QPSK, FFT length 64, cyclic prefix 16.",
+      "explanation": "This configuration yields 26 Mbit/s before real PHY/MAC overhead and without field measurements.",
+      "why": "Prevents treating a simplified packet simulation as commercial Wi-Fi throughput."
+    }
+  ],
+  "workDone": [
+    "The project specified an approximately 2 × 2 m flat galvanized-metal microwave reflector consisting of two 999 × 2000 mm sheets with a 2 mm seam, coating approximations, structural supports and fixed boundary conditions. The 5.5 GHz nominal path includes two 500 m unobstructed reflector legs, with direct line of sight blocked by assumption.",
+    "COMSOL Multiphysics 6.4 was used to model 15/25/35 m/s simplified static wind pressures and export mechanical displacement fields. A Python process reconstructed the coated two-panel surface using inverse-distance interpolation. FEM displacement and mesh diagnostics, RF geometry manifests and native solver projects are archived.",
+    "CST Studio Suite 2025 SBR evaluated a 5 × 5 X/Y pointing grid for each wind condition. The resulting 75 scattering cases provide 150 native TE/TM complex field exports. A Python postprocessor calculates receiver-direction bistatic RCS, received power and SNR from those native fields using the documented normalization.",
+    "MATLAB R2025b uses the conditional link SNR in an uncoded 64-point QPSK-OFDM, 20 MHz, flat-AWGN packet simulation. Twelve reflected-link cases each have 200 finite packet trials and a model-derived rate. The study documents the missing full-wave, mesh convergence, structural, radio hardware and outdoor validation gates."
+  ],
+  "workflow": [
+    {
+      "title": "Freeze physical assumptions",
+      "text": "Define 5.5 GHz, 500 + 500 m, 90° reflection, passive aperture dimensions, zinc/steel values and assumed radio parameters."
+    },
+    {
+      "title": "Run COMSOL wind cases",
+      "text": "Apply uniform idealized pressures for 15, 25 and 35 m/s; export displacement fields and evaluate numerical mesh sensitivity."
+    },
+    {
+      "title": "Regenerate finite-thickness coated geometry",
+      "text": "Interpolate the actual FEM front-surface deformation into metal solids and preserve provenance manifests."
+    },
+    {
+      "title": "Compute polarization-resolved CST scattering",
+      "text": "Sweep two ±0.2° pointing axes at five steps across three wind conditions; preserve 150 TE/TM native records."
+    },
+    {
+      "title": "Reconstruct RCS and link power",
+      "text": "Use CST’s native far-field convention at θ = 45°, φ = 0° to calculate bistatic RCS, power and conditional SNR."
+    },
+    {
+      "title": "Run bounded OFDM simulation",
+      "text": "Compare 12 reflected-link packet runs under flat AWGN and explicitly classify 26 Mbit/s as model-derived, not measured throughput."
+    },
+    {
+      "title": "Define physical verification gates",
+      "text": "Complete mesh convergence, assess joint stiffness, measure material properties and test calibrated reflector/link hardware."
+    }
+  ]
+}
 };

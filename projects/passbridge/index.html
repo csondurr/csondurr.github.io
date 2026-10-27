@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f2eee7">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Cem Sondur">
+  <meta name="description" content="PASSBRIDGE is a 5.5 GHz passive microwave reflector numerical feasibility study integrating COMSOL wind deformation, CST bistatic scattering, RF link budgets and MATLAB QPSK-OFDM simulations.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cem Sondur Engineering Portfolio">
+  <meta property="og:title" content="PASSBRIDGE: Passive Microwave Reflector | Cem Sondur">
+  <meta property="og:description" content="PASSBRIDGE is a 5.5 GHz passive microwave reflector numerical feasibility study integrating COMSOL wind deformation, CST bistatic scattering, RF link budgets and MATLAB QPSK-OFDM simulations.">
+  <meta property="og:url" id="dynamic-og-url" content="https://csondurr.github.io/projects/passbridge/">
+  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1400">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PASSBRIDGE: Passive Microwave Reflector | Cem Sondur">
+  <meta name="twitter:description" content="PASSBRIDGE is a 5.5 GHz passive microwave reflector numerical feasibility study integrating COMSOL wind deformation, CST bistatic scattering, RF link budgets and MATLAB QPSK-OFDM simulations.">
+  <link rel="canonical" id="dynamic-canonical" href="https://csondurr.github.io/projects/passbridge/">
+  <title>PASSBRIDGE: Passive Microwave Reflector | Cem Sondur</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","@id":"https://csondurr.github.io/projects/passbridge/#work","url":"https://csondurr.github.io/projects/passbridge/","name":"PASSBRIDGE","headline":"PASSBRIDGE: Passive Microwave Reflector for Non-Line-of-Sight Communication","description":"PASSBRIDGE is a 5.5 GHz passive microwave reflector numerical feasibility study integrating COMSOL wind deformation, CST bistatic scattering, RF link budgets and MATLAB QPSK-OFDM simulations.","inLanguage":"en","author":{"@type":"Person","@id":"https://csondurr.github.io/#person","name":"Cem Sondur","url":"https://csondurr.github.io/"},"isPartOf":{"@id":"https://csondurr.github.io/#website"},"about":["Passive Microwave Reflector","Non-Line-of-Sight Wireless Communication","5.5 GHz RF Engineering","Bistatic RCS","Multiphysics Simulation"],"keywords":["PASSBRIDGE","passive microwave reflector","Cem Sondur","CST SBR","COMSOL","QPSK-OFDM"],"mainEntityOfPage":"https://csondurr.github.io/projects/passbridge/","codeRepository":"https://github.com/csondurr/PASSBRIDGE","datePublished":"2026-10-27","image":"https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1400"}</script>
+  <link rel="stylesheet" href="/assets/css/base.css?v=20260825-8">
+  <link rel="stylesheet" href="/assets/css/projects.css?v=20260825-3">
+  <link rel="stylesheet" href="/assets/css/projects-showcase.css?v=20260826-1">
+  <link rel="stylesheet" href="/assets/css/projects-math.css?v=20260826-4">
+  <link rel="stylesheet" href="/assets/css/projects-math-depth.css?v=20260826-4">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/assets/css/quiet-editorial-2026.css?v=20261026-6">
+  <link rel="stylesheet" href="/assets/css/project-case-study.css?v=20261026-1">
+  <link rel="stylesheet" href="/assets/css/site-density-2026.css?v=20261026-2">
+</head>
+<body class="project-detail-page">
+  <script>
+    (function(){
+      var parts = location.pathname.split("/").filter(Boolean);
+      var slug = parts.length > 1 ? parts[parts.length - 1] : "";
+      document.body.dataset.project = slug;
+      var absolute = location.origin + location.pathname;
+      var canonical = document.getElementById("dynamic-canonical");
+      var og = document.getElementById("dynamic-og-url");
+      if (canonical) canonical.href = absolute;
+      if (og) og.content = absolute;
+    })();
+  </script>
+
+  <div class="site-shell" aria-hidden="true">
+    <div class="tactical-grid"></div>
+    <div class="radar-field">
+      <div class="radar-ring radar-ring--outer"></div>
+      <div class="radar-ring radar-ring--middle"></div>
+      <div class="radar-ring radar-ring--inner"></div>
+      <div class="radar-axis radar-axis--horizontal"></div>
+      <div class="radar-axis radar-axis--vertical"></div>
+      <div class="radar-sweep"></div>
+      <div class="radar-core"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+  <main class="page-ui">
+    <section class="command-panel" aria-labelledby="page-title">
+      <header class="page-identity"><a class="site-wordmark" href="/" aria-label="Cem Sondur — Home"><span class="site-wordmark__name">Cem Sondur</span><span class="site-wordmark__meta">RF · Microwave · Signal Processing</span></a>
+        <span class="page-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span>
+        <h1 id="page-title">Projects</h1>
+      </header>
+      <nav class="command-nav" aria-label="Main navigation" data-nav-version="five-page-2026-2">
+        <a class="nav-tile" href="/"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-5.5h5V20"/></svg></span><span class="nav-label">Home</span></a>
+        <a class="nav-tile" href="/about/"><span class="nav-label">About Me</span></a>
+        <a class="nav-tile is-active" href="/projects/" aria-current="page"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5 5h3M5 5v3M19 5h-3M19 5v3M5 19h3M5 19v-3M19 19h-3M19 19v-3"/></svg></span><span class="nav-label">Projects</span></a>
+        <a class="nav-tile" href="/thesis-researches/"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5h6.2A3.8 3.8 0 0 1 14 8.3V20a3.8 3.8 0 0 0-3.8-3.8H4z"/><path d="M20 4.5h-2.2A3.8 3.8 0 0 0 14 8.3V20a3.8 3.8 0 0 1 3.8-3.8H20z"/><path d="M7 8h3M7 11h3M17 8h-1"/></svg></span><span class="nav-label">Thesis and Researches</span></a>
+        <a class="nav-tile" href="/contact/"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14v8M8.5 22h7"/><circle cx="12" cy="11" r="1.5"/><path d="M8.5 14.5a5 5 0 0 1 0-7M15.5 7.5a5 5 0 0 1 0 7"/><path d="M5.5 17.5a9.2 9.2 0 0 1 0-13M18.5 4.5a9.2 9.2 0 0 1 0 13"/></svg></span><span class="nav-label">Contact</span></a>
+      </nav>
+    </section>
+    <div class="project-detail" id="project-detail" aria-live="polite"></div>
+    <noscript><p class="project-error">JavaScript is required to display this technical project record. <a href="/projects/">Return to Projects</a>.</p></noscript>
+  </main>
+  <script src="/assets/js/projects-data.js?v=20261027-1"></script>
+  <script src="/assets/js/projects-technical.js?v=20261027-1"></script>
+  <script src="/assets/js/projects-math.js?v=20261027-1"></script>
+  <script src="/assets/js/projects-math-depth.js?v=20261027-1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="/assets/js/projects-app.js?v=20261027-1"></script>
+  <script src="/assets/js/project-case-guides.js?v=20261027-1"></script>
+  <script src="/assets/js/project-case-study.js?v=20261026-1"></script>
+  <script src="/assets/js/projects-math-enhancer.js?v=20260826-4"></script>
+</body>
+</html>

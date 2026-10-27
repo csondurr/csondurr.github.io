@@ -49,5 +49,35 @@ window.PROJECT_MATH_DEPTH={
 {"title":"State Mahalanobis separation","latex":"D_{ij}^2=(\\boldsymbol\\mu_i-\\boldsymbol\\mu_j)^{T}\\mathbf S_w^{-1}(\\boldsymbol\\mu_i-\\boldsymbol\\mu_j)","variables":"μ_i and μ_j are mean feature vectors for two receiver states and S_w is within-state covariance.","meaning":"Euclidean separation can exaggerate noisy feature directions. Mahalanobis distance weights differences by repeatability and therefore better reflects whether two nonlinear states are distinguishable.","verification":"Estimate S_w from repeated captures only, regularize if ill-conditioned, and test state classification on held-out captures."}],
 "vivaldi-antenna-balun":[
 {"title":"Ambiguity-free interferometer spacing","latex":"d\\le\\frac{\\lambda}{2}\\quad\\Rightarrow\\quad |\\Delta\\phi|\\le\\pi\\ {\\rm for}\\ |\\sin\\theta|\\le1","variables":"The condition must hold at the operating wavelength if one wrapped phase measurement is expected to map uniquely over the full visible angular sector.","meaning":"With fixed 220 mm spacing, the system intentionally gains phase sensitivity but becomes ambiguous over much of 2–6 GHz; multiple frequencies, sector constraints or ambiguity resolution are therefore required.","verification":"Map wrapped phase versus angle at each frequency and verify the chosen ambiguity-resolution strategy with calibrated two-channel measurements."},
-{"title":"Angle sensitivity to phase error","latex":"\\frac{\\partial\\theta}{\\partial\\phi}=\\frac{\\lambda}{2\\pi d\\cos\\theta},\\qquad \\sigma_{\\theta}\\approx\\frac{\\lambda}{2\\pi d|\\cos\\theta|}\\sigma_{\\phi}","variables":"σ_φ is residual inter-channel phase uncertainty after cable, balun, receiver and antenna calibration.","meaning":"Larger spacing improves broadside angular sensitivity, but uncertainty grows toward endfire as cosθ approaches zero and ambiguity becomes more severe.","verification":"Measure phase repeatability and calibration drift, propagate them to predicted angle uncertainty and compare with chamber or controlled-source angle errors."}]
+{"title":"Angle sensitivity to phase error","latex":"\\frac{\\partial\\theta}{\\partial\\phi}=\\frac{\\lambda}{2\\pi d\\cos\\theta},\\qquad \\sigma_{\\theta}\\approx\\frac{\\lambda}{2\\pi d|\\cos\\theta|}\\sigma_{\\phi}","variables":"σ_φ is residual inter-channel phase uncertainty after cable, balun, receiver and antenna calibration.","meaning":"Larger spacing improves broadside angular sensitivity, but uncertainty grows toward endfire as cosθ approaches zero and ambiguity becomes more severe.","verification":"Measure phase repeatability and calibration drift, propagate them to predicted angle uncertainty and compare with chamber or controlled-source angle errors."}],
+  "passbridge": [
+  {
+    "title": "Bistatic received-power equation",
+    "latex": "P_r=\\frac{\\mathrm{EIRP}\\,G_r\\,\\lambda_0^2\\,\\sigma_b}{(4\\pi)^3R_1^2R_2^2L_{\\rm ext}}",
+    "variables": "R1/R2 are transmitter-to-reflector and reflector-to-receiver ranges; σb is the fixed-direction bistatic scattering cross section.",
+    "meaning": "An unpowered panel redirects a fraction of incident power. Neither the reflector nor RCS creates active gain.",
+    "verification": "Check native 35 m/s TM −0.2°/−0.2° field against LINK_CASES.csv and the −75.9011 dBm postprocessed result."
+  },
+  {
+    "title": "Noise-limited modeled SNR",
+    "latex": "N_{\\rm dBm}=-174+10\\log_{10}(B)+\\mathrm{NF}",
+    "variables": "B = 20 MHz and NF = 7 dB in the conditional receiver model.",
+    "meaning": "The thermal approximation gives −93.99 dBm and the limiting predicted SNR of approximately 18.09 dB.",
+    "verification": "Check the source link values and noise assumptions rather than interpreting SNR as a calibrated radio measurement."
+  },
+  {
+    "title": "Static wind-pressure basis",
+    "latex": "p=\\frac{1}{2}\\rho_{\\rm air}C_fV^2",
+    "variables": "ρair = 1.225 kg/m³, Cf = 1.8 and wind speed V = 15/25/35 m/s.",
+    "meaning": "The resulting 248.0625/689.0625/1350.5625 Pa loads are simplified static illustrations, not code-certified site design loads.",
+    "verification": "Compare pressure-derived model settings, recorded mesh quality and displacement sensitivity across the COMSOL cases."
+  },
+  {
+    "title": "Simplified OFDM data-rate estimate",
+    "latex": "R=20\\cdot10^6\\frac{52\\cdot2}{64+16}=26\\,\\mathrm{Mbit/s}",
+    "variables": "20 MHz sampling, 52 QPSK data carriers, 64-point FFT and 16-sample cyclic prefix.",
+    "meaning": "This is the nominal uncoded MATLAB model rate, excluding coding, synchronization, MAC overhead and retransmission.",
+    "verification": "Treat 200 zero-observed-error packet trials as a finite numerical observation, not as proven network availability."
+  }
+]
 };

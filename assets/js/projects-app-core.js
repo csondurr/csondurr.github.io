@@ -5,6 +5,13 @@
   const technicalRecords = window.PROJECT_TECHNICAL && typeof window.PROJECT_TECHNICAL === "object" ? window.PROJECT_TECHNICAL : {};
 
   const PROJECT_MEDIA = Object.freeze({
+    "passbridge": {
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1400",
+      "alt": "Reference photograph of a real flat-panel passive microwave repeater on Mount Tsubone in Japan, not a PASSBRIDGE prototype",
+      "credit": "Alpsdake · Wikimedia Commons · CC0 · Reference photograph",
+      "source": "https://commons.wikimedia.org/wiki/File:Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg",
+      "position": "center 45%"
+    },
     "engram": {
       src: "https://raw.githubusercontent.com/csondurr/ENGRAM/main/results/figures/06_near_field_focus.png",
       alt: "ENGRAM near-field focusing result from the project simulation archive",

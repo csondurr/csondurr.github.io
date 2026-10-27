@@ -136,5 +136,19 @@ window.PROJECT_CASE_GUIDES = Object.freeze({
     math:"Taper geometry controls broadband slot radiation. Phase interferometry relates arrival angle to wavelength and antenna spacing, but phase wrapping makes unambiguous direction inference frequency- and spacing-dependent.",
     evidence:"CST lossy-model results and fabrication design outputs",
     caution:"Physical balun common-mode behavior, pair calibration and angle accuracy are not yet independently measured."
-  }
+  },
+  "passbridge": {
+  "question": "Can a passive, wind-deformed metal aperture redirect a 5.5 GHz radio link around an assumed line-of-sight obstacle?",
+  "plain": "A transmitter points toward a metallic panel and a second receiver collects energy reflected toward it. No amplifier or power supply is located in the panel. The engineering record connects structural displacement, polarization-resolved scattering, a bistatic power budget and a simplified OFDM test.",
+  "steps": [
+    "Specify the blocked direct path and two 500 m clear reflector legs",
+    "Simulate wind-loaded metal sheets in COMSOL and reconstruct the deformed coated geometry",
+    "Sweep 75 wind/pointing configurations with CST SBR, preserving 150 TE/TM fields",
+    "Calculate receiver-angle bistatic RCS and two-segment power and SNR",
+    "Use numerical SNR in 20 MHz QPSK-OFDM packet trials and document limitations"
+  ],
+  "math": "A large finite-conductivity sheet redistributes incident energy by coherent surface scattering. The phase response varies with panel tilt and deformation. The received power scales with bistatic RCS and both path distances, not with any active reflector gain.",
+  "evidence": "COMSOL structural simulation, 75 CST SBR models/150 TE/TM complex exports, Python link calculations and MATLAB OFDM AWGN simulation",
+  "caution": "The −75.9011 dBm and 26 Mbit/s figures describe conditional numerical predictions. Mesh convergence, calibrated RCS comparison, material characterization and outdoor testing are outstanding."
+}
 });
