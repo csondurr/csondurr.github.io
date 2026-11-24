@@ -5,6 +5,7 @@
   const technicalRecords = window.PROJECT_TECHNICAL && typeof window.PROJECT_TECHNICAL === "object" ? window.PROJECT_TECHNICAL : {};
 
   const PROJECT_MEDIA = Object.freeze({
+    "half-wave-dipole-antenna": {"src":"https://raw.githubusercontent.com/csondurr/Half-Wave-Dipol-Antenna/main/HWD_S11.png","alt":"Simulated S11 frequency response of the 900 MHz half-wave dipole antenna","credit":"Cem Sondur · Half-Wave Dipole project archive","source":"https://github.com/csondurr/Half-Wave-Dipol-Antenna/blob/main/HWD_S11.png","position":"center"},
     "passbridge": {
       "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1400",
       "alt": "Reference photograph of a real flat-panel passive microwave repeater on Mount Tsubone in Japan, not a PASSBRIDGE prototype",
@@ -423,6 +424,7 @@
           <p class="project-lead">${project.summary}</p>
           <div class="project-actions">
             ${github}
+            ${project.report ? `<a class="project-action" href="${project.report}" target="_blank" rel="noopener noreferrer"><span>Read Technical Report (PDF)</span></a>` : ""}
             <a class="project-action" href="/projects/">${icon("back")}<span>Project Directory</span></a>
           </div>
           <div class="project-status-line"><span>${project.period}</span><span>${project.status}</span></div>

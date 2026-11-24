@@ -918,5 +918,101 @@ window.PROJECTS = [
       "microwave-signal-loss-prediction",
       "lpda-antenna"
     ]
-  }
+  },
+  {
+  "order": 19,
+  "id": "PRJ-19",
+  "slug": "half-wave-dipole-antenna",
+  "title": "Half-Wave Dipole Antenna",
+  "subtitle": "Broadband 900 MHz Tubular Dipole",
+  "category": "Antenna Engineering",
+  "group": "antenna",
+  "period": "November 2026",
+  "status": "Full-wave simulation study",
+  "visual": "aperture",
+  "github": "https://github.com/csondurr/Half-Wave-Dipol-Antenna",
+  "report": "https://github.com/csondurr/Half-Wave-Dipol-Antenna/blob/main/Half_Wave_Dipole_Report.pdf",
+  "summary": "A center-fed, linearly polarized 900 MHz dipole with finite-conductivity copper radiators, coaxial feed and sleeve structure, achieving a simulated 218 MHz impedance bandwidth and 98.15% radiation efficiency at 900 MHz.",
+  "metrics": [
+    {
+      "value": "817.2–1035.2 MHz",
+      "label": "−10 dB simulated band"
+    },
+    {
+      "value": "218 MHz",
+      "label": "Impedance bandwidth"
+    },
+    {
+      "value": "98.15%",
+      "label": "Radiation efficiency at 900 MHz"
+    },
+    {
+      "value": "1.894 dBi",
+      "label": "Realized gain at 900 MHz"
+    }
+  ],
+  "mission": "Develop and document a broadband half-wave dipole for RF laboratory research, antenna characterization, SDR reception and frequency-appropriate UHF communication experiments. The project combines full-wave electromagnetic modeling, mechanical CAD and a technical fabrication report.",
+  "challenge": "Preserve the characteristic dipole radiation pattern and high efficiency while maintaining a continuous impedance match across the nominal 850–950 MHz evaluation band. Finite conductor dimensions, feed asymmetry and the cable environment distinguish the modeled assembly from an ideal thin-wire dipole.",
+  "formula": "Γ = (Zᵢₙ − Z₀)/(Zᵢₙ + Z₀),  Z₀ = 50 Ω",
+  "architecture": [
+    {
+      "title": "Radiating structure",
+      "text": "Two collinear copper tubular radiators form the center-fed, linearly polarized dipole."
+    },
+    {
+      "title": "Feed assembly",
+      "text": "The electromagnetic model includes a 50 Ω coaxial line and a conductive sleeve structure."
+    },
+    {
+      "title": "Full-wave analysis",
+      "text": "Finite-conductivity metals and nominal dielectric properties are included in the electromagnetic model."
+    },
+    {
+      "title": "Mechanical documentation",
+      "text": "The repository contains the native mechanical CAD model, electromagnetic project and technical report."
+    }
+  ],
+  "methods": [
+    {
+      "title": "Analytical reference",
+      "text": "Use the ideal half-wave dipole as the reference for the radiation pattern, polarization and theoretical directivity."
+    },
+    {
+      "title": "Electromagnetic characterization",
+      "text": "Evaluate impedance matching across the documented frequency sweep and characterize radiation at the nominal design frequency."
+    },
+    {
+      "title": "Mechanical representation",
+      "text": "Document the modeled assembly and fabrication methodology in the project archive."
+    },
+    {
+      "title": "Applications",
+      "text": "Potential applications include RF laboratory education, VNA characterization, SDR reception and frequency-appropriate UHF communication research."
+    }
+  ],
+  "results": [
+    "The simulated −10 dB impedance interval is 817.2–1035.2 MHz, corresponding to 218 MHz and approximately 23.54% fractional bandwidth.",
+    "The minimum S11 is −14.71 dB at 900.8 MHz; minimum VSWR is approximately 1.45.",
+    "At 900 MHz, simulated directivity is 2.124 dBi, radiation efficiency is 98.15%, and total efficiency is 94.83%.",
+    "The realized gain calculated from directivity and total efficiency is 1.894 dBi at 900 MHz."
+  ],
+  "limitations": [
+    "Performance figures are numerical simulation results, not physical measurements.",
+    "The cable construction, support and connector effects require verification on the assembled prototype; common-mode suppression has not been independently quantified.",
+    "Radiation performance is documented at 900 MHz; impedance bandwidth alone does not establish radiation bandwidth."
+  ],
+  "tools": [
+    "CST Studio Suite",
+    "Siemens NX",
+    "Computational Electromagnetics",
+    "S-Parameters",
+    "Antenna Theory",
+    "Mechanical CAD"
+  ],
+  "related": [
+    "lpda-antenna",
+    "vivaldi-antenna-balun",
+    "entropy-vna"
+  ]
+}
 ];

@@ -9,5 +9,14 @@ window.PROJECT_MATH={"engram":{"c":"\\mathbf e=\\mathbf H\\mathbf a,\\qquad a_n\
     "p=\\frac{1}{2}\\rho_{\\rm air}C_f V^2",
     "R_{\\rm OFDM}=F_s\\frac{N_d\\log_2 M}{N_{\\rm FFT}+N_{\\rm CP}}=26\\,\\mathrm{Mbit/s}"
   ]
+},
+  "half-wave-dipole-antenna": {
+  "c": "\\Gamma=\\frac{Z_{\\rm in}-Z_0}{Z_{\\rm in}+Z_0},\\quad Z_0=50\\,\\Omega",
+  "e": [
+    "\\lambda_0=\\frac{c}{f}",
+    "\\Gamma=\\frac{Z_{\\rm in}-Z_0}{Z_{\\rm in}+Z_0},\\quad S_{11,\\rm dB}=20\\log_{10}|\\Gamma|",
+    "\\mathrm{VSWR}=\\frac{1+|\\Gamma|}{1-|\\Gamma|}",
+    "G_{\\rm realized}=D\\,\\eta_{\\rm total}"
+  ]
 }
 };

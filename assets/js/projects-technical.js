@@ -1648,5 +1648,72 @@ window.PROJECT_TECHNICAL = {
       "text": "Complete mesh convergence, assess joint stiffness, measure material properties and test calibrated reflector/link hardware."
     }
   ]
+},
+  "half-wave-dipole-antenna": {
+  "workDone": [
+    "Established the theoretical reference using the half-wave dipole model and defined an 850–950 MHz evaluation band.",
+    "Created a full-wave model with finite-conductivity copper and nominal coaxial dielectric properties; archived the S11 response and mechanical CAD model.",
+    "Documented the design, simulation evidence, potential applications and fabrication methodology in a technical report."
+  ],
+  "theory": [
+    {
+      "title": "Free-space wavelength",
+      "equation": "λ₀ = c/f",
+      "variables": "c is the speed of light; f is frequency.",
+      "explanation": "The wavelength provides the fundamental electrical scale of a dipole.",
+      "why": "It connects the design frequency with the ideal reference radiator."
+    },
+    {
+      "title": "Input reflection",
+      "equation": "Γ = (Zᵢₙ − Z₀)/(Zᵢₙ + Z₀), S11(dB) = 20 log₁₀|Γ|",
+      "variables": "Zᵢₙ is complex input impedance and Z₀ is the port reference impedance.",
+      "explanation": "The reflection coefficient quantifies mismatch at the defined reference plane.",
+      "why": "It defines the impedance bandwidth using the −10 dB criterion."
+    },
+    {
+      "title": "Standing-wave ratio",
+      "equation": "VSWR = (1 + |Γ|)/(1 − |Γ|)",
+      "variables": "Γ is the complex reflection coefficient.",
+      "explanation": "VSWR is another representation of the port mismatch.",
+      "why": "It provides an independent presentation of the same reflection data."
+    },
+    {
+      "title": "Realized gain",
+      "equation": "Gᵣ = D · ηₜ",
+      "variables": "D is linear directivity and ηₜ is total efficiency.",
+      "explanation": "Realized gain incorporates both dissipative and mismatch losses.",
+      "why": "It distinguishes directional radiation from delivered-power performance."
+    }
+  ],
+  "workflow": [
+    {
+      "title": "Define the reference",
+      "text": "Establish nominal frequency, polarization and impedance bandwidth requirements."
+    },
+    {
+      "title": "Model the assembly",
+      "text": "Represent the radiators, feed and finite material properties in the electromagnetic model."
+    },
+    {
+      "title": "Characterize numerical evidence",
+      "text": "Record S11, VSWR and nominal-frequency radiation metrics."
+    },
+    {
+      "title": "Archive the engineering record",
+      "text": "Preserve the CAD model, simulation project, plot and technical report."
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Use a tubular dipole",
+      "rationale": "Evaluate a practical radiator rather than an idealized infinitesimal wire.",
+      "tradeoff": "Finite dimensions and feed geometry affect the electromagnetic response."
+    },
+    {
+      "decision": "Report impedance and radiation performance separately",
+      "rationale": "An impedance match does not establish radiation efficiency or pattern quality.",
+      "tradeoff": "Band-wide radiation and physical measurements remain separate verification tasks."
+    }
+  ]
 }
 };

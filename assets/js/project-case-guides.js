@@ -150,5 +150,18 @@ window.PROJECT_CASE_GUIDES = Object.freeze({
   "math": "A large finite-conductivity sheet redistributes incident energy by coherent surface scattering. The phase response varies with panel tilt and deformation. The received power scales with bistatic RCS and both path distances, not with any active reflector gain.",
   "evidence": "COMSOL structural simulation, 75 CST SBR models/150 TE/TM complex exports, Python link calculations and MATLAB OFDM AWGN simulation",
   "caution": "The −75.9011 dBm and 26 Mbit/s figures describe conditional numerical predictions. Mesh convergence, calibrated RCS comparison, material characterization and outdoor testing are outstanding."
+},
+  "half-wave-dipole-antenna": {
+  "question": "How can a practical tubular dipole retain high radiation efficiency across a useful UHF impedance band?",
+  "plain": "The project studies a center-fed copper dipole and its coaxial feed assembly using numerical electromagnetic analysis and mechanical documentation.",
+  "steps": [
+    "Define the analytical dipole reference and evaluation band",
+    "Represent the complete assembly in the electromagnetic model",
+    "Evaluate impedance response and nominal-frequency radiation",
+    "Archive the CAD, simulation results and technical report"
+  ],
+  "math": "The port reflection coefficient describes impedance mismatch; the radiation pattern and efficiency independently characterize the electromagnetic response. Realized gain includes mismatch and material losses.",
+  "evidence": "Full-wave electromagnetic simulation and mechanical CAD documentation",
+  "caution": "The published numerical performance has not yet been confirmed by physical prototype measurements."
 }
 });
