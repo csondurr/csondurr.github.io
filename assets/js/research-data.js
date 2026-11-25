@@ -520,4 +520,77 @@ window.RESEARCH_RECORDS = [
       "The simplified flat-AWGN packet model excludes real fading, interference, synchronization, coding and MAC overhead; finite zero-error outcomes do not prove field availability."
     ]
   }
+,
+{
+  "abstract": [
+    "This engineering report presents a center-fed tubular half-wave dipole for the nominal 850–950 MHz band. The modeled assembly incorporates two copper radiators, a 50 Ω coaxial feed, and a conductive sleeve. Finite-conductivity copper and equivalent coaxial dielectric layers are included in the CST full-wave model.",
+    "The simulated minimum reflection coefficient is −14.71 dB at 900.8 MHz, and the continuous −10 dB impedance interval is 817.2–1035.2 MHz (218 MHz). At 900 MHz, the directivity is 2.124 dBi, radiation efficiency is 98.15%, total efficiency is 94.83%, and the derived realized gain is 1.894 dBi. The report documents mechanical geometry and a fabrication methodology; experimental characterization remains future work."
+  ],
+  "boundaries": [
+    "All performance values are numerical results, not physical measurements; the report does not establish a fabricated or measured prototype.",
+    "The numerical assembly uses equivalent cable materials and omits the final connector and mechanical support. Sleeve common-mode suppression is not independently quantified.",
+    "Far-field and efficiency results are evaluated at 900 MHz; the impedance bandwidth alone does not establish radiation bandwidth. Calibrated VNA and far-field measurements remain the next stage."
+  ],
+  "category": "Antenna Engineering",
+  "contributions": [
+    "Documents a tubular center-fed dipole and its finite-conductivity electromagnetic model alongside mechanical CAD and fabrication controls.",
+    "Compares simulated impedance and radiation performance with the ideal half-wave dipole reference.",
+    "Distinguishes the nominal 850–950 MHz design band from the wider simulated impedance bandwidth and separates radiation efficiency from total efficiency."
+  ],
+  "coreModel": "Γ = (Zin − Z0)/(Zin + Z0);  S11,dB = 20 log10|Γ|;  Grealized = Dηtotal",
+  "date": "November 2026",
+  "domain": "antenna",
+  "evidence": [
+    "The CST model uses a 50 Ω reference plane, a 700–1100 MHz sweep with 1001 samples, and approximately 118,296 mesh cells.",
+    "The simulated −10 dB band is 817.2–1035.2 MHz (218 MHz; 23.54% fractional bandwidth). Minimum S11 is −14.71 dB at 900.8 MHz.",
+    "At 900 MHz, the input impedance is 48.63 + j18.39 Ω, the maximum directivity is 2.124 dBi, and radiation and total efficiencies are 98.15% and 94.83%.",
+    "The derived gain and realized gain at 900 MHz are 2.043 dBi and 1.894 dBi, respectively. The simulated far field is consistent with a dipole-like broadside pattern."
+  ],
+  "evidenceType": "CST full-wave simulation · Mechanical CAD",
+  "id": "PUB-08",
+  "keywords": [
+    "Half-Wave Dipole",
+    "Broadband Antenna",
+    "S11",
+    "Radiation Efficiency",
+    "Sleeve Balun",
+    "CST Studio Suite",
+    "Mechanical CAD"
+  ],
+  "language": "English",
+  "methods": [
+    {
+      "title": "Analytical reference",
+      "text": "Use the ideal thin half-wave dipole pattern and theoretical maximum directivity of approximately 2.15 dBi as a reference, following Balanis."
+    },
+    {
+      "title": "Full-wave electromagnetic analysis",
+      "text": "Evaluate the finite-conductivity assembly, equivalent coaxial materials and sleeve using open boundaries and a 50 Ω reference plane."
+    },
+    {
+      "title": "Impedance and radiation evaluation",
+      "text": "Extract S11, VSWR and complex impedance across the sweep; evaluate the far field and efficiencies at 900 MHz."
+    },
+    {
+      "title": "Mechanical documentation",
+      "text": "Document the tubular radiators, coaxial feed and sleeve assembly with CAD views, dimensions and proposed fabrication controls."
+    }
+  ],
+  "modelExplanation": "The reflection coefficient determines the impedance mismatch. Realized gain combines directivity and total efficiency (linear quantities), accounting for material loss and input mismatch; the ideal dipole remains the pattern reference.",
+  "objective": "Document the electromagnetic and mechanical design of a broadband 900 MHz dipole and assess its simulated impedance match, dipole-like radiation and efficiency.",
+  "pages": "3 pages",
+  "pdfPath": "/assets/research/Half_Wave_Dipole_Report.pdf",
+  "pdfReady": true,
+  "projectTitle": "Half-Wave Dipole Antenna",
+  "projectUrl": "/projects/half-wave-dipole-antenna/",
+  "question": "Can a practical tubular center-fed dipole provide continuous impedance matching across the nominal 850–950 MHz band while retaining the characteristic dipole radiation pattern and high efficiency?",
+  "shortTitle": "Broadband 900 MHz Half-Wave Dipole",
+  "slug": "half-wave-dipole-antenna",
+  "subtitle": "Tubular Copper Radiators · Full-Wave Electromagnetic Analysis",
+  "summary": "A full-wave simulation and mechanical design study of a center-fed tubular copper dipole, with a simulated 218 MHz impedance bandwidth and 98.15% radiation efficiency at 900 MHz.",
+  "title": "Design and Fabrication of a Broadband 900-MHz Half-Wave Dipole Antenna",
+  "typeKey": "report",
+  "typeLabel": "Engineering Report",
+  "visual": "dipole"
+}
 ];

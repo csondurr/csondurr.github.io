@@ -931,7 +931,8 @@ window.PROJECTS = [
   "status": "Full-wave simulation study",
   "visual": "aperture",
   "github": "https://github.com/csondurr/Half-Wave-Dipol-Antenna",
-  "report": "https://github.com/csondurr/Half-Wave-Dipol-Antenna/blob/main/Half_Wave_Dipole_Report.pdf",
+  "report": "/assets/research/Half_Wave_Dipole_Report.pdf",
+  "research": "/thesis-researches/half-wave-dipole-antenna/",
   "summary": "A center-fed, linearly polarized 900 MHz dipole with finite-conductivity copper radiators, coaxial feed and sleeve structure, achieving a simulated 218 MHz impedance bandwidth and 98.15% radiation efficiency at 900 MHz.",
   "metrics": [
     {

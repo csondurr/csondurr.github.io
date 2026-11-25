@@ -425,6 +425,7 @@
           <div class="project-actions">
             ${github}
             ${project.report ? `<a class="project-action" href="${project.report}" target="_blank" rel="noopener noreferrer"><span>Read Technical Report (PDF)</span></a>` : ""}
+            ${project.research ? `<a class="project-action" href="${project.research}"><span>Read Research Record</span></a>` : ""}
             <a class="project-action" href="/projects/">${icon("back")}<span>Project Directory</span></a>
           </div>
           <div class="project-status-line"><span>${project.period}</span><span>${project.status}</span></div>

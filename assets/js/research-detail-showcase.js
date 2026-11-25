@@ -2,6 +2,7 @@
   "use strict";
 
   const mediaBySlug = {
+    "half-wave-dipole-antenna": {"src":"/assets/research/HWD_S11.png","alt":"Original CST simulated reflection coefficient plot for the 900 MHz half-wave dipole","label":"SIMULATED REFLECTION COEFFICIENT","source":"/assets/research/Half_Wave_Dipole_Report.pdf","credit":"Cem Sondur · Original CST simulation result","position":"center"},
     "passbridge": {
       "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passive_repeater_on_the_peak_of_Mount_Tsubone_s2.jpg?width=1600",
       "alt": "A real unpowered planar microwave passive reflector at Mount Tsubone in Japan, reference image rather than a PASSBRIDGE prototype",
